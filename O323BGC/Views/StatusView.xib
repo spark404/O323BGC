@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="StatusView" customModule="O323BGC" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="c22-O7-iKe" id="26v-Cv-qsl"/>
+                <outlet property="statusImageView" destination="cZb-KS-2on" id="Jp6-YF-tZl"/>
+                <outlet property="statusItemField" destination="3gV-bu-dye" id="ubZ-sV-rnn"/>
+                <outlet property="statusItemName" destination="pmV-9K-1rq" id="fS0-kC-9DJ"/>
+                <outlet property="statusLabelView" destination="YBz-Cw-mPr" id="ZJx-BV-86E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="267" height="18"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gV-bu-dye">
+                    <rect key="frame" x="12" y="1" width="54" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="uvm-EU-HER"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" alignment="right" title="DEVICE With a long name" usesSingleLineMode="YES" id="pmV-9K-1rq">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cZb-KS-2on">
+                    <rect key="frame" x="72" y="1" width="16" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="SV3-4F-wSy"/>
+                        <constraint firstAttribute="width" constant="16" id="etK-ah-hJ2"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="StatusGrey" id="0xb-gD-xpW"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YBz-Cw-mPr">
+                    <rect key="frame" x="94" y="1" width="154" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="DOA-HU-rGw"/>
+                    </constraints>
+                    <textFieldCell key="cell" lineBreakMode="clipping" id="Yfp-2O-lTN">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="YBz-Cw-mPr" firstAttribute="leading" secondItem="cZb-KS-2on" secondAttribute="trailing" constant="8" symbolic="YES" id="BHa-4z-hSj"/>
+                <constraint firstItem="3gV-bu-dye" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="GHx-y1-m4F"/>
+                <constraint firstItem="cZb-KS-2on" firstAttribute="leading" secondItem="3gV-bu-dye" secondAttribute="trailing" constant="8" symbolic="YES" id="GXM-9m-2YC"/>
+                <constraint firstItem="3gV-bu-dye" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="14" id="LXk-eu-Ivr"/>
+                <constraint firstItem="YBz-Cw-mPr" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="XJH-4o-lOr"/>
+                <constraint firstItem="cZb-KS-2on" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="ZLY-cu-wAB"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YBz-Cw-mPr" secondAttribute="trailing" constant="20" symbolic="YES" id="jsF-Ug-HvJ"/>
+            </constraints>
+            <point key="canvasLocation" x="-398.5" y="262"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="StatusGrey" width="16" height="16"/>
+    </resources>
+</document>

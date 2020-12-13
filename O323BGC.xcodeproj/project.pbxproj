@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A2325F3258548020046CAC3 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2325F2258548020046CAC3 /* GraphView.swift */; };
+		9A3B1ABC258167510074DB9B /* ControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1ABB258167510074DB9B /* ControllerModel.swift */; };
+		9A3B1AC42581F8DE0074DB9B /* Storm32BGCSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1AC32581F8DE0074DB9B /* Storm32BGCSimulator.swift */; };
+		9A3B1AC9258278360074DB9B /* Storm32BGCController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1AC8258278360074DB9B /* Storm32BGCController.swift */; };
+		9A3B1ACE258280BC0074DB9B /* Storm32BGCStatusDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1ACD258280BC0074DB9B /* Storm32BGCStatusDelegate.swift */; };
+		9A3B1AD625836E210074DB9B /* AxisDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1AD525836E210074DB9B /* AxisDashboardViewController.swift */; };
 		9A55F900257D792500B6743A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F8FF257D792500B6743A /* AppDelegate.swift */; };
 		9A55F904257D792700B6743A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A55F903257D792700B6743A /* Assets.xcassets */; };
 		9A55F907257D792700B6743A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A55F905257D792700B6743A /* Main.storyboard */; };
@@ -20,6 +26,21 @@
 		9A55F966257E55E800B6743A /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F965257E55E800B6743A /* MenuItem.swift */; };
 		9A55F96B257E567200B6743A /* MenuItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F96A257E567200B6743A /* MenuItemFactory.swift */; };
 		9A55F979257E6F8200B6743A /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F978257E6F8200B6743A /* Notification+Name.swift */; };
+		9A55F97F257E81A500B6743A /* Storm32BGC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F97E257E81A500B6743A /* Storm32BGC.swift */; };
+		9A55F99A257EB5D500B6743A /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F999257EB5D500B6743A /* Version.swift */; };
+		9A55F99F257F781A00B6743A /* X25CRC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F99E257F781A00B6743A /* X25CRC.swift */; };
+		9A55F9A4257F9AC100B6743A /* X25CRCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F9A3257F9AC100B6743A /* X25CRCTests.swift */; };
+		9A55F9B0257FBBA500B6743A /* HexPrint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F9AF257FBBA500B6743A /* HexPrint.swift */; };
+		9A55F9B82580126100B6743A /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F9B72580126100B6743A /* DashboardViewController.swift */; };
+		9A55F9C02580F5FA00B6743A /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F9BF2580F5FA00B6743A /* Status.swift */; };
+		9A55F9C52580F77E00B6743A /* UInt8+Bits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F9C42580F77E00B6743A /* UInt8+Bits.swift */; };
+		9A55F9CA2580F87900B6743A /* ExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F9C92580F87900B6743A /* ExtensionsTests.swift */; };
+		9A55F9D3258133DC00B6743A /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F9D2258133DC00B6743A /* StatusView.swift */; };
+		9A55F9DB258134BF00B6743A /* UInt16+Bits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F9DA258134BF00B6743A /* UInt16+Bits.swift */; };
+		9A55F9E0258134ED00B6743A /* StatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A55F9DF258134ED00B6743A /* StatusView.xib */; };
+		9A9C12FB2583749F0006E2F3 /* BoolToStatusImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C12FA2583749F0006E2F3 /* BoolToStatusImageTransformer.swift */; };
+		9AD63E682584E4A800FA21EC /* RealtimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD63E672584E4A800FA21EC /* RealtimeViewController.swift */; };
+		9AD9FF23258390030018C065 /* Storm32Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD9FF22258390030018C065 /* Storm32Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +61,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A2325F2258548020046CAC3 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		9A3B1ABB258167510074DB9B /* ControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerModel.swift; sourceTree = "<group>"; };
+		9A3B1AC32581F8DE0074DB9B /* Storm32BGCSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storm32BGCSimulator.swift; sourceTree = "<group>"; };
+		9A3B1AC8258278360074DB9B /* Storm32BGCController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storm32BGCController.swift; sourceTree = "<group>"; };
+		9A3B1ACD258280BC0074DB9B /* Storm32BGCStatusDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storm32BGCStatusDelegate.swift; sourceTree = "<group>"; };
+		9A3B1AD525836E210074DB9B /* AxisDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxisDashboardViewController.swift; sourceTree = "<group>"; };
 		9A55F8FC257D792500B6743A /* O323BGC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = O323BGC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A55F8FF257D792500B6743A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A55F903257D792700B6743A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,6 +87,21 @@
 		9A55F965257E55E800B6743A /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		9A55F96A257E567200B6743A /* MenuItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemFactory.swift; sourceTree = "<group>"; };
 		9A55F978257E6F8200B6743A /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
+		9A55F97E257E81A500B6743A /* Storm32BGC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storm32BGC.swift; sourceTree = "<group>"; };
+		9A55F999257EB5D500B6743A /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
+		9A55F99E257F781A00B6743A /* X25CRC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = X25CRC.swift; sourceTree = "<group>"; };
+		9A55F9A3257F9AC100B6743A /* X25CRCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = X25CRCTests.swift; sourceTree = "<group>"; };
+		9A55F9AF257FBBA500B6743A /* HexPrint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexPrint.swift; sourceTree = "<group>"; };
+		9A55F9B72580126100B6743A /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		9A55F9BF2580F5FA00B6743A /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		9A55F9C42580F77E00B6743A /* UInt8+Bits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt8+Bits.swift"; sourceTree = "<group>"; };
+		9A55F9C92580F87900B6743A /* ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionsTests.swift; sourceTree = "<group>"; };
+		9A55F9D2258133DC00B6743A /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		9A55F9DA258134BF00B6743A /* UInt16+Bits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt16+Bits.swift"; sourceTree = "<group>"; };
+		9A55F9DF258134ED00B6743A /* StatusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusView.xib; sourceTree = "<group>"; };
+		9A9C12FA2583749F0006E2F3 /* BoolToStatusImageTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolToStatusImageTransformer.swift; sourceTree = "<group>"; };
+		9AD63E672584E4A800FA21EC /* RealtimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeViewController.swift; sourceTree = "<group>"; };
+		9AD9FF22258390030018C065 /* Storm32Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storm32Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +152,10 @@
 		9A55F8FE257D792500B6743A /* O323BGC */ = {
 			isa = PBXGroup;
 			children = (
+				9A9C12F9258374780006E2F3 /* ValueTransformers */,
+				9A55F9D1258133BC00B6743A /* Views */,
+				9A55F9AE257FBB8B00B6743A /* Utility */,
+				9A55F97D257E810C00B6743A /* Engines */,
 				9A55F903257D792700B6743A /* Assets.xcassets */,
 				9A55F93C257E2CCA00B6743A /* Controllers */,
 				9A55F977257E6F5800B6743A /* Extensions */,
@@ -127,7 +173,9 @@
 			isa = PBXGroup;
 			children = (
 				9A55F912257D792800B6743A /* O323BGCTests.swift */,
+				9A55F9A3257F9AC100B6743A /* X25CRCTests.swift */,
 				9A55F914257D792800B6743A /* Info.plist */,
+				9A55F9C92580F87900B6743A /* ExtensionsTests.swift */,
 			);
 			path = O323BGCTests;
 			sourceTree = "<group>";
@@ -157,6 +205,9 @@
 				9A55F951257E3F9300B6743A /* MainSplitViewController.swift */,
 				9A55F950257E3F9300B6743A /* MainWindowController.swift */,
 				9A55F960257E509E00B6743A /* MenuViewController.swift */,
+				9A55F9B72580126100B6743A /* DashboardViewController.swift */,
+				9A3B1AD525836E210074DB9B /* AxisDashboardViewController.swift */,
+				9AD63E672584E4A800FA21EC /* RealtimeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -165,8 +216,52 @@
 			isa = PBXGroup;
 			children = (
 				9A55F978257E6F8200B6743A /* Notification+Name.swift */,
+				9A55F9C42580F77E00B6743A /* UInt8+Bits.swift */,
+				9A55F9DA258134BF00B6743A /* UInt16+Bits.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9A55F97D257E810C00B6743A /* Engines */ = {
+			isa = PBXGroup;
+			children = (
+				9A55F97E257E81A500B6743A /* Storm32BGC.swift */,
+				9A55F999257EB5D500B6743A /* Version.swift */,
+				9A55F99E257F781A00B6743A /* X25CRC.swift */,
+				9A55F9BF2580F5FA00B6743A /* Status.swift */,
+				9A3B1ABB258167510074DB9B /* ControllerModel.swift */,
+				9A3B1AC32581F8DE0074DB9B /* Storm32BGCSimulator.swift */,
+				9A3B1AC8258278360074DB9B /* Storm32BGCController.swift */,
+				9A3B1ACD258280BC0074DB9B /* Storm32BGCStatusDelegate.swift */,
+				9AD9FF22258390030018C065 /* Storm32Data.swift */,
+			);
+			path = Engines;
+			sourceTree = "<group>";
+		};
+		9A55F9AE257FBB8B00B6743A /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				9A55F9AF257FBBA500B6743A /* HexPrint.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		9A55F9D1258133BC00B6743A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9A55F9D2258133DC00B6743A /* StatusView.swift */,
+				9A55F9DF258134ED00B6743A /* StatusView.xib */,
+				9A2325F2258548020046CAC3 /* GraphView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9A9C12F9258374780006E2F3 /* ValueTransformers */ = {
+			isa = PBXGroup;
+			children = (
+				9A9C12FA2583749F0006E2F3 /* BoolToStatusImageTransformer.swift */,
+			);
+			path = ValueTransformers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +367,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A55F9E0258134ED00B6743A /* StatusView.xib in Resources */,
 				9A55F904257D792700B6743A /* Assets.xcassets in Resources */,
 				9A55F907257D792700B6743A /* Main.storyboard in Resources */,
 			);
@@ -298,15 +394,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A3B1ACE258280BC0074DB9B /* Storm32BGCStatusDelegate.swift in Sources */,
+				9A55F9C52580F77E00B6743A /* UInt8+Bits.swift in Sources */,
 				9A55F966257E55E800B6743A /* MenuItem.swift in Sources */,
+				9A55F9B82580126100B6743A /* DashboardViewController.swift in Sources */,
 				9A55F938257E1D0900B6743A /* SerialPort.swift in Sources */,
 				9A55F961257E509E00B6743A /* MenuViewController.swift in Sources */,
+				9AD9FF23258390030018C065 /* Storm32Data.swift in Sources */,
+				9A3B1ABC258167510074DB9B /* ControllerModel.swift in Sources */,
 				9A55F953257E3F9300B6743A /* MainSplitViewController.swift in Sources */,
 				9A55F96B257E567200B6743A /* MenuItemFactory.swift in Sources */,
+				9A55F97F257E81A500B6743A /* Storm32BGC.swift in Sources */,
+				9A3B1AD625836E210074DB9B /* AxisDashboardViewController.swift in Sources */,
+				9A55F99F257F781A00B6743A /* X25CRC.swift in Sources */,
+				9A3B1AC42581F8DE0074DB9B /* Storm32BGCSimulator.swift in Sources */,
 				9A55F952257E3F9300B6743A /* MainWindowController.swift in Sources */,
 				9A55F92F257D7A1800B6743A /* Serial.swift in Sources */,
 				9A55F900257D792500B6743A /* AppDelegate.swift in Sources */,
+				9A55F9D3258133DC00B6743A /* StatusView.swift in Sources */,
+				9A55F9C02580F5FA00B6743A /* Status.swift in Sources */,
+				9AD63E682584E4A800FA21EC /* RealtimeViewController.swift in Sources */,
+				9A2325F3258548020046CAC3 /* GraphView.swift in Sources */,
+				9A3B1AC9258278360074DB9B /* Storm32BGCController.swift in Sources */,
+				9A55F9DB258134BF00B6743A /* UInt16+Bits.swift in Sources */,
 				9A55F979257E6F8200B6743A /* Notification+Name.swift in Sources */,
+				9A55F9B0257FBBA500B6743A /* HexPrint.swift in Sources */,
+				9A9C12FB2583749F0006E2F3 /* BoolToStatusImageTransformer.swift in Sources */,
+				9A55F99A257EB5D500B6743A /* Version.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +428,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A55F9A4257F9AC100B6743A /* X25CRCTests.swift in Sources */,
+				9A55F9CA2580F87900B6743A /* ExtensionsTests.swift in Sources */,
 				9A55F913257D792800B6743A /* O323BGCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

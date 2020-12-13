@@ -12,4 +12,9 @@ extension Notification.Name {
     static let disconnectSerial = Notification.Name("disconnectSerial")
     static let serialConnected = Notification.Name("serialConnected")
     static let serialDisconnected = Notification.Name("serialDisconnected")
+    static let requestControllerReset = Notification.Name("requestControllerReset")
+    
+    static let startRealtimeData = Notification.Name("startRealtimeData")
+    static let stopRealtimeData = Notification.Name("stopRealtimeData")
+    static let updateRealtimeData = Notification.Name("updateRealtimeData")
 }

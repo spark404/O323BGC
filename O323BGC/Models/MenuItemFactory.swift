@@ -11,7 +11,8 @@ final class MenuItemFactory {
     func items() -> [MenuItem] {
         return [
             .init(name: "Dashboard"),
-            .init(name: "Controls", children: [
+            .init(name: "Dataview"),
+            .init(name: "Parameters", children: [
                 .init(name: "Test")
             ])
         ]

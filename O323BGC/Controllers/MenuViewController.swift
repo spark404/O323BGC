@@ -10,8 +10,18 @@ import Cocoa
 
 class MenuViewController: NSViewController {
     
+    @IBOutlet var treeController: NSTreeController!
+    @IBOutlet weak var outlineView: NSOutlineView!
+    
     @objc dynamic var menuStructure = [MenuItem]()
-    var fileDescriptor: Int = -1
+    
+    var storm32BGCController: Storm32BGCController?
+    
+    private enum DetailTabs: Int {
+        case Dashboard
+        case Datadisplay
+        case Parameters
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +33,7 @@ class MenuViewController: NSViewController {
     }
     
     override func viewDidDisappear() {
-        if (fileDescriptor != -1) {
-            Serial().closeSerialPort(fileDescriptor)
-        }
+        storm32BGCController?.disconnect()
     }
     
     override var representedObject: Any? {
@@ -35,40 +43,69 @@ class MenuViewController: NSViewController {
     }
     
     @objc func connectSerial(message: NSNotification) {
-        print("Entering connectSerial, \(message)")
         guard let path = message.object as? String else {
             print ("Received connect notification without path")
             NotificationCenter.default.post(name: .serialDisconnected, object: nil)
             return
         }
         
-        let serial = Serial()
-        fileDescriptor = serial.openSerialPort(path)
-        if (fileDescriptor == -1 ) {
-            print("Failed to open serial port")
+        storm32BGCController = Storm32BGCController(devicePath: path)
+        if (storm32BGCController == nil) {
             NotificationCenter.default.post(name: .serialDisconnected, object: nil)
             return
         }
+        storm32BGCController?.delegate = self
         
-        print("Serial connected, fd \(fileDescriptor)")
-        
+        treeController.setSelectionIndexPath(IndexPath(index: 0))
         NotificationCenter.default.post(name: .serialConnected, object: nil)
     }
     
     @objc func disconnectSerial(message: NSNotification) {
-        print("Entering disconnectSerial")
-        guard fileDescriptor != -1 else {
-            print ("Received disconnect notification without connection")
-            NotificationCenter.default.post(name: .serialDisconnected, object: nil)
+        if let dashboard = getDetailTab(index: 0) as? DashboardViewController {
+            dashboard.representedObject = nil
+        }
+        
+        if let controller = storm32BGCController {
+            controller.disconnect()
+        }
+        
+        treeController.setSelectionIndexPath(IndexPath(index: 0))
+        NotificationCenter.default.post(name: .serialDisconnected, object: nil)
+    }
+    
+    func selectViewForMenuItem(menuItem: MenuItem) {
+        switch (menuItem.name) {
+        case "Dashboard":
+            selectDetailTab(tab: .Dashboard)
+        case "Dataview":
+            selectDetailTab(tab: .Datadisplay)
+        default:
+            selectDetailTab(tab: .Parameters)
+        }
+    }
+    
+    private func selectDetailTab(tab: DetailTabs) {
+        guard let splitViewController = parent as? MainSplitViewController else {
             return
         }
         
-        let serial = Serial()
-        serial.closeSerialPort(fileDescriptor)
-        print("Serial disconnected, fd was \(fileDescriptor)")
-        fileDescriptor = -1
+        guard let tabController = splitViewController.splitViewItems[1].viewController as? NSTabViewController else {
+            return
+        }
         
-        NotificationCenter.default.post(name: .serialDisconnected, object: nil)
+        tabController.selectedTabViewItemIndex = tab.rawValue
+    }
+    
+    func getDetailTab(index: Int) -> NSViewController? {
+        guard let splitViewController = parent as? MainSplitViewController else {
+            return nil
+        }
+        
+        guard let tabController = splitViewController.splitViewItems[1].viewController as? NSTabViewController else {
+            return nil
+        }
+
+        return tabController.tabViewItems[index].viewController
     }
     
 }
@@ -79,4 +116,24 @@ extension MenuViewController: NSOutlineViewDelegate {
         return outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier("HeaderCell"), owner: self)
     }
     
+    func outlineView(_ outlineView: NSOutlineView, shouldExpandItem item: Any) -> Bool {
+        return true
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, isGroupItem item: Any) -> Bool {
+        return false
+    }
+    
+    func outlineViewSelectionDidChange(_ notification: Notification) {
+        if let menuItem = treeController.selectedNodes[0].representedObject as? MenuItem {
+            selectViewForMenuItem(menuItem: menuItem)
+        }
+    }
+}
+
+extension MenuViewController: Storm32BGCStatusDelegate {
+    func didUpdateStatus(_ sender: Storm32BGCController) {
+        let c = ControllerModel(version: sender.version!, status: sender.status!)
+        getDetailTab(index: 0)?.representedObject = c
+    }
 }

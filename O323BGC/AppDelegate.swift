@@ -12,6 +12,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBInspectable @objc dynamic var availablePorts: [SerialPort]?
     
+    override init() {
+        super.init()
+        ValueTransformer.setValueTransformer(BoolToStatusImageTransformer(), forName: .boolToStatusImageTransformerName)
+    }
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
     }
@@ -20,6 +25,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true;
+    }
 
 }
 

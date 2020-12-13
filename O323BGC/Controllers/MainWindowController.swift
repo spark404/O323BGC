@@ -37,6 +37,8 @@ class MainWindowController: NSWindowController {
             let serialPort = SerialPort(path: path)
             serialPorts.append(serialPort)
         } while (device != 0)
+        
+        serialPorts.append(SerialPort(path: "simulator"))
     }
     
     @IBAction func toggle(sender: Any) {

@@ -101,7 +101,7 @@ class Serial {
         return nil
     }
     
-    func openSerialPort(_ bsdPath: String) -> Int {
+    func openSerialPort(_ bsdPath: String) -> Int32 {
         //var fileDescriptor: Int = -1
         var options: termios
         
@@ -109,12 +109,12 @@ class Serial {
         // The O_NONBLOCK flag also causes subsequent I/O on the device to be non-blocking.
         // See open(2) <x-man-page://2/open> for details.
         
-        let openOptions: FCNTLOptions = [.O_RDWR, .O_NOCTTY, .O_NONBLOCK, .O_EXCL]
+        let openOptions: FCNTLOptions = [.O_RDWR, .O_NOCTTY, .O_NONBLOCK]
         let fileDescriptor = open(bsdPath, openOptions.rawValue);
         if (fileDescriptor < 0) {
             let error = String(utf8String: strerror(errno)) ?? "Unknown error code"
             print("Error opening port: \(error)")
-            return Int(fileDescriptor)
+            return fileDescriptor
         }
         
         // Note that open() follows POSIX semantics: multiple open() calls to the same file will succeed
@@ -124,7 +124,9 @@ class Serial {
         
         var result = ioctl(fileDescriptor, TIOCEXCL)
         if (result == -1) {
-            print("Error setting TIOCEXCL")
+            let error = String(utf8String: strerror(errno)) ?? "Unknown error code"
+            print("Error setting TIOCEXCL: \(error)")
+            return fileDescriptor
         }
         
         // Now that the device is open, clear the O_NONBLOCK flag so subsequent I/O will block.
@@ -132,8 +134,9 @@ class Serial {
         
         result = fcntl(fileDescriptor, F_SETFL, 0)
         if (result == -1) {
-            print("Error clearing O_NONBLOCK \(bsdPath) - \(strerror(errno))(\(errno))")
-            //goto error
+            let error = String(utf8String: strerror(errno)) ?? "Unknown error code"
+            print("Error clearing O_NONBLOCK: \(error)")
+            return fileDescriptor
         }
         
         // Get the current options and save them so we can restore the default settings later.
@@ -165,11 +168,9 @@ class Serial {
         
         // The baud rate, word length, and handshake options can be set as follows:
         
-        cfsetspeed(&options, 57600);        // Set 19200 baud
-        options.c_cflag |= UInt(CS7          |   // Use 7 bit words
-                                    PARENB       |   // Parity enable (even parity if PARODD not also set)
-                                    CCTS_OFLOW   |   // CTS flow control of output
-                                    CRTS_IFLOW)      // RTS flow control of input
+        cfsetspeed(&options, 115200);            // Set 115200 baud
+        options.c_cflag |= UInt(CS8          |   // Set 8N1
+                                CLOCAL)          // No modem control
         
         // The IOSSIOSPEED ioctl can be used to set arbitrary baud rates
         // other than those specified by POSIX. The driver for the underlying serial hardware
@@ -238,10 +239,10 @@ class Serial {
          }
          */
         // Success
-        return Int(fileDescriptor)
+        return fileDescriptor
     }
     
-    func closeSerialPort(_ port: Int) {
+    func closeSerialPort(_ port: Int32) {
         close(Int32(port))
     }
     
