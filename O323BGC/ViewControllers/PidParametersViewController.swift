@@ -9,11 +9,10 @@ import Cocoa
 
 class PidParametersViewController: NSViewController {
 
-
     @IBOutlet weak var pitchPidContainer: NSView!
     @IBOutlet weak var rollPidContainer: NSView!
     @IBOutlet weak var yawPidContainer: NSView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -21,22 +20,28 @@ class PidParametersViewController: NSViewController {
     
     override var representedObject: Any? {
         didSet {
-            print("representedObject set on PidParametersViewController")
-            guard (representedObject as? [[String:Any]]) != nil else {
-                return
-            }
-            
+            guard let parameters = representedObject as? [S32Parameter] else { return }
+
             if let pitchPidController = self.children[0] as? SimplifiedPidViewController {
-                let testObject = PidModel(axis: "Pitch", pidP: 400, pidI: 1000, pidD: 500)
-                pitchPidController.representedObject = testObject
+                let pidViewModel = PidModel(axis: "Pitch",
+                                          pidP: Double(parameters.findBy(name: "Pitch P")!.integerValue),
+                                          pidI: Double(parameters.findBy(name: "Pitch I")!.integerValue),
+                                          pidD: Double(parameters.findBy(name: "Pitch D")!.integerValue))
+                pitchPidController.representedObject = pidViewModel
             }
             if let pitchPidController = self.children[1] as? SimplifiedPidViewController {
-                let testObject = PidModel(axis: "Roll", pidP: 400, pidI: 1000, pidD: 500)
-                pitchPidController.representedObject = testObject
+                let pidViewModel = PidModel(axis: "Roll",
+                                          pidP: Double(parameters.findBy(name: "Roll P")!.integerValue),
+                                          pidI: Double(parameters.findBy(name: "Roll I")!.integerValue),
+                                          pidD: Double(parameters.findBy(name: "Roll D")!.integerValue))
+                pitchPidController.representedObject = pidViewModel
             }
             if let pitchPidController = self.children[2] as? SimplifiedPidViewController {
-                let testObject = PidModel(axis: "Yaw", pidP: 400, pidI: 1000, pidD: 500)
-                pitchPidController.representedObject = testObject
+                let pidViewModel = PidModel(axis: "Yaw",
+                                          pidP: Double(parameters.findBy(name: "Yaw P")!.integerValue),
+                                          pidI: Double(parameters.findBy(name: "Yaw I")!.integerValue),
+                                          pidD: Double(parameters.findBy(name: "Yaw D")!.integerValue))
+                pitchPidController.representedObject = pidViewModel
             }
         }
     }

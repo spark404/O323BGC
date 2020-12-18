@@ -51,6 +51,7 @@
 		9AEE91D6258AB568004A44C3 /* S32ParameterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE91D5258AB568004A44C3 /* S32ParameterController.swift */; };
 		9AEE91DB258B6913004A44C3 /* S32ParameterControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE91DA258B6913004A44C3 /* S32ParameterControllerTests.swift */; };
 		9AEE91E6258B96D5004A44C3 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE91E5258B96D5004A44C3 /* MainTabViewController.swift */; };
+		9AEE9201258CC750004A44C3 /* Extension+S32ParameterArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE9200258CC750004A44C3 /* Extension+S32ParameterArray.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +123,7 @@
 		9AEE91D5258AB568004A44C3 /* S32ParameterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S32ParameterController.swift; sourceTree = "<group>"; };
 		9AEE91DA258B6913004A44C3 /* S32ParameterControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S32ParameterControllerTests.swift; sourceTree = "<group>"; };
 		9AEE91E5258B96D5004A44C3 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
+		9AEE9200258CC750004A44C3 /* Extension+S32ParameterArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+S32ParameterArray.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +266,7 @@
 				9AEE91C3258AB2F7004A44C3 /* S32NumericParameter.swift */,
 				9AEE91C8258AB33D004A44C3 /* S32StringParameter.swift */,
 				9AEE91D5258AB568004A44C3 /* S32ParameterController.swift */,
+				9AEE9200258CC750004A44C3 /* Extension+S32ParameterArray.swift */,
 			);
 			path = LogicControllers;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				9A55F96B257E567200B6743A /* MenuItemFactory.swift in Sources */,
 				9A55F97F257E81A500B6743A /* Storm32BGC.swift in Sources */,
 				9A3B1AD625836E210074DB9B /* AxisDashboardViewController.swift in Sources */,
+				9AEE9201258CC750004A44C3 /* Extension+S32ParameterArray.swift in Sources */,
 				9A55F99F257F781A00B6743A /* X25CRC.swift in Sources */,
 				9A3B1AC42581F8DE0074DB9B /* Storm32BGCSimulator.swift in Sources */,
 				9A55F952257E3F9300B6743A /* MainWindowController.swift in Sources */,

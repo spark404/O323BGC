@@ -19,11 +19,10 @@ class SimplifiedPidViewController: NSViewController {
     
     override var representedObject: Any? {
         didSet {
-            print("representedObject set on SimplifiedPidViewController")
             if let pidI = value(forKeyPath: "representedObject.pidI") as? Double,
                let pidD = value(forKeyPath: "representedObject.pidD") as? Double {
                 stabilitySlider.doubleValue = pidI / 10 / 2000 * 100
-                stabilitySlider.doubleValue = pidD / 2000 / 0.8 * 100
+                dampingSlider.doubleValue = pidD / 2000 / 0.8 * 100
             }
         }
     }
@@ -48,8 +47,7 @@ class SimplifiedPidViewController: NSViewController {
         setValue(pidP, forKeyPath: "representedObject.pidP")
         setValue(pidI, forKeyPath: "representedObject.pidI")
         setValue(pidD, forKeyPath: "representedObject.pidD")
-        
+
         print("New PID calculated for \(controlTitle.stringValue) : \(pidP),\(pidI),\(pidD)")
     }
-    
 }

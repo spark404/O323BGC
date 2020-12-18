@@ -9,51 +9,45 @@ import Foundation
 
 class Storm32BGCController: NSObject, Storm32BGCDataSource {
     private var storm32BGC: Storm32BGC?
-    
+
     private var statusTimer: Timer?
-    
+
     private var realTimeTimer: Timer?
     private var realTimeRecipient: Storm32BGCRealtimeData?
-    
+
     private var parameterController: S32ParameterController?
-    
+
     private var connectionObservations = [ObjectIdentifier: ConnectionObservation]()
     private var observations = [ObjectIdentifier: Observation]()
-    
+
     var status: Status?
     var version: Version?
-    
+
     var data: Storm32Data? {
-        get {
-            storm32BGC?.getData()
-        }
+        storm32BGC?.getData()
     }
-    
+
     var parameters: [S32Parameter]? {
-        get {
-            parameterController?.retrieveParameters()
-        }
+        parameterController?.retrieveParameters()
     }
-    
+
     private var internalConnectionState: Bool = false
     var connected: Bool {
-        get {
-            return internalConnectionState
-        }
+        return internalConnectionState
     }
-    
+
     func connect(devicePath: String) -> Bool {
-        if (devicePath == "simulator") {
+        if devicePath == "simulator" {
             let storm32BGC = Storm32BGCSimulator(fileDescriptor: -1)
             let version = storm32BGC.getVersion()
-            print ("Connected to board \(version!.name) with version \(version!.version)")
+            print("Connected to board \(version!.name) with version \(version!.version)")
 
             self.storm32BGC = storm32BGC
             self.internalConnectionState = true
             self.version = version
             self.status = storm32BGC.getStatus()
             self.parameterController = S32ParameterController(storm32BGC: storm32BGC)
-            
+
             statusTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [self]_ in
                 if let status = self.status {
                     statusUpdated(status: status)
@@ -63,27 +57,27 @@ class Storm32BGCController: NSObject, Storm32BGCDataSource {
             notifyConnected()
             return true
         }
-        
-        print ("Connecting to Stomr32BGC device")
+
+        print("Connecting to Stomr32BGC device")
         guard let storm32BGC = Storm32BGC(serialDevicePath: devicePath) else {
             return false
         }
-        
+
         let version = storm32BGC.getVersion()
-        if (version?.versionNumber != 96) {
+        if version?.versionNumber != 96 {
             print("No device or no matching version")
             storm32BGC.close()
             return false
         }
 
-        print ("Connected to board \(version!.name) with version \(version!.version)")
+        print("Connected to board \(version!.name) with version \(version!.version)")
 
         self.storm32BGC = storm32BGC
         self.internalConnectionState = true
         self.version = version
         self.status = storm32BGC.getStatus()
         self.parameterController = S32ParameterController(storm32BGC: storm32BGC)
-        
+
         statusTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [self]_ in
             if let status = self.status {
                 statusUpdated(status: status)
@@ -93,48 +87,48 @@ class Storm32BGCController: NSObject, Storm32BGCDataSource {
         notifyConnected()
         return true
     }
-    
+
     func disconnect() {
         self.internalConnectionState = false
-        
+
         self.realTimeTimer?.invalidate()
         self.realTimeTimer = nil
-        
+
         self.statusTimer?.invalidate()
         self.statusTimer = nil
-    
+
         storm32BGC?.close()
-        
+
         self.parameterController = nil
         self.storm32BGC = nil
         self.version = nil
         self.status = nil
-        
-        print ("Disconnected from board")
+
+        print("Disconnected from board")
         notifyDisconnected()
     }
-            
+
     func resetDevice() {
         print("Executing reset on device")
         storm32BGC?.resetBoard()
     }
-    
+
     func stopRealtimeUpdates() {
-        print ("Stopping realtime updates")
+        print("Stopping realtime updates")
         realTimeTimer?.invalidate()
         realTimeTimer = nil
     }
-    
-    func realtimeUpdates(timeInterval: TimeInterval, update: @escaping (_ data: Storm32Data?) -> Void) -> Bool {
-        if (!internalConnectionState) { return false }
 
-        print ("Starting realtime updates")
+    func realtimeUpdates(timeInterval: TimeInterval, update: @escaping (_ data: Storm32Data?) -> Void) -> Bool {
+        if !internalConnectionState { return false }
+
+        print("Starting realtime updates")
         guard realTimeTimer == nil else {
             print("Realtime timer already exists")
             return false
         }
 
-        realTimeTimer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { timer in
+        realTimeTimer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { _ in
             update(self.data)
         }
 
@@ -153,7 +147,6 @@ protocol Storm32BGCDataSource {
     var parameters: [S32Parameter]? { get }
 }
 
-
 // -- Status observer
 protocol Storm32BGCStatusObserver: class {
     func storm32BGCController(_ controller: Storm32BGCController, statusUpdated status: Status)
@@ -163,7 +156,7 @@ private extension Storm32BGCController {
     struct Observation {
         weak var observer: Storm32BGCStatusObserver?
     }
-    
+
     func statusUpdated(status: Status) {
             for (id, observation) in observations {
                 // If the observer is no longer in memory, we
@@ -190,7 +183,6 @@ extension Storm32BGCController {
     }
 }
 
-
 // -- Connection observer
 protocol Storm32ConnectionObserver: class {
     func storm32BGCControllerConnected(_ controller: Storm32BGCController)
@@ -213,7 +205,7 @@ private extension Storm32BGCController {
     struct ConnectionObservation {
         weak var observer: Storm32ConnectionObserver?
     }
-    
+
     func notifyConnected() {
             for (id, observation) in connectionObservations {
                 // If the observer is no longer in memory, we

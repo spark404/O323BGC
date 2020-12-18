@@ -24,19 +24,19 @@ class DashboardViewController: NSViewController {
     @IBOutlet weak var voltageTextField: NSTextField!
     @IBOutlet weak var errorsTextField: NSTextField!
     @IBOutlet weak var resetButton: NSButton!
-    
+
     var axisDashboardViewControler: AxisDashboardViewController?
-    
+
     override func viewDidLoad() {
     }
-        
+
     override var representedObject: Any? {
         didSet {
             // Update the view, if already loaded.
-            if let vc = axisDashboardViewControler {
-                vc.representedObject = representedObject
+            if let viewController = axisDashboardViewControler {
+                viewController.representedObject = representedObject
             }
-            
+
             guard let controllerModel = representedObject as? ControllerModel else {
                 imuStatus.present = false
                 imuStatus.statusText = ""
@@ -55,7 +55,7 @@ class DashboardViewController: NSViewController {
             }
             
             let status = controllerModel.status
-            
+
             resetButton.isEnabled = true
             
             imuStatus.present = status.isIMUPresent
@@ -64,7 +64,7 @@ class DashboardViewController: NSViewController {
             if status.isIMUPresent && status.isIMUHighAdr {
                 imuStatus.statusText += "@HighAdr"
             }
-            
+
             imu2Status.present = status.isIMU2Present
             imu2Status.status = status.isIMU2Ok
             imu2Status.statusText = status.isIMU2Ok ? "OK" : ""
@@ -73,7 +73,7 @@ class DashboardViewController: NSViewController {
             }
             if status.isIMU2Present && status.isIMU2NTBus {
                 imu2Status.statusText += "@NTBus "
-                if (status.isNTBusInUse) {
+                if status.isNTBusInUse {
                     imu2Status.statusText += "(in Use)"
                 }
             }
@@ -85,39 +85,38 @@ class DashboardViewController: NSViewController {
             batStatus.present = status.isBatConnected
             batStatus.status = !status.isBatVoltageIsLow
             batStatus.statusText = status.isBatConnected && status.isBatVoltageIsLow ? "Low voltage" : ""
-            
+
             stLinkStatus.present = status.isStorm32LinkPresent
             stLinkStatus.status = status.isStorm32LinkOk
             stLinkStatus.statusText = status.isStorm32LinkInUse ? "Link in Use" : ""
-            
+
             voltageTextField.stringValue = String.init(format: "Voltage: %.2f", status.voltage)
-            errorsTextField.stringValue = String.init(format: "%@: %d", status.isNTBusInUse ? "Bus errors" : "I2C errors", status.errors)
+            errorsTextField.stringValue =
+                String.init(format: "%@: %d", status.isNTBusInUse ? "Bus errors" : "I2C errors", status.errors)
         }
     }
-    
+
     @IBAction func onClickReset(_ sender: Any) {
         guard let button = sender as? NSButton else {
             return
         }
-        
+
         button.isEnabled = false
         NotificationCenter.default.post(name: .requestControllerReset, object: nil)
     }
 
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if let vc = segue.destinationController as? AxisDashboardViewController,
+        if let viewController = segue.destinationController as? AxisDashboardViewController,
            segue.identifier == "embedAxisDashboard" {
-            axisDashboardViewControler = vc
+            axisDashboardViewControler = viewController
         }
     }
 }
 
 extension DashboardViewController: Storm32BGCStatusObserver {
     func storm32BGCController(_ controller: Storm32BGCController, statusUpdated status: Status) {
-        print("Status update")
         if let version = controller.version, let status = controller.status {
             representedObject =  ControllerModel(version: version, status: status)
         }
-
     }
 }
