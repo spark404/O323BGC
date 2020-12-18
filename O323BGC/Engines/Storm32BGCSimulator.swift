@@ -14,7 +14,8 @@ class Storm32BGCSimulator: Storm32BGC {
     
     override func getData() -> Storm32Data? {
         let data = "06007098008000000000f03edc0500000400000096fec5e3f11179fe00dfdd149f0183e9130061fe7d16edff000000000000d20021ff18000000aa057e38000041a66f".hexaData
-        return Storm32Data(data: data)
+        let lastIndex = data.count - 4
+        return Storm32Data(data: data[0...lastIndex])
     }
     
     override func getVersion() -> Version? {
@@ -44,11 +45,11 @@ class Storm32BGCSimulator: Storm32BGC {
     
     override func getStatus() -> Status? {
         let data = "06007098008000000000419b6f".hexaData
-        return Status.init(data: data)
+        let lastIndex = data.count - 4
+        return Status.init(data: data[0...lastIndex])
     }
     
-    override func getParameters() -> String? {
-        let data = "ea01100e4605610014001e002003061814056e0014001e00cc01780584037b0032002800010000000e0000000000dd03000000000e00000000004701000000000e000100000018020000000000000e000000000000000a00040000000000e3feb60390012c0105000000000006fffa0090012c010600000000004afcb60390012c010700000001000500050000000000000000000200000000000000000000000000e80319000000190002000000fa0001002800320019001e00fa0000000300000000000100000001000e06000000000000050000000000000000004700430000000000dc054c046c0700000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffdcc46f".hexaData
-        return nil
+    override func getRawParameters() -> Data? {
+        return  "ea01100e4605610014001e002003061814056e0014001e00cc01780584037b0032002800010000000e0000000000dd03000000000e00000000004701000000000e000100000018020000000000000e000000000000000a00040000000000e3feb60390012c0105000000000006fffa0090012c010600000000004afcb60390012c010700000001000500050000000000000000000200000000000000000000000000e80319000000190002000000fa0001002800320019001e00fa0000000300000000000100000001000e06000000000000050000000000000000004700430000000000dc054c046c0700000000000000000000000000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffdcc46f".hexaData
     }
 }

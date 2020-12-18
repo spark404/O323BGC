@@ -1,0 +1,2867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Gyro LPF</key>
+	<dict>
+		<key>Name</key>
+		<string>Gyro LPF</string>
+		<key>Position</key>
+		<integer>100</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>6</integer>
+		<key>DefaultValue</key>
+		<integer>1</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>1.5 ms</string>
+			<string>3.0 ms</string>
+			<string>4.5 ms</string>
+			<string>6.0 ms</string>
+			<string>7.5 ms</string>
+			<string>9 ms</string>
+		</array>
+	</dict>
+	<key>Imu2 FeedForward LPF</key>
+	<dict>
+		<key>Name</key>
+		<string>Imu2 FeedForward LPF</string>
+		<key>Position</key>
+		<integer>99</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>6</integer>
+		<key>DefaultValue</key>
+		<integer>1</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>1.5 ms</string>
+			<string>4 ms</string>
+			<string>10 ms</string>
+			<string>22 ms</string>
+			<string>46 ms</string>
+			<string>94 ms</string>
+		</array>
+	</dict>
+	<key>Low Voltage Limit</key>
+	<dict>
+		<key>Name</key>
+		<string>Low Voltage Limit</string>
+		<key>Position</key>
+		<integer>18</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>7</integer>
+		<key>DefaultValue</key>
+		<integer>1</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>2.9 V/cell</string>
+			<string>3.0 V/cell</string>
+			<string>3.1 V/cell</string>
+			<string>3.2 V/cell</string>
+			<string>3.3 V/cell</string>
+			<string>3.4 V/cell</string>
+			<string>3.5 V/cell</string>
+		</array>
+	</dict>
+	<key>Voltage Correction</key>
+	<dict>
+		<key>Name</key>
+		<string>Voltage Correction</string>
+		<key>Position</key>
+		<integer>19</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>200</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Pitch P</key>
+	<dict>
+		<key>Name</key>
+		<string>Pitch P</string>
+		<key>Position</key>
+		<integer>0</integer>
+		<key>Type</key>
+		<string>Int16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>3000</integer>
+		<key>DefaultValue</key>
+		<integer>400</integer>
+		<key>Steps</key>
+		<integer>10</integer>
+	</dict>
+	<key>Pitch I</key>
+	<dict>
+		<key>Name</key>
+		<string>Pitch I</string>
+		<key>Position</key>
+		<integer>1</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>20000</integer>
+		<key>DefaultValue</key>
+		<integer>1000</integer>
+		<key>Steps</key>
+		<integer>50</integer>
+	</dict>
+	<key>Pitch D</key>
+	<dict>
+		<key>Name</key>
+		<string>Pitch D</string>
+		<key>Position</key>
+		<integer>2</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>8000</integer>
+		<key>DefaultValue</key>
+		<integer>500</integer>
+		<key>Steps</key>
+		<integer>50</integer>
+	</dict>
+	<key>Pitch Motor Vmax</key>
+	<dict>
+		<key>Name</key>
+		<string>Pitch Motor Vmax</string>
+		<key>Position</key>
+		<integer>3</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>255</integer>
+		<key>DefaultValue</key>
+		<integer>150</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Roll P</key>
+	<dict>
+		<key>Name</key>
+		<string>Roll P</string>
+		<key>Position</key>
+		<integer>6</integer>
+		<key>Type</key>
+		<string>Int16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>3000</integer>
+		<key>DefaultValue</key>
+		<integer>400</integer>
+		<key>Steps</key>
+		<integer>10</integer>
+	</dict>
+	<key>Roll I</key>
+	<dict>
+		<key>Name</key>
+		<string>Roll I</string>
+		<key>Position</key>
+		<integer>7</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>20000</integer>
+		<key>DefaultValue</key>
+		<integer>1000</integer>
+		<key>Steps</key>
+		<integer>50</integer>
+	</dict>
+	<key>Roll D</key>
+	<dict>
+		<key>Name</key>
+		<string>Roll D</string>
+		<key>Position</key>
+		<integer>8</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>8000</integer>
+		<key>DefaultValue</key>
+		<integer>500</integer>
+		<key>Steps</key>
+		<integer>50</integer>
+	</dict>
+	<key>Roll Motor Vmax</key>
+	<dict>
+		<key>Name</key>
+		<string>Roll Motor Vmax</string>
+		<key>Position</key>
+		<integer>9</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>255</integer>
+		<key>DefaultValue</key>
+		<integer>150</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Yaw P</key>
+	<dict>
+		<key>Name</key>
+		<string>Yaw P</string>
+		<key>Position</key>
+		<integer>12</integer>
+		<key>Type</key>
+		<string>Int16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>3000</integer>
+		<key>DefaultValue</key>
+		<integer>400</integer>
+		<key>Steps</key>
+		<integer>10</integer>
+	</dict>
+	<key>Yaw I</key>
+	<dict>
+		<key>Name</key>
+		<string>Yaw I</string>
+		<key>Position</key>
+		<integer>13</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>20000</integer>
+		<key>DefaultValue</key>
+		<integer>1000</integer>
+		<key>Steps</key>
+		<integer>50</integer>
+	</dict>
+	<key>Yaw D</key>
+	<dict>
+		<key>Name</key>
+		<string>Yaw D</string>
+		<key>Position</key>
+		<integer>14</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>8000</integer>
+		<key>DefaultValue</key>
+		<integer>500</integer>
+		<key>Steps</key>
+		<integer>50</integer>
+	</dict>
+	<key>Yaw Motor Vmax</key>
+	<dict>
+		<key>Name</key>
+		<string>Yaw Motor Vmax</string>
+		<key>Position</key>
+		<integer>15</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>255</integer>
+		<key>DefaultValue</key>
+		<integer>150</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Pan Mode Control</key>
+	<dict>
+		<key>Name</key>
+		<string>Pan Mode Control</string>
+		<key>Position</key>
+		<integer>65</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>42</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>Rc-0</string>
+			<string>Rc-1</string>
+			<string>Rc-2</string>
+			<string>Rc2-0</string>
+			<string>Rc2-1</string>
+			<string>Rc2-2</string>
+			<string>Rc2-3</string>
+			<string>Pot-0</string>
+			<string>Pot-1</string>
+			<string>Pot-2</string>
+			<string>Virtual-1</string>
+			<string>Virtual-2</string>
+			<string>Virtual-3</string>
+			<string>Virtual-4</string>
+			<string>Virtual-5</string>
+			<string>Virtual-6</string>
+			<string>Virtual-7</string>
+			<string>Virtual-8</string>
+			<string>Virtual-9</string>
+			<string>Virtual-10</string>
+			<string>Virtual-11</string>
+			<string>Virtual-12</string>
+			<string>Virtual-13</string>
+			<string>Virtual-14</string>
+			<string>Virtual-15</string>
+			<string>Virtual-16</string>
+			<string>But switch</string>
+			<string>But latch</string>
+			<string>But step</string>
+			<string>Aux-0 switch</string>
+			<string>Aux-1 switch</string>
+			<string>Aux-2 switch</string>
+			<string>Aux-01 switch</string>
+			<string>Aux-012 switch</string>
+			<string>Aux-0 latch</string>
+			<string>Aux-1 latch</string>
+			<string>Aux-2 latch</string>
+			<string>Aux-01 latch</string>
+			<string>Aux-012 latch</string>
+			<string>Aux-0 step</string>
+			<string>Aux-1 step</string>
+			<string>Aux-2 step</string>
+		</array>
+	</dict>
+	<key>Pan Mode Default Setting</key>
+	<dict>
+		<key>Name</key>
+		<string>Pan Mode Default Setting</string>
+		<key>Position</key>
+		<integer>66</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>5</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>hold hold pan</string>
+			<string>hold hold hold</string>
+			<string>pan pan pan</string>
+			<string>pan hold hold</string>
+			<string>pan hold pan</string>
+			<string>hold pan pan</string>
+			<string>off</string>
+		</array>
+	</dict>
+	<key>Pan Mode Setting #1</key>
+	<dict>
+		<key>Name</key>
+		<string>Pan Mode Setting #1</string>
+		<key>Position</key>
+		<integer>67</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>6</integer>
+		<key>DefaultValue</key>
+		<integer>1</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>hold hold pan</string>
+			<string>hold hold hold</string>
+			<string>pan pan pan</string>
+			<string>pan hold hold</string>
+			<string>pan hold pan</string>
+			<string>hold pan pan</string>
+			<string>off</string>
+		</array>
+	</dict>
+	<key>Pan Mode Setting #2</key>
+	<dict>
+		<key>Name</key>
+		<string>Pan Mode Setting #2</string>
+		<key>Position</key>
+		<integer>68</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>6</integer>
+		<key>DefaultValue</key>
+		<integer>4</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>hold hold pan</string>
+			<string>hold hold hold</string>
+			<string>pan pan pan</string>
+			<string>pan hold hold</string>
+			<string>pan hold pan</string>
+			<string>hold pan pan</string>
+			<string>off</string>
+		</array>
+	</dict>
+	<key>Pan Mode Setting #3</key>
+	<dict>
+		<key>Name</key>
+		<string>Pan Mode Setting #3</string>
+		<key>Position</key>
+		<integer>69</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>6</integer>
+		<key>DefaultValue</key>
+		<integer>2</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>hold hold pan</string>
+			<string>hold hold hold</string>
+			<string>pan pan pan</string>
+			<string>pan hold hold</string>
+			<string>pan hold pan</string>
+			<string>hold pan pan</string>
+			<string>off</string>
+		</array>
+	</dict>
+	<key>Pitch Pan (0 = hold)</key>
+	<dict>
+		<key>Name</key>
+		<string>Pitch Pan (0 = hold)</string>
+		<key>Position</key>
+		<integer>4</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>50</integer>
+		<key>DefaultValue</key>
+		<integer>20</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Pitch Pan Deadband</key>
+	<dict>
+		<key>Name</key>
+		<string>Pitch Pan Deadband</string>
+		<key>Position</key>
+		<integer>5</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>600</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>10</integer>
+	</dict>
+	<key>Pitch Pan Expo</key>
+	<dict>
+		<key>Name</key>
+		<string>Pitch Pan Expo</string>
+		<key>Position</key>
+		<integer>102</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>100</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Roll Pan (0 = hold)</key>
+	<dict>
+		<key>Name</key>
+		<string>Roll Pan (0 = hold)</string>
+		<key>Position</key>
+		<integer>10</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>50</integer>
+		<key>DefaultValue</key>
+		<integer>20</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Roll Pan Deadband</key>
+	<dict>
+		<key>Name</key>
+		<string>Roll Pan Deadband</string>
+		<key>Position</key>
+		<integer>11</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>600</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>10</integer>
+	</dict>
+	<key>Roll Pan Expo</key>
+	<dict>
+		<key>Name</key>
+		<string>Roll Pan Expo</string>
+		<key>Position</key>
+		<integer>103</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>100</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Yaw Pan (0 = hold)</key>
+	<dict>
+		<key>Name</key>
+		<string>Yaw Pan (0 = hold)</string>
+		<key>Position</key>
+		<integer>16</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>50</integer>
+		<key>DefaultValue</key>
+		<integer>20</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Yaw Pan Deadband</key>
+	<dict>
+		<key>Name</key>
+		<string>Yaw Pan Deadband</string>
+		<key>Position</key>
+		<integer>17</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>100</integer>
+		<key>DefaultValue</key>
+		<integer>50</integer>
+		<key>Steps</key>
+		<integer>5</integer>
+	</dict>
+	<key>Yaw Pan Expo</key>
+	<dict>
+		<key>Name</key>
+		<string>Yaw Pan Expo</string>
+		<key>Position</key>
+		<integer>104</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>100</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Yaw Pan Deadband LPF</key>
+	<dict>
+		<key>Name</key>
+		<string>Yaw Pan Deadband LPF</string>
+		<key>Position</key>
+		<integer>118</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>200</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>5</integer>
+	</dict>
+	<key>Yaw Pan Deadband Hysteresis</key>
+	<dict>
+		<key>Name</key>
+		<string>Yaw Pan Deadband Hysteresis</string>
+		<key>Position</key>
+		<integer>97</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>50</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Rc Dead Band</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Dead Band</string>
+		<key>Position</key>
+		<integer>43</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>50</integer>
+		<key>DefaultValue</key>
+		<integer>10</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Rc Hysteresis</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Hysteresis</string>
+		<key>Position</key>
+		<integer>105</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>50</integer>
+		<key>DefaultValue</key>
+		<integer>5</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Rc Pitch Trim</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Pitch Trim</string>
+		<key>Position</key>
+		<integer>46</integer>
+		<key>Type</key>
+		<string>Int16</string>
+		<key>MinValue</key>
+		<integer>-100</integer>
+		<key>MaxValue</key>
+		<integer>100</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Rc Roll Trim</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Roll Trim</string>
+		<key>Position</key>
+		<integer>53</integer>
+		<key>Type</key>
+		<string>Int16</string>
+		<key>MinValue</key>
+		<integer>-100</integer>
+		<key>MaxValue</key>
+		<integer>100</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Rc Yaw Trim</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Yaw Trim</string>
+		<key>Position</key>
+		<integer>60</integer>
+		<key>Type</key>
+		<string>Int16</string>
+		<key>MinValue</key>
+		<integer>-100</integer>
+		<key>MaxValue</key>
+		<integer>100</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Rc Pitch</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Pitch</string>
+		<key>Position</key>
+		<integer>44</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>42</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>Rc-0</string>
+			<string>Rc-1</string>
+			<string>Rc-2</string>
+			<string>Rc2-0</string>
+			<string>Rc2-1</string>
+			<string>Rc2-2</string>
+			<string>Rc2-3</string>
+			<string>Pot-0</string>
+			<string>Pot-1</string>
+			<string>Pot-2</string>
+			<string>Virtual-1</string>
+			<string>Virtual-2</string>
+			<string>Virtual-3</string>
+			<string>Virtual-4</string>
+			<string>Virtual-5</string>
+			<string>Virtual-6</string>
+			<string>Virtual-7</string>
+			<string>Virtual-8</string>
+			<string>Virtual-9</string>
+			<string>Virtual-10</string>
+			<string>Virtual-11</string>
+			<string>Virtual-12</string>
+			<string>Virtual-13</string>
+			<string>Virtual-14</string>
+			<string>Virtual-15</string>
+			<string>Virtual-16</string>
+			<string>But switch</string>
+			<string>But latch</string>
+			<string>But step</string>
+			<string>Aux-0 switch</string>
+			<string>Aux-1 switch</string>
+			<string>Aux-2 switch</string>
+			<string>Aux-01 switch</string>
+			<string>Aux-012 switch</string>
+			<string>Aux-0 latch</string>
+			<string>Aux-1 latch</string>
+			<string>Aux-2 latch</string>
+			<string>Aux-01 latch</string>
+			<string>Aux-012 latch</string>
+			<string>Aux-0 step</string>
+			<string>Aux-1 step</string>
+			<string>Aux-2 step</string>
+		</array>
+	</dict>
+	<key>Rc Pitch Mode</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Pitch Mode</string>
+		<key>Position</key>
+		<integer>45</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>2</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>absolute</string>
+			<string>relative</string>
+			<string>absolute centered</string>
+		</array>
+	</dict>
+	<key>Rc Pitch Min</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Pitch Min</string>
+		<key>Position</key>
+		<integer>47</integer>
+		<key>Type</key>
+		<string>Int16</string>
+		<key>MinValue</key>
+		<integer>-1200</integer>
+		<key>MaxValue</key>
+		<integer>1200</integer>
+		<key>DefaultValue</key>
+		<integer>-250</integer>
+		<key>Steps</key>
+		<integer>5</integer>
+	</dict>
+	<key>Rc Pitch Max</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Pitch Max</string>
+		<key>Position</key>
+		<integer>48</integer>
+		<key>Type</key>
+		<string>Int16</string>
+		<key>MinValue</key>
+		<integer>-1200</integer>
+		<key>MaxValue</key>
+		<integer>1200</integer>
+		<key>DefaultValue</key>
+		<integer>250</integer>
+		<key>Steps</key>
+		<integer>5</integer>
+	</dict>
+	<key>Rc Pitch Speed Limit (0 = off)</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Pitch Speed Limit (0 = off)</string>
+		<key>Position</key>
+		<integer>49</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>1000</integer>
+		<key>DefaultValue</key>
+		<integer>400</integer>
+		<key>Steps</key>
+		<integer>5</integer>
+	</dict>
+	<key>Rc Pitch Accel Limit (0 = off)</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Pitch Accel Limit (0 = off)</string>
+		<key>Position</key>
+		<integer>50</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>1000</integer>
+		<key>DefaultValue</key>
+		<integer>300</integer>
+		<key>Steps</key>
+		<integer>10</integer>
+	</dict>
+	<key>Rc Roll</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Roll</string>
+		<key>Position</key>
+		<integer>51</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>42</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>Rc-0</string>
+			<string>Rc-1</string>
+			<string>Rc-2</string>
+			<string>Rc2-0</string>
+			<string>Rc2-1</string>
+			<string>Rc2-2</string>
+			<string>Rc2-3</string>
+			<string>Pot-0</string>
+			<string>Pot-1</string>
+			<string>Pot-2</string>
+			<string>Virtual-1</string>
+			<string>Virtual-2</string>
+			<string>Virtual-3</string>
+			<string>Virtual-4</string>
+			<string>Virtual-5</string>
+			<string>Virtual-6</string>
+			<string>Virtual-7</string>
+			<string>Virtual-8</string>
+			<string>Virtual-9</string>
+			<string>Virtual-10</string>
+			<string>Virtual-11</string>
+			<string>Virtual-12</string>
+			<string>Virtual-13</string>
+			<string>Virtual-14</string>
+			<string>Virtual-15</string>
+			<string>Virtual-16</string>
+			<string>But switch</string>
+			<string>But latch</string>
+			<string>But step</string>
+			<string>Aux-0 switch</string>
+			<string>Aux-1 switch</string>
+			<string>Aux-2 switch</string>
+			<string>Aux-01 switch</string>
+			<string>Aux-012 switch</string>
+			<string>Aux-0 latch</string>
+			<string>Aux-1 latch</string>
+			<string>Aux-2 latch</string>
+			<string>Aux-01 latch</string>
+			<string>Aux-012 latch</string>
+			<string>Aux-0 step</string>
+			<string>Aux-1 step</string>
+			<string>Aux-2 step</string>
+		</array>
+	</dict>
+	<key>Rc Roll Mode</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Roll Mode</string>
+		<key>Position</key>
+		<integer>52</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>2</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>absolute</string>
+			<string>relative</string>
+			<string>absolute centered</string>
+		</array>
+	</dict>
+	<key>Rc Roll Min</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Roll Min</string>
+		<key>Position</key>
+		<integer>54</integer>
+		<key>Type</key>
+		<string>Int16</string>
+		<key>MinValue</key>
+		<integer>-450</integer>
+		<key>MaxValue</key>
+		<integer>450</integer>
+		<key>DefaultValue</key>
+		<integer>-250</integer>
+		<key>Steps</key>
+		<integer>5</integer>
+	</dict>
+	<key>Rc Roll Max</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Roll Max</string>
+		<key>Position</key>
+		<integer>55</integer>
+		<key>Type</key>
+		<string>Int16</string>
+		<key>MinValue</key>
+		<integer>-450</integer>
+		<key>MaxValue</key>
+		<integer>450</integer>
+		<key>DefaultValue</key>
+		<integer>250</integer>
+		<key>Steps</key>
+		<integer>5</integer>
+	</dict>
+	<key>Rc Roll Speed Limit (0 = off)</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Roll Speed Limit (0 = off)</string>
+		<key>Position</key>
+		<integer>56</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>1000</integer>
+		<key>DefaultValue</key>
+		<integer>400</integer>
+		<key>Steps</key>
+		<integer>5</integer>
+	</dict>
+	<key>Rc Roll Accel Limit (0 = off)</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Roll Accel Limit (0 = off)</string>
+		<key>Position</key>
+		<integer>57</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>1000</integer>
+		<key>DefaultValue</key>
+		<integer>300</integer>
+		<key>Steps</key>
+		<integer>10</integer>
+	</dict>
+	<key>Rc Yaw</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Yaw</string>
+		<key>Position</key>
+		<integer>58</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>42</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>Rc-0</string>
+			<string>Rc-1</string>
+			<string>Rc-2</string>
+			<string>Rc2-0</string>
+			<string>Rc2-1</string>
+			<string>Rc2-2</string>
+			<string>Rc2-3</string>
+			<string>Pot-0</string>
+			<string>Pot-1</string>
+			<string>Pot-2</string>
+			<string>Virtual-1</string>
+			<string>Virtual-2</string>
+			<string>Virtual-3</string>
+			<string>Virtual-4</string>
+			<string>Virtual-5</string>
+			<string>Virtual-6</string>
+			<string>Virtual-7</string>
+			<string>Virtual-8</string>
+			<string>Virtual-9</string>
+			<string>Virtual-10</string>
+			<string>Virtual-11</string>
+			<string>Virtual-12</string>
+			<string>Virtual-13</string>
+			<string>Virtual-14</string>
+			<string>Virtual-15</string>
+			<string>Virtual-16</string>
+			<string>But switch</string>
+			<string>But latch</string>
+			<string>But step</string>
+			<string>Aux-0 switch</string>
+			<string>Aux-1 switch</string>
+			<string>Aux-2 switch</string>
+			<string>Aux-01 switch</string>
+			<string>Aux-012 switch</string>
+			<string>Aux-0 latch</string>
+			<string>Aux-1 latch</string>
+			<string>Aux-2 latch</string>
+			<string>Aux-01 latch</string>
+			<string>Aux-012 latch</string>
+			<string>Aux-0 step</string>
+			<string>Aux-1 step</string>
+			<string>Aux-2 step</string>
+		</array>
+	</dict>
+	<key>Rc Yaw Mode</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Yaw Mode</string>
+		<key>Position</key>
+		<integer>59</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>3</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>absolute</string>
+			<string>relative</string>
+			<string>absolute centered</string>
+			<string>relative turn around</string>
+		</array>
+	</dict>
+	<key>Rc Yaw Min</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Yaw Min</string>
+		<key>Position</key>
+		<integer>61</integer>
+		<key>Type</key>
+		<string>Int16</string>
+		<key>MinValue</key>
+		<integer>-2700</integer>
+		<key>MaxValue</key>
+		<integer>2700</integer>
+		<key>DefaultValue</key>
+		<integer>-250</integer>
+		<key>Steps</key>
+		<integer>10</integer>
+	</dict>
+	<key>Rc Yaw Max</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Yaw Max</string>
+		<key>Position</key>
+		<integer>62</integer>
+		<key>Type</key>
+		<string>Int16</string>
+		<key>MinValue</key>
+		<integer>-2700</integer>
+		<key>MaxValue</key>
+		<integer>2700</integer>
+		<key>DefaultValue</key>
+		<integer>250</integer>
+		<key>Steps</key>
+		<integer>10</integer>
+	</dict>
+	<key>Rc Yaw Speed Limit (0 = off)</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Yaw Speed Limit (0 = off)</string>
+		<key>Position</key>
+		<integer>63</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>1000</integer>
+		<key>DefaultValue</key>
+		<integer>400</integer>
+		<key>Steps</key>
+		<integer>5</integer>
+	</dict>
+	<key>Rc Yaw Accel Limit (0 = off)</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Yaw Accel Limit (0 = off)</string>
+		<key>Position</key>
+		<integer>64</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>1000</integer>
+		<key>DefaultValue</key>
+		<integer>300</integer>
+		<key>Steps</key>
+		<integer>10</integer>
+	</dict>
+	<key>Standby</key>
+	<dict>
+		<key>Name</key>
+		<string>Standby</string>
+		<key>Position</key>
+		<integer>70</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>42</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>Rc-0</string>
+			<string>Rc-1</string>
+			<string>Rc-2</string>
+			<string>Rc2-0</string>
+			<string>Rc2-1</string>
+			<string>Rc2-2</string>
+			<string>Rc2-3</string>
+			<string>Pot-0</string>
+			<string>Pot-1</string>
+			<string>Pot-2</string>
+			<string>Virtual-1</string>
+			<string>Virtual-2</string>
+			<string>Virtual-3</string>
+			<string>Virtual-4</string>
+			<string>Virtual-5</string>
+			<string>Virtual-6</string>
+			<string>Virtual-7</string>
+			<string>Virtual-8</string>
+			<string>Virtual-9</string>
+			<string>Virtual-10</string>
+			<string>Virtual-11</string>
+			<string>Virtual-12</string>
+			<string>Virtual-13</string>
+			<string>Virtual-14</string>
+			<string>Virtual-15</string>
+			<string>Virtual-16</string>
+			<string>But switch</string>
+			<string>But latch</string>
+			<string>But step</string>
+			<string>Aux-0 switch</string>
+			<string>Aux-1 switch</string>
+			<string>Aux-2 switch</string>
+			<string>Aux-01 switch</string>
+			<string>Aux-012 switch</string>
+			<string>Aux-0 latch</string>
+			<string>Aux-1 latch</string>
+			<string>Aux-2 latch</string>
+			<string>Aux-01 latch</string>
+			<string>Aux-012 latch</string>
+			<string>Aux-0 step</string>
+			<string>Aux-1 step</string>
+			<string>Aux-2 step</string>
+		</array>
+	</dict>
+	<key>Re-center Camera</key>
+	<dict>
+		<key>Name</key>
+		<string>Re-center Camera</string>
+		<key>Position</key>
+		<integer>76</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>42</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>Rc-0</string>
+			<string>Rc-1</string>
+			<string>Rc-2</string>
+			<string>Rc2-0</string>
+			<string>Rc2-1</string>
+			<string>Rc2-2</string>
+			<string>Rc2-3</string>
+			<string>Pot-0</string>
+			<string>Pot-1</string>
+			<string>Pot-2</string>
+			<string>Virtual-1</string>
+			<string>Virtual-2</string>
+			<string>Virtual-3</string>
+			<string>Virtual-4</string>
+			<string>Virtual-5</string>
+			<string>Virtual-6</string>
+			<string>Virtual-7</string>
+			<string>Virtual-8</string>
+			<string>Virtual-9</string>
+			<string>Virtual-10</string>
+			<string>Virtual-11</string>
+			<string>Virtual-12</string>
+			<string>Virtual-13</string>
+			<string>Virtual-14</string>
+			<string>Virtual-15</string>
+			<string>Virtual-16</string>
+			<string>But switch</string>
+			<string>But latch</string>
+			<string>But step</string>
+			<string>Aux-0 switch</string>
+			<string>Aux-1 switch</string>
+			<string>Aux-2 switch</string>
+			<string>Aux-01 switch</string>
+			<string>Aux-012 switch</string>
+			<string>Aux-0 latch</string>
+			<string>Aux-1 latch</string>
+			<string>Aux-2 latch</string>
+			<string>Aux-01 latch</string>
+			<string>Aux-012 latch</string>
+			<string>Aux-0 step</string>
+			<string>Aux-1 step</string>
+			<string>Aux-2 step</string>
+		</array>
+	</dict>
+	<key>IR Camera Control</key>
+	<dict>
+		<key>Name</key>
+		<string>IR Camera Control</string>
+		<key>Position</key>
+		<integer>71</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>42</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>Rc-0</string>
+			<string>Rc-1</string>
+			<string>Rc-2</string>
+			<string>Rc2-0</string>
+			<string>Rc2-1</string>
+			<string>Rc2-2</string>
+			<string>Rc2-3</string>
+			<string>Pot-0</string>
+			<string>Pot-1</string>
+			<string>Pot-2</string>
+			<string>Virtual-1</string>
+			<string>Virtual-2</string>
+			<string>Virtual-3</string>
+			<string>Virtual-4</string>
+			<string>Virtual-5</string>
+			<string>Virtual-6</string>
+			<string>Virtual-7</string>
+			<string>Virtual-8</string>
+			<string>Virtual-9</string>
+			<string>Virtual-10</string>
+			<string>Virtual-11</string>
+			<string>Virtual-12</string>
+			<string>Virtual-13</string>
+			<string>Virtual-14</string>
+			<string>Virtual-15</string>
+			<string>Virtual-16</string>
+			<string>But switch</string>
+			<string>But latch</string>
+			<string>But step</string>
+			<string>Aux-0 switch</string>
+			<string>Aux-1 switch</string>
+			<string>Aux-2 switch</string>
+			<string>Aux-01 switch</string>
+			<string>Aux-012 switch</string>
+			<string>Aux-0 latch</string>
+			<string>Aux-1 latch</string>
+			<string>Aux-2 latch</string>
+			<string>Aux-01 latch</string>
+			<string>Aux-012 latch</string>
+			<string>Aux-0 step</string>
+			<string>Aux-1 step</string>
+			<string>Aux-2 step</string>
+		</array>
+	</dict>
+	<key>Camera Model</key>
+	<dict>
+		<key>Name</key>
+		<string>Camera Model</string>
+		<key>Position</key>
+		<integer>72</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>3</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>Sony Nex</string>
+			<string>Canon</string>
+			<string>Panasonic</string>
+			<string>Nikon</string>
+		</array>
+	</dict>
+	<key>IR Camera Setting #1</key>
+	<dict>
+		<key>Name</key>
+		<string>IR Camera Setting #1</string>
+		<key>Position</key>
+		<integer>73</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>2</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>shutter</string>
+			<string>shutter delay</string>
+			<string>video on/off</string>
+		</array>
+	</dict>
+	<key>IR Camera Setting #2</key>
+	<dict>
+		<key>Name</key>
+		<string>IR Camera Setting #2</string>
+		<key>Position</key>
+		<integer>74</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>3</integer>
+		<key>DefaultValue</key>
+		<integer>2</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>shutter</string>
+			<string>shutter delay</string>
+			<string>video on/off</string>
+			<string>off</string>
+		</array>
+	</dict>
+	<key>Time Interval (0 = off)</key>
+	<dict>
+		<key>Name</key>
+		<string>Time Interval (0 = off)</string>
+		<key>Position</key>
+		<integer>75</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>150</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Pwm Out Control</key>
+	<dict>
+		<key>Name</key>
+		<string>Pwm Out Control</string>
+		<key>Position</key>
+		<integer>113</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>42</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>Rc-0</string>
+			<string>Rc-1</string>
+			<string>Rc-2</string>
+			<string>Rc2-0</string>
+			<string>Rc2-1</string>
+			<string>Rc2-2</string>
+			<string>Rc2-3</string>
+			<string>Pot-0</string>
+			<string>Pot-1</string>
+			<string>Pot-2</string>
+			<string>Virtual-1</string>
+			<string>Virtual-2</string>
+			<string>Virtual-3</string>
+			<string>Virtual-4</string>
+			<string>Virtual-5</string>
+			<string>Virtual-6</string>
+			<string>Virtual-7</string>
+			<string>Virtual-8</string>
+			<string>Virtual-9</string>
+			<string>Virtual-10</string>
+			<string>Virtual-11</string>
+			<string>Virtual-12</string>
+			<string>Virtual-13</string>
+			<string>Virtual-14</string>
+			<string>Virtual-15</string>
+			<string>Virtual-16</string>
+			<string>But switch</string>
+			<string>But latch</string>
+			<string>But step</string>
+			<string>Aux-0 switch</string>
+			<string>Aux-1 switch</string>
+			<string>Aux-2 switch</string>
+			<string>Aux-01 switch</string>
+			<string>Aux-012 switch</string>
+			<string>Aux-0 latch</string>
+			<string>Aux-1 latch</string>
+			<string>Aux-2 latch</string>
+			<string>Aux-01 latch</string>
+			<string>Aux-012 latch</string>
+			<string>Aux-0 step</string>
+			<string>Aux-1 step</string>
+			<string>Aux-2 step</string>
+		</array>
+	</dict>
+	<key>Pwm Out Mid</key>
+	<dict>
+		<key>Name</key>
+		<string>Pwm Out Mid</string>
+		<key>Position</key>
+		<integer>114</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>900</integer>
+		<key>MaxValue</key>
+		<integer>2100</integer>
+		<key>DefaultValue</key>
+		<integer>1500</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Pwm Out Min</key>
+	<dict>
+		<key>Name</key>
+		<string>Pwm Out Min</string>
+		<key>Position</key>
+		<integer>115</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>900</integer>
+		<key>MaxValue</key>
+		<integer>2100</integer>
+		<key>DefaultValue</key>
+		<integer>1100</integer>
+		<key>Steps</key>
+		<integer>10</integer>
+	</dict>
+	<key>Pwm Out Max</key>
+	<dict>
+		<key>Name</key>
+		<string>Pwm Out Max</string>
+		<key>Position</key>
+		<integer>116</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>900</integer>
+		<key>MaxValue</key>
+		<integer>2100</integer>
+		<key>DefaultValue</key>
+		<integer>1900</integer>
+		<key>Steps</key>
+		<integer>10</integer>
+	</dict>
+	<key>Pwm Out Speed Limit (0 = off)</key>
+	<dict>
+		<key>Name</key>
+		<string>Pwm Out Speed Limit (0 = off)</string>
+		<key>Position</key>
+		<integer>117</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>1000</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>5</integer>
+	</dict>
+	<key>Script1 Control</key>
+	<dict>
+		<key>Name</key>
+		<string>Script1 Control</string>
+		<key>Position</key>
+		<integer>120</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>42</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>Rc-0</string>
+			<string>Rc-1</string>
+			<string>Rc-2</string>
+			<string>Rc2-0</string>
+			<string>Rc2-1</string>
+			<string>Rc2-2</string>
+			<string>Rc2-3</string>
+			<string>Pot-0</string>
+			<string>Pot-1</string>
+			<string>Pot-2</string>
+			<string>Virtual-1</string>
+			<string>Virtual-2</string>
+			<string>Virtual-3</string>
+			<string>Virtual-4</string>
+			<string>Virtual-5</string>
+			<string>Virtual-6</string>
+			<string>Virtual-7</string>
+			<string>Virtual-8</string>
+			<string>Virtual-9</string>
+			<string>Virtual-10</string>
+			<string>Virtual-11</string>
+			<string>Virtual-12</string>
+			<string>Virtual-13</string>
+			<string>Virtual-14</string>
+			<string>Virtual-15</string>
+			<string>Virtual-16</string>
+			<string>But switch</string>
+			<string>But latch</string>
+			<string>But step</string>
+			<string>Aux-0 switch</string>
+			<string>Aux-1 switch</string>
+			<string>Aux-2 switch</string>
+			<string>Aux-01 switch</string>
+			<string>Aux-012 switch</string>
+			<string>Aux-0 latch</string>
+			<string>Aux-1 latch</string>
+			<string>Aux-2 latch</string>
+			<string>Aux-01 latch</string>
+			<string>Aux-012 latch</string>
+			<string>Aux-0 step</string>
+			<string>Aux-1 step</string>
+			<string>Aux-2 step</string>
+		</array>
+	</dict>
+	<key>Script2 Control</key>
+	<dict>
+		<key>Name</key>
+		<string>Script2 Control</string>
+		<key>Position</key>
+		<integer>121</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>42</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>Rc-0</string>
+			<string>Rc-1</string>
+			<string>Rc-2</string>
+			<string>Rc2-0</string>
+			<string>Rc2-1</string>
+			<string>Rc2-2</string>
+			<string>Rc2-3</string>
+			<string>Pot-0</string>
+			<string>Pot-1</string>
+			<string>Pot-2</string>
+			<string>Virtual-1</string>
+			<string>Virtual-2</string>
+			<string>Virtual-3</string>
+			<string>Virtual-4</string>
+			<string>Virtual-5</string>
+			<string>Virtual-6</string>
+			<string>Virtual-7</string>
+			<string>Virtual-8</string>
+			<string>Virtual-9</string>
+			<string>Virtual-10</string>
+			<string>Virtual-11</string>
+			<string>Virtual-12</string>
+			<string>Virtual-13</string>
+			<string>Virtual-14</string>
+			<string>Virtual-15</string>
+			<string>Virtual-16</string>
+			<string>But switch</string>
+			<string>But latch</string>
+			<string>But step</string>
+			<string>Aux-0 switch</string>
+			<string>Aux-1 switch</string>
+			<string>Aux-2 switch</string>
+			<string>Aux-01 switch</string>
+			<string>Aux-012 switch</string>
+			<string>Aux-0 latch</string>
+			<string>Aux-1 latch</string>
+			<string>Aux-2 latch</string>
+			<string>Aux-01 latch</string>
+			<string>Aux-012 latch</string>
+			<string>Aux-0 step</string>
+			<string>Aux-1 step</string>
+			<string>Aux-2 step</string>
+		</array>
+	</dict>
+	<key>Script3 Control</key>
+	<dict>
+		<key>Name</key>
+		<string>Script3 Control</string>
+		<key>Position</key>
+		<integer>122</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>42</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>Rc-0</string>
+			<string>Rc-1</string>
+			<string>Rc-2</string>
+			<string>Rc2-0</string>
+			<string>Rc2-1</string>
+			<string>Rc2-2</string>
+			<string>Rc2-3</string>
+			<string>Pot-0</string>
+			<string>Pot-1</string>
+			<string>Pot-2</string>
+			<string>Virtual-1</string>
+			<string>Virtual-2</string>
+			<string>Virtual-3</string>
+			<string>Virtual-4</string>
+			<string>Virtual-5</string>
+			<string>Virtual-6</string>
+			<string>Virtual-7</string>
+			<string>Virtual-8</string>
+			<string>Virtual-9</string>
+			<string>Virtual-10</string>
+			<string>Virtual-11</string>
+			<string>Virtual-12</string>
+			<string>Virtual-13</string>
+			<string>Virtual-14</string>
+			<string>Virtual-15</string>
+			<string>Virtual-16</string>
+			<string>But switch</string>
+			<string>But latch</string>
+			<string>But step</string>
+			<string>Aux-0 switch</string>
+			<string>Aux-1 switch</string>
+			<string>Aux-2 switch</string>
+			<string>Aux-01 switch</string>
+			<string>Aux-012 switch</string>
+			<string>Aux-0 latch</string>
+			<string>Aux-1 latch</string>
+			<string>Aux-2 latch</string>
+			<string>Aux-01 latch</string>
+			<string>Aux-012 latch</string>
+			<string>Aux-0 step</string>
+			<string>Aux-1 step</string>
+			<string>Aux-2 step</string>
+		</array>
+	</dict>
+	<key>Script4 Control</key>
+	<dict>
+		<key>Name</key>
+		<string>Script4 Control</string>
+		<key>Position</key>
+		<integer>123</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>42</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>Rc-0</string>
+			<string>Rc-1</string>
+			<string>Rc-2</string>
+			<string>Rc2-0</string>
+			<string>Rc2-1</string>
+			<string>Rc2-2</string>
+			<string>Rc2-3</string>
+			<string>Pot-0</string>
+			<string>Pot-1</string>
+			<string>Pot-2</string>
+			<string>Virtual-1</string>
+			<string>Virtual-2</string>
+			<string>Virtual-3</string>
+			<string>Virtual-4</string>
+			<string>Virtual-5</string>
+			<string>Virtual-6</string>
+			<string>Virtual-7</string>
+			<string>Virtual-8</string>
+			<string>Virtual-9</string>
+			<string>Virtual-10</string>
+			<string>Virtual-11</string>
+			<string>Virtual-12</string>
+			<string>Virtual-13</string>
+			<string>Virtual-14</string>
+			<string>Virtual-15</string>
+			<string>Virtual-16</string>
+			<string>But switch</string>
+			<string>But latch</string>
+			<string>But step</string>
+			<string>Aux-0 switch</string>
+			<string>Aux-1 switch</string>
+			<string>Aux-2 switch</string>
+			<string>Aux-01 switch</string>
+			<string>Aux-012 switch</string>
+			<string>Aux-0 latch</string>
+			<string>Aux-1 latch</string>
+			<string>Aux-2 latch</string>
+			<string>Aux-01 latch</string>
+			<string>Aux-012 latch</string>
+			<string>Aux-0 step</string>
+			<string>Aux-1 step</string>
+			<string>Aux-2 step</string>
+		</array>
+	</dict>
+	<key>Imu2 Configuration</key>
+	<dict>
+		<key>Name</key>
+		<string>Imu2 Configuration</string>
+		<key>Position</key>
+		<integer>94</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>4</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>full</string>
+			<string>full xy</string>
+			<string>full v1</string>
+			<string>full v1 xy</string>
+		</array>
+	</dict>
+	<key>Acc Compensation Method</key>
+	<dict>
+		<key>Name</key>
+		<string>Acc Compensation Method</string>
+		<key>Position</key>
+		<integer>88</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>1</integer>
+		<key>DefaultValue</key>
+		<integer>1</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>standard</string>
+			<string>advanced</string>
+		</array>
+	</dict>
+	<key>Imu AHRS</key>
+	<dict>
+		<key>Name</key>
+		<string>Imu AHRS</string>
+		<key>Position</key>
+		<integer>81</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>2500</integer>
+		<key>DefaultValue</key>
+		<integer>1000</integer>
+		<key>Steps</key>
+		<integer>100</integer>
+	</dict>
+	<key>Virtual Channel Configuration</key>
+	<dict>
+		<key>Name</key>
+		<string>Virtual Channel Configuration</string>
+		<key>Position</key>
+		<integer>41</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>10</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>sum ppm 6</string>
+			<string>sum ppm 7</string>
+			<string>sum ppm 8</string>
+			<string>sum ppm 10</string>
+			<string>sum ppm 12</string>
+			<string>spektrum 10 bit</string>
+			<string>spektrum 11 bit</string>
+			<string>sbus</string>
+			<string>hott sumd</string>
+			<string>srxl</string>
+		</array>
+	</dict>
+	<key>Pwm Out Configuration</key>
+	<dict>
+		<key>Name</key>
+		<string>Pwm Out Configuration</string>
+		<key>Position</key>
+		<integer>42</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>2</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>1520 us 55 Hz</string>
+			<string>1520 us 250 Hz</string>
+		</array>
+	</dict>
+	<key>Rc Pitch Offset</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Pitch Offset</string>
+		<key>Position</key>
+		<integer>106</integer>
+		<key>Type</key>
+		<string>Int16</string>
+		<key>MinValue</key>
+		<integer>-1200</integer>
+		<key>MaxValue</key>
+		<integer>1200</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>5</integer>
+	</dict>
+	<key>Rc Roll Offset</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Roll Offset</string>
+		<key>Position</key>
+		<integer>107</integer>
+		<key>Type</key>
+		<string>Int16</string>
+		<key>MinValue</key>
+		<integer>-1200</integer>
+		<key>MaxValue</key>
+		<integer>1200</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>5</integer>
+	</dict>
+	<key>Rc Yaw Offset</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Yaw Offset</string>
+		<key>Position</key>
+		<integer>108</integer>
+		<key>Type</key>
+		<string>Int16</string>
+		<key>MinValue</key>
+		<integer>-1200</integer>
+		<key>MaxValue</key>
+		<integer>1200</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>5</integer>
+	</dict>
+	<key>Beep with Motors</key>
+	<dict>
+		<key>Name</key>
+		<string>Beep with Motors</string>
+		<key>Position</key>
+		<integer>98</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>2</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>basic</string>
+			<string>all</string>
+		</array>
+	</dict>
+	<key>Pitch Motor Usage</key>
+	<dict>
+		<key>Name</key>
+		<string>Pitch Motor Usage</string>
+		<key>Position</key>
+		<integer>78</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>3</integer>
+		<key>DefaultValue</key>
+		<integer>3</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>normal</string>
+			<string>level</string>
+			<string>startup pos</string>
+			<string>disabled</string>
+		</array>
+	</dict>
+	<key>Roll Motor Usage</key>
+	<dict>
+		<key>Name</key>
+		<string>Roll Motor Usage</string>
+		<key>Position</key>
+		<integer>79</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>3</integer>
+		<key>DefaultValue</key>
+		<integer>3</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>normal</string>
+			<string>level</string>
+			<string>startup pos</string>
+			<string>disabled</string>
+		</array>
+	</dict>
+	<key>Yaw Motor Usage</key>
+	<dict>
+		<key>Name</key>
+		<string>Yaw Motor Usage</string>
+		<key>Position</key>
+		<integer>80</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>3</integer>
+		<key>DefaultValue</key>
+		<integer>3</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>normal</string>
+			<string>level</string>
+			<string>startup pos</string>
+			<string>disabled</string>
+		</array>
+	</dict>
+	<key>Imu Orientation</key>
+	<dict>
+		<key>Name</key>
+		<string>Imu Orientation</string>
+		<key>Position</key>
+		<integer>39</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>23</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>no.0:  z0°   x  y  z</string>
+			<string>no.1:  z90°  -y  x  z</string>
+			<string>no.2:  z180°  -x -y  z</string>
+			<string>no.3:  z270°   y -x  z</string>
+			<string>no.4:  x0°   y  z  x</string>
+			<string>no.5:  x90°  -z  y  x</string>
+			<string>no.6:  x180°  -y -z  x</string>
+			<string>no.7:  x270°   z -y  x</string>
+			<string>no.8:  y0°   z  x  y</string>
+			<string>no.9:  y90°  -x  z  y</string>
+			<string>no.10:  y180°  -z -x  y</string>
+			<string>no.11:  y270°   x -z  y</string>
+			<string>no.12:  -z0°   y  x -z</string>
+			<string>no.13:  -z90°  -x  y -z</string>
+			<string>no.14:  -z180°  -y -x -z</string>
+			<string>no.15:  -z270°   x -y -z</string>
+			<string>no.16:  -x0°   z  y -x</string>
+			<string>no.17:  -x90°  -y  z -x</string>
+			<string>no.18:  -x180°  -z -y -x</string>
+			<string>no.19:  -x270°   y -z -x</string>
+			<string>no.20:  -y0°   x  z -y</string>
+			<string>no.21:  -y90°  -z  x -y</string>
+			<string>no.22:  -y180°  -x -z -y</string>
+			<string>no.23:  -y270°   z -x -y</string>
+		</array>
+	</dict>
+	<key>Imu2 Orientation</key>
+	<dict>
+		<key>Name</key>
+		<string>Imu2 Orientation</string>
+		<key>Position</key>
+		<integer>95</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>23</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>no.0:  z0°   x  y  z</string>
+			<string>no.1:  z90°  -y  x  z</string>
+			<string>no.2:  z180°  -x -y  z</string>
+			<string>no.3:  z270°   y -x  z</string>
+			<string>no.4:  x0°   y  z  x</string>
+			<string>no.5:  x90°  -z  y  x</string>
+			<string>no.6:  x180°  -y -z  x</string>
+			<string>no.7:  x270°   z -y  x</string>
+			<string>no.8:  y0°   z  x  y</string>
+			<string>no.9:  y90°  -x  z  y</string>
+			<string>no.10:  y180°  -z -x  y</string>
+			<string>no.11:  y270°   x -z  y</string>
+			<string>no.12:  -z0°   y  x -z</string>
+			<string>no.13:  -z90°  -x  y -z</string>
+			<string>no.14:  -z180°  -y -x -z</string>
+			<string>no.15:  -z270°   x -y -z</string>
+			<string>no.16:  -x0°   z  y -x</string>
+			<string>no.17:  -x90°  -y  z -x</string>
+			<string>no.18:  -x180°  -z -y -x</string>
+			<string>no.19:  -x270°   y -z -x</string>
+			<string>no.20:  -y0°   x  z -y</string>
+			<string>no.21:  -y90°  -z  x -y</string>
+			<string>no.22:  -y180°  -x -z -y</string>
+			<string>no.23:  -y270°   z -x -y</string>
+		</array>
+	</dict>
+	<key>Pitch Motor Poles</key>
+	<dict>
+		<key>Name</key>
+		<string>Pitch Motor Poles</string>
+		<key>Position</key>
+		<integer>20</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>12</integer>
+		<key>MaxValue</key>
+		<integer>28</integer>
+		<key>DefaultValue</key>
+		<integer>14</integer>
+		<key>Steps</key>
+		<integer>2</integer>
+	</dict>
+	<key>Pitch Motor Direction</key>
+	<dict>
+		<key>Name</key>
+		<string>Pitch Motor Direction</string>
+		<key>Position</key>
+		<integer>21</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>2</integer>
+		<key>DefaultValue</key>
+		<integer>2</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>normal</string>
+			<string>reversed</string>
+			<string>auto</string>
+		</array>
+	</dict>
+	<key>Pitch Startup Motor Pos</key>
+	<dict>
+		<key>Name</key>
+		<string>Pitch Startup Motor Pos</string>
+		<key>Position</key>
+		<integer>23</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>1008</integer>
+		<key>DefaultValue</key>
+		<integer>504</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Pitch Offset</key>
+	<dict>
+		<key>Name</key>
+		<string>Pitch Offset</string>
+		<key>Position</key>
+		<integer>22</integer>
+		<key>Type</key>
+		<string>Int16</string>
+		<key>MinValue</key>
+		<integer>-300</integer>
+		<key>MaxValue</key>
+		<integer>300</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>5</integer>
+	</dict>
+	<key>Roll Motor Poles</key>
+	<dict>
+		<key>Name</key>
+		<string>Roll Motor Poles</string>
+		<key>Position</key>
+		<integer>26</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>12</integer>
+		<key>MaxValue</key>
+		<integer>28</integer>
+		<key>DefaultValue</key>
+		<integer>14</integer>
+		<key>Steps</key>
+		<integer>2</integer>
+	</dict>
+	<key>Roll Motor Direction</key>
+	<dict>
+		<key>Name</key>
+		<string>Roll Motor Direction</string>
+		<key>Position</key>
+		<integer>27</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>2</integer>
+		<key>DefaultValue</key>
+		<integer>2</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>normal</string>
+			<string>reversed</string>
+			<string>auto</string>
+		</array>
+	</dict>
+	<key>Roll Startup Motor Pos</key>
+	<dict>
+		<key>Name</key>
+		<string>Roll Startup Motor Pos</string>
+		<key>Position</key>
+		<integer>29</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>1008</integer>
+		<key>DefaultValue</key>
+		<integer>504</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Roll Offset</key>
+	<dict>
+		<key>Name</key>
+		<string>Roll Offset</string>
+		<key>Position</key>
+		<integer>28</integer>
+		<key>Type</key>
+		<string>Int16</string>
+		<key>MinValue</key>
+		<integer>-300</integer>
+		<key>MaxValue</key>
+		<integer>300</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>5</integer>
+	</dict>
+	<key>Yaw Motor Poles</key>
+	<dict>
+		<key>Name</key>
+		<string>Yaw Motor Poles</string>
+		<key>Position</key>
+		<integer>32</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>12</integer>
+		<key>MaxValue</key>
+		<integer>28</integer>
+		<key>DefaultValue</key>
+		<integer>14</integer>
+		<key>Steps</key>
+		<integer>2</integer>
+	</dict>
+	<key>Yaw Motor Direction</key>
+	<dict>
+		<key>Name</key>
+		<string>Yaw Motor Direction</string>
+		<key>Position</key>
+		<integer>33</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>2</integer>
+		<key>DefaultValue</key>
+		<integer>2</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>normal</string>
+			<string>reversed</string>
+			<string>auto</string>
+		</array>
+	</dict>
+	<key>Yaw Startup Motor Pos</key>
+	<dict>
+		<key>Name</key>
+		<string>Yaw Startup Motor Pos</string>
+		<key>Position</key>
+		<integer>35</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>1008</integer>
+		<key>DefaultValue</key>
+		<integer>504</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Yaw Offset</key>
+	<dict>
+		<key>Name</key>
+		<string>Yaw Offset</string>
+		<key>Position</key>
+		<integer>34</integer>
+		<key>Type</key>
+		<string>Int16</string>
+		<key>MinValue</key>
+		<integer>-300</integer>
+		<key>MaxValue</key>
+		<integer>300</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>5</integer>
+	</dict>
+	<key>Acc LPF</key>
+	<dict>
+		<key>Name</key>
+		<string>Acc LPF</string>
+		<key>Position</key>
+		<integer>85</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>6</integer>
+		<key>DefaultValue</key>
+		<integer>2</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>1.5 ms</string>
+			<string>4.5 ms</string>
+			<string>12 ms</string>
+			<string>25 ms</string>
+			<string>50 ms</string>
+			<string>100 ms</string>
+		</array>
+	</dict>
+	<key>Imu DLPF</key>
+	<dict>
+		<key>Name</key>
+		<string>Imu DLPF</string>
+		<key>Position</key>
+		<integer>86</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>6</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>256 Hz</string>
+			<string>188 Hz</string>
+			<string>98 Hz</string>
+			<string>42 Hz</string>
+			<string>20 Hz</string>
+			<string>10 Hz</string>
+			<string>5 Hz</string>
+		</array>
+	</dict>
+	<key>Rc Adc LPF</key>
+	<dict>
+		<key>Name</key>
+		<string>Rc Adc LPF</string>
+		<key>Position</key>
+		<integer>96</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>6</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>1.5 ms</string>
+			<string>4.5 ms</string>
+			<string>12 ms</string>
+			<string>25 ms</string>
+			<string>50 ms</string>
+			<string>100 ms</string>
+		</array>
+	</dict>
+	<key>Hold To Pan Transition Time</key>
+	<dict>
+		<key>Name</key>
+		<string>Hold To Pan Transition Time</string>
+		<key>Position</key>
+		<integer>87</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>1000</integer>
+		<key>DefaultValue</key>
+		<integer>250</integer>
+		<key>Steps</key>
+		<integer>25</integer>
+	</dict>
+	<key>Imu Acc Threshold (0 = off)</key>
+	<dict>
+		<key>Name</key>
+		<string>Imu Acc Threshold (0 = off)</string>
+		<key>Position</key>
+		<integer>84</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>100</integer>
+		<key>DefaultValue</key>
+		<integer>25</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Acc Noise Level</key>
+	<dict>
+		<key>Name</key>
+		<string>Acc Noise Level</string>
+		<key>Position</key>
+		<integer>89</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>150</integer>
+		<key>DefaultValue</key>
+		<integer>40</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Acc Threshold (0 = off)</key>
+	<dict>
+		<key>Name</key>
+		<string>Acc Threshold (0 = off)</string>
+		<key>Position</key>
+		<integer>90</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>100</integer>
+		<key>DefaultValue</key>
+		<integer>50</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Acc Vertical Weight</key>
+	<dict>
+		<key>Name</key>
+		<string>Acc Vertical Weight</string>
+		<key>Position</key>
+		<integer>91</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>100</integer>
+		<key>DefaultValue</key>
+		<integer>25</integer>
+		<key>Steps</key>
+		<integer>5</integer>
+	</dict>
+	<key>Acc Zentrifugal Correction</key>
+	<dict>
+		<key>Name</key>
+		<string>Acc Zentrifugal Correction</string>
+		<key>Position</key>
+		<integer>92</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>100</integer>
+		<key>DefaultValue</key>
+		<integer>30</integer>
+		<key>Steps</key>
+		<integer>5</integer>
+	</dict>
+	<key>Acc Recover Time</key>
+	<dict>
+		<key>Name</key>
+		<string>Acc Recover Time</string>
+		<key>Position</key>
+		<integer>93</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>1000</integer>
+		<key>DefaultValue</key>
+		<integer>250</integer>
+		<key>Steps</key>
+		<integer>5</integer>
+	</dict>
+	<key>Motor Mapping</key>
+	<dict>
+		<key>Name</key>
+		<string>Motor Mapping</string>
+		<key>Position</key>
+		<integer>40</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>5</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>M0=pitch , M1=roll</string>
+			<string>M0=roll , M1=pitch</string>
+			<string>roll yaw pitch</string>
+			<string>yaw roll pitch</string>
+			<string>pitch yaw roll</string>
+			<string>yaw pitch roll</string>
+		</array>
+	</dict>
+	<key>Imu Mapping</key>
+	<dict>
+		<key>Name</key>
+		<string>Imu Mapping</string>
+		<key>Position</key>
+		<integer>109</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>1</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>1=IC2 , 2=IC2#2</string>
+			<string>1=IC2#2 , 2=IC2</string>
+		</array>
+	</dict>
+	<key>ADC Calibration</key>
+	<dict>
+		<key>Name</key>
+		<string>ADC Calibration</string>
+		<key>Position</key>
+		<integer>101</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>1000</integer>
+		<key>MaxValue</key>
+		<integer>2000</integer>
+		<key>DefaultValue</key>
+		<integer>1550</integer>
+		<key>Steps</key>
+		<integer>10</integer>
+	</dict>
+	<key>NT Logging</key>
+	<dict>
+		<key>Name</key>
+		<string>NT Logging</string>
+		<key>Position</key>
+		<integer>77</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>7</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>off</string>
+			<string>basic</string>
+			<string>basic + pid</string>
+			<string>basic + accgyro</string>
+			<string>basic + accgyro_raw</string>
+			<string>basic + pid + accgyro</string>
+			<string>basic + pid + ag_raw</string>
+			<string>full</string>
+		</array>
+	</dict>
+	<key>Imu3 Configuration</key>
+	<dict>
+		<key>Name</key>
+		<string>Imu3 Configuration</string>
+		<key>Position</key>
+		<integer>38</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>2</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>none</string>
+			<string>none, Imu2=on-board</string>
+			<string>Imu3 = NT Imu2</string>
+			<string>Imu3 = on-board Imu2</string>
+		</array>
+	</dict>
+	<key>Imu3 Orientation</key>
+	<dict>
+		<key>Name</key>
+		<string>Imu3 Orientation</string>
+		<key>Position</key>
+		<integer>83</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>23</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>no.0:  z0°   x  y  z</string>
+			<string>no.1:  z90°  -y  x  z</string>
+			<string>no.2:  z180°  -x -y  z</string>
+			<string>no.3:  z270°   y -x  z</string>
+			<string>no.4:  x0°   y  z  x</string>
+			<string>no.5:  x90°  -z  y  x</string>
+			<string>no.6:  x180°  -y -z  x</string>
+			<string>no.7:  x270°   z -y  x</string>
+			<string>no.8:  y0°   z  x  y</string>
+			<string>no.9:  y90°  -x  z  y</string>
+			<string>no.10:  y180°  -z -x  y</string>
+			<string>no.11:  y270°   x -z  y</string>
+			<string>no.12:  -z0°   y  x -z</string>
+			<string>no.13:  -z90°  -x  y -z</string>
+			<string>no.14:  -z180°  -y -x -z</string>
+			<string>no.15:  -z270°   x -y -z</string>
+			<string>no.16:  -x0°   z  y -x</string>
+			<string>no.17:  -x90°  -y  z -x</string>
+			<string>no.18:  -x180°  -z -y -x</string>
+			<string>no.19:  -x270°   y -z -x</string>
+			<string>no.20:  -y0°   x  z -y</string>
+			<string>no.21:  -y90°  -z  x -y</string>
+			<string>no.22:  -y180°  -x -z -y</string>
+			<string>no.23:  -y270°   z -x -y</string>
+		</array>
+	</dict>
+	<key>Mavlink Configuration</key>
+	<dict>
+		<key>Name</key>
+		<string>Mavlink Configuration</string>
+		<key>Position</key>
+		<integer>112</integer>
+		<key>Type</key>
+		<string>OptionList</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>2</integer>
+		<key>DefaultValue</key>
+		<integer>0</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+		<key>Options</key>
+		<array>
+			<string>no heartbeat</string>
+			<string>emit heartbeat</string>
+			<string>heartbeat + attitude</string>
+		</array>
+	</dict>
+	<key>Mavlink System ID</key>
+	<dict>
+		<key>Name</key>
+		<string>Mavlink System ID</string>
+		<key>Position</key>
+		<integer>110</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>255</integer>
+		<key>DefaultValue</key>
+		<integer>71</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+	<key>Mavlink Component ID</key>
+	<dict>
+		<key>Name</key>
+		<string>Mavlink Component ID</string>
+		<key>Position</key>
+		<integer>111</integer>
+		<key>Type</key>
+		<string>UInt16</string>
+		<key>MinValue</key>
+		<integer>0</integer>
+		<key>MaxValue</key>
+		<integer>255</integer>
+		<key>DefaultValue</key>
+		<integer>67</integer>
+		<key>Steps</key>
+		<integer>1</integer>
+	</dict>
+</dict>
+</plist>

@@ -30,15 +30,15 @@ class RealtimeViewController: NSViewController {
     var currentZoomLevel = 0
     
     override func viewDidLoad() {
-        graphViewLabel.stringValue = "Pitch / Roll / Yaw"
+        graphViewLabel.stringValue = "Pitch / Roll / Yaw (y = 180°,-180°)"
         graphView.yRangeMax = zoomLevels[currentZoomLevel][0]
         graphView.yRangeMin = zoomLevels[currentZoomLevel][1]
 
-        graphView2Label.stringValue = "R x,y,z"
+        graphView2Label.stringValue = "R x,y,z (y = 10000/-10000)"
         graphView2.yRangeMax = 10000
         graphView2.yRangeMin = -10000
 
-        graphView3Label.stringValue = "Control P/R/Y"
+        graphView3Label.stringValue = "Control P/R/Y (y = 30°,-30°)"
         graphView3.yRangeMax = 30
         graphView3.yRangeMin = -30
     }
@@ -63,34 +63,38 @@ class RealtimeViewController: NSViewController {
         }
         graphView.yRangeMax = zoomLevels[currentZoomLevel][0]
         graphView.yRangeMin = zoomLevels[currentZoomLevel][1]
+        graphViewLabel.stringValue = "Pitch / Roll / Yaw (y = \(zoomLevels[currentZoomLevel][0])°,-\(zoomLevels[currentZoomLevel][1])°)"
 
     }
 }
 
 extension RealtimeViewController: Storm32BGCRealtimeData {
-    func updateData(data: Storm32Data) {
+    func updateData(data storm32Data: Storm32Data?) {
+        guard let data = storm32Data else {
+            return
+        }
+        
         self.representedObject = data
         cycleTimeValue.intValue = Int32(data.getUInt16ValueFor(index: .CycleTime))
         millisValue.intValue = Int32(data.getUInt16ValueFor(index: .Millis))
         
         let currrentMillis = Float(data.getUInt16ValueFor(index: .Millis))
         
-        let value = Float(data.getInt16ValueFor(index: .Pitch)) / 100.0
-        let value2 = Float(data.getInt16ValueFor(index: .Roll)) / 100.0
-        let value3 = Float(data.getInt16ValueFor(index: .Yaw)) / 100.0
+        let value = data.getFloatValueFor(index: .Pitch) / 100.0
+        let value2 = data.getFloatValueFor(index: .Roll) / 100.0
+        let value3 = data.getFloatValueFor(index: .Yaw) / 100.0
         graphView.append(values: [currrentMillis, value, value2, value3])
         graphView.updateView()
 
-        let rx = Float(data.getInt16ValueFor(index: .Rx))
-        let ry = Float(data.getInt16ValueFor(index: .Ry))
-        let rz = Float(data.getInt16ValueFor(index: .Rz))
+        let rx = data.getFloatValueFor(index: .Rx)
+        let ry = data.getFloatValueFor(index: .Ry)
+        let rz = data.getFloatValueFor(index: .Rz)
         graphView2.append(values: [currrentMillis, rx, ry, rz])
-        // print("Appending R \(rx),\(ry),\(rz)")
         graphView2.updateView()
 
-        let cntrlPitch = Float(data.getInt16ValueFor(index: .PitchCntrl)) / 100.0
-        let cntrlRoll = Float(data.getInt16ValueFor(index: .RollCntrl)) / 100.0
-        let cntrlYaw = Float(data.getInt16ValueFor(index: .YawCntrl)) / 100.0
+        let cntrlPitch = data.getFloatValueFor(index: .PitchCntrl) / 100.0
+        let cntrlRoll = data.getFloatValueFor(index: .RollCntrl) / 100.0
+        let cntrlYaw = data.getFloatValueFor(index: .YawCntrl) / 100.0
         graphView3.append(values: [currrentMillis, cntrlPitch, cntrlRoll, cntrlYaw])
         graphView3.updateView()
     }

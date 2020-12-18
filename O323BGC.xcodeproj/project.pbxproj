@@ -38,9 +38,21 @@
 		9A55F9D3258133DC00B6743A /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F9D2258133DC00B6743A /* StatusView.swift */; };
 		9A55F9DB258134BF00B6743A /* UInt16+Bits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F9DA258134BF00B6743A /* UInt16+Bits.swift */; };
 		9A55F9E0258134ED00B6743A /* StatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A55F9DF258134ED00B6743A /* StatusView.xib */; };
+		9A6021862586740B0094BD31 /* ParameterOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6021852586740B0094BD31 /* ParameterOverviewViewController.swift */; };
+		9A6021952587BA9E0094BD31 /* Storm32ParametersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6021942587BA9E0094BD31 /* Storm32ParametersTests.swift */; };
+		9A60219B2587C8970094BD31 /* parameters.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A60219A2587C8970094BD31 /* parameters.plist */; };
 		9A9C12FB2583749F0006E2F3 /* BoolToStatusImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C12FA2583749F0006E2F3 /* BoolToStatusImageTransformer.swift */; };
 		9AD63E682584E4A800FA21EC /* RealtimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD63E672584E4A800FA21EC /* RealtimeViewController.swift */; };
 		9AD9FF23258390030018C065 /* Storm32Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD9FF22258390030018C065 /* Storm32Data.swift */; };
+		9AEE91B0258A7146004A44C3 /* PidParametersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE91AF258A7146004A44C3 /* PidParametersViewController.swift */; };
+		9AEE91B5258A985E004A44C3 /* SimplifiedPidViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE91B4258A985E004A44C3 /* SimplifiedPidViewController.swift */; };
+		9AEE91BA258A9EE0004A44C3 /* PidModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE91B9258A9EE0004A44C3 /* PidModel.swift */; };
+		9AEE91BF258AB271004A44C3 /* S32Parameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE91BE258AB271004A44C3 /* S32Parameter.swift */; };
+		9AEE91C4258AB2F7004A44C3 /* S32NumericParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE91C3258AB2F7004A44C3 /* S32NumericParameter.swift */; };
+		9AEE91C9258AB33D004A44C3 /* S32StringParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE91C8258AB33D004A44C3 /* S32StringParameter.swift */; };
+		9AEE91D6258AB568004A44C3 /* S32ParameterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE91D5258AB568004A44C3 /* S32ParameterController.swift */; };
+		9AEE91DB258B6913004A44C3 /* S32ParameterControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE91DA258B6913004A44C3 /* S32ParameterControllerTests.swift */; };
+		9AEE91E6258B96D5004A44C3 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE91E5258B96D5004A44C3 /* MainTabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,9 +111,21 @@
 		9A55F9D2258133DC00B6743A /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		9A55F9DA258134BF00B6743A /* UInt16+Bits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt16+Bits.swift"; sourceTree = "<group>"; };
 		9A55F9DF258134ED00B6743A /* StatusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusView.xib; sourceTree = "<group>"; };
+		9A6021852586740B0094BD31 /* ParameterOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterOverviewViewController.swift; sourceTree = "<group>"; };
+		9A6021942587BA9E0094BD31 /* Storm32ParametersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storm32ParametersTests.swift; sourceTree = "<group>"; };
+		9A60219A2587C8970094BD31 /* parameters.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = parameters.plist; sourceTree = "<group>"; };
 		9A9C12FA2583749F0006E2F3 /* BoolToStatusImageTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolToStatusImageTransformer.swift; sourceTree = "<group>"; };
 		9AD63E672584E4A800FA21EC /* RealtimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeViewController.swift; sourceTree = "<group>"; };
 		9AD9FF22258390030018C065 /* Storm32Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storm32Data.swift; sourceTree = "<group>"; };
+		9AEE91AF258A7146004A44C3 /* PidParametersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PidParametersViewController.swift; sourceTree = "<group>"; };
+		9AEE91B4258A985E004A44C3 /* SimplifiedPidViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplifiedPidViewController.swift; sourceTree = "<group>"; };
+		9AEE91B9258A9EE0004A44C3 /* PidModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PidModel.swift; sourceTree = "<group>"; };
+		9AEE91BE258AB271004A44C3 /* S32Parameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S32Parameter.swift; sourceTree = "<group>"; };
+		9AEE91C3258AB2F7004A44C3 /* S32NumericParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S32NumericParameter.swift; sourceTree = "<group>"; };
+		9AEE91C8258AB33D004A44C3 /* S32StringParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S32StringParameter.swift; sourceTree = "<group>"; };
+		9AEE91D5258AB568004A44C3 /* S32ParameterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S32ParameterController.swift; sourceTree = "<group>"; };
+		9AEE91DA258B6913004A44C3 /* S32ParameterControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S32ParameterControllerTests.swift; sourceTree = "<group>"; };
+		9AEE91E5258B96D5004A44C3 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +200,8 @@
 				9A55F9A3257F9AC100B6743A /* X25CRCTests.swift */,
 				9A55F914257D792800B6743A /* Info.plist */,
 				9A55F9C92580F87900B6743A /* ExtensionsTests.swift */,
+				9A6021942587BA9E0094BD31 /* Storm32ParametersTests.swift */,
+				9AEE91DA258B6913004A44C3 /* S32ParameterControllerTests.swift */,
 			);
 			path = O323BGCTests;
 			sourceTree = "<group>";
@@ -195,6 +221,7 @@
 				9A55F937257E1D0900B6743A /* SerialPort.swift */,
 				9A55F965257E55E800B6743A /* MenuItem.swift */,
 				9A55F96A257E567200B6743A /* MenuItemFactory.swift */,
+				9AEE91B9258A9EE0004A44C3 /* PidModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,6 +235,10 @@
 				9A55F9B72580126100B6743A /* DashboardViewController.swift */,
 				9A3B1AD525836E210074DB9B /* AxisDashboardViewController.swift */,
 				9AD63E672584E4A800FA21EC /* RealtimeViewController.swift */,
+				9A6021852586740B0094BD31 /* ParameterOverviewViewController.swift */,
+				9AEE91AF258A7146004A44C3 /* PidParametersViewController.swift */,
+				9AEE91B4258A985E004A44C3 /* SimplifiedPidViewController.swift */,
+				9AEE91E5258B96D5004A44C3 /* MainTabViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -234,6 +265,11 @@
 				9A3B1AC8258278360074DB9B /* Storm32BGCController.swift */,
 				9A3B1ACD258280BC0074DB9B /* Storm32BGCStatusDelegate.swift */,
 				9AD9FF22258390030018C065 /* Storm32Data.swift */,
+				9A60219A2587C8970094BD31 /* parameters.plist */,
+				9AEE91BE258AB271004A44C3 /* S32Parameter.swift */,
+				9AEE91C3258AB2F7004A44C3 /* S32NumericParameter.swift */,
+				9AEE91C8258AB33D004A44C3 /* S32StringParameter.swift */,
+				9AEE91D5258AB568004A44C3 /* S32ParameterController.swift */,
 			);
 			path = Engines;
 			sourceTree = "<group>";
@@ -369,6 +405,7 @@
 			files = (
 				9A55F9E0258134ED00B6743A /* StatusView.xib in Resources */,
 				9A55F904257D792700B6743A /* Assets.xcassets in Resources */,
+				9A60219B2587C8970094BD31 /* parameters.plist in Resources */,
 				9A55F907257D792700B6743A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +437,7 @@
 				9A55F9B82580126100B6743A /* DashboardViewController.swift in Sources */,
 				9A55F938257E1D0900B6743A /* SerialPort.swift in Sources */,
 				9A55F961257E509E00B6743A /* MenuViewController.swift in Sources */,
+				9AEE91C4258AB2F7004A44C3 /* S32NumericParameter.swift in Sources */,
 				9AD9FF23258390030018C065 /* Storm32Data.swift in Sources */,
 				9A3B1ABC258167510074DB9B /* ControllerModel.swift in Sources */,
 				9A55F953257E3F9300B6743A /* MainSplitViewController.swift in Sources */,
@@ -409,13 +447,21 @@
 				9A55F99F257F781A00B6743A /* X25CRC.swift in Sources */,
 				9A3B1AC42581F8DE0074DB9B /* Storm32BGCSimulator.swift in Sources */,
 				9A55F952257E3F9300B6743A /* MainWindowController.swift in Sources */,
+				9A6021862586740B0094BD31 /* ParameterOverviewViewController.swift in Sources */,
+				9AEE91E6258B96D5004A44C3 /* MainTabViewController.swift in Sources */,
 				9A55F92F257D7A1800B6743A /* Serial.swift in Sources */,
+				9AEE91C9258AB33D004A44C3 /* S32StringParameter.swift in Sources */,
 				9A55F900257D792500B6743A /* AppDelegate.swift in Sources */,
 				9A55F9D3258133DC00B6743A /* StatusView.swift in Sources */,
 				9A55F9C02580F5FA00B6743A /* Status.swift in Sources */,
 				9AD63E682584E4A800FA21EC /* RealtimeViewController.swift in Sources */,
+				9AEE91BF258AB271004A44C3 /* S32Parameter.swift in Sources */,
+				9AEE91B0258A7146004A44C3 /* PidParametersViewController.swift in Sources */,
+				9AEE91BA258A9EE0004A44C3 /* PidModel.swift in Sources */,
 				9A2325F3258548020046CAC3 /* GraphView.swift in Sources */,
+				9AEE91D6258AB568004A44C3 /* S32ParameterController.swift in Sources */,
 				9A3B1AC9258278360074DB9B /* Storm32BGCController.swift in Sources */,
+				9AEE91B5258A985E004A44C3 /* SimplifiedPidViewController.swift in Sources */,
 				9A55F9DB258134BF00B6743A /* UInt16+Bits.swift in Sources */,
 				9A55F979257E6F8200B6743A /* Notification+Name.swift in Sources */,
 				9A55F9B0257FBBA500B6743A /* HexPrint.swift in Sources */,
@@ -428,6 +474,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A6021952587BA9E0094BD31 /* Storm32ParametersTests.swift in Sources */,
+				9AEE91DB258B6913004A44C3 /* S32ParameterControllerTests.swift in Sources */,
 				9A55F9A4257F9AC100B6743A /* X25CRCTests.swift in Sources */,
 				9A55F9CA2580F87900B6743A /* ExtensionsTests.swift in Sources */,
 				9A55F913257D792800B6743A /* O323BGCTests.swift in Sources */,

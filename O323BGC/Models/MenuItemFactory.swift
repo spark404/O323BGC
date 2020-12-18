@@ -12,9 +12,14 @@ final class MenuItemFactory {
         return [
             .init(name: "Dashboard"),
             .init(name: "Dataview"),
-            .init(name: "Parameters", children: [
-                .init(name: "Test")
-            ])
+            .init(
+                name: "Parameters",
+                children: [
+                .init(name: "PID"),
+                .init(name: "All Parameters")
+                ],
+                selectable: false
+            )
         ]
     }
 }

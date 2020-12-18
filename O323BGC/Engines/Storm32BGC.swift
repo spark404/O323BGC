@@ -8,8 +8,9 @@
 import Foundation
 
 class Storm32BGC: NSObject {
-    let fileDescriptor: Int32
-    let serial = Serial()
+    private let fileDescriptor: Int32
+    private let serial = Serial()
+    private let serialQueue = DispatchQueue(label: "Serial Queue")
     
     init(fileDescriptor: Int32) {
         self.fileDescriptor = fileDescriptor
@@ -120,38 +121,43 @@ class Storm32BGC: NSObject {
     
     // my $CMD_g_PARAMETER_ZAHL= 125; #number of values transmitted with a 'g' get data command
     // my $SCRIPTSIZE= 128;
-    func getParameters() -> String? {
+    func getRawParameters() -> Data? {
         guard fileDescriptor > 0 else {
             return nil
         }
         
-        if sendCommand(command: "g") < 0 {
-            return nil
-        }
+        return serialQueue.sync {
+            if sendCommand(command: "g") < 0 {
+                return nil
+            }
 
-        guard let buffer = readReponse(length: 125 * 2 + 128 + 2 + 1) else {
-            return nil
-        }
+            guard let buffer = readReponse(length: 125 * 2 + 128 + 2 + 1) else {
+                return nil
+            }
 
-        return "ok"
+            let dataLength = buffer.count - 3
+            return buffer[0...dataLength-1]
+        }
     }
-    
+        
     // my $CMD_s_PARAMETER_ZAHL= 5; #number of values transmitted with a 's' get data command
     func getStatus() -> Status? {
         guard fileDescriptor > 0 else {
             return nil
         }
         
-        if sendCommand(command: "s") < 0 {
-            return nil
-        }
+        return serialQueue.sync {
+            if sendCommand(command: "s") < 0 {
+                return nil
+            }
 
-        guard let buffer = readReponse(length: 5 * 2 + 2 + 1) else {
-            return nil
-        }
+            guard let buffer = readReponse(length: 5 * 2 + 2 + 1) else {
+                return nil
+            }
 
-        let dataLength = buffer.count - 3
-        return Status(data: buffer[0...dataLength-1])
+            let dataLength = buffer.count - 3
+            return Status(data: buffer[0...dataLength-1])
+        }
     }
     
     // my $CMD_d_PARAMETER_ZAHL= 32; #number of values transmitted with a 'd' get data command
@@ -160,16 +166,18 @@ class Storm32BGC: NSObject {
             return nil
         }
         
-        if sendCommand(command: "d") < 0 {
-            return nil
-        }
+        return serialQueue.sync {
+            if sendCommand(command: "d") < 0 {
+                return nil
+            }
 
-        guard let buffer = readReponse(length: 32 * 2 + 2 + 1) else {
-            return nil
-        }
+            guard let buffer = readReponse(length: 32 * 2 + 2 + 1) else {
+                return nil
+            }
 
-        let dataLength = buffer.count - 3
-        return Storm32Data(data: buffer[0...dataLength-1])
+            let dataLength = buffer.count - 3
+            return Storm32Data(data: buffer[0...dataLength-1])
+        }
     }
     
     // send command 'xx'
@@ -178,12 +186,13 @@ class Storm32BGC: NSObject {
         guard fileDescriptor > 0 else {
             return
         }
-        
-        if sendCommand(command: "xx") < 0 {
-            print("Failed to send reset")
+        serialQueue.sync {
+            if sendCommand(command: "xx") < 0 {
+                print("Failed to send reset")
+            }
+            
+            _ = validateResponse(length: 1)
         }
-        
-        validateResponse(length: 1)
     }
     
     func calibrateRcTrim() {

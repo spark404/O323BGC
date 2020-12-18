@@ -10,7 +10,6 @@
                 <outlet property="contentView" destination="c22-O7-iKe" id="26v-Cv-qsl"/>
                 <outlet property="statusImageView" destination="cZb-KS-2on" id="Jp6-YF-tZl"/>
                 <outlet property="statusItemField" destination="3gV-bu-dye" id="ubZ-sV-rnn"/>
-                <outlet property="statusItemName" destination="pmV-9K-1rq" id="fS0-kC-9DJ"/>
                 <outlet property="statusLabelView" destination="YBz-Cw-mPr" id="ZJx-BV-86E"/>
             </connections>
         </customObject>

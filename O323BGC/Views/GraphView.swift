@@ -138,7 +138,11 @@ class GraphView: NSView {
             // Set up the points line
             let graphPath = NSBezierPath()
 
+            // Go to start of line
             graphPath.move(to: CGPoint(x: columnXPoint(0), y: columnYPoint(graphPoints[0][line])))
+                
+            // Add points for each item in the graphPoints array
+            // at the correct (x, y) for the point
             for i in 1..<graphPoints.count {
               let nextPoint = CGPoint(x: columnXPoint(i), y: columnYPoint(graphPoints[i][line]))
               graphPath.line(to: nextPoint)

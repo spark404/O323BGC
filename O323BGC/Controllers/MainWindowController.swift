@@ -11,8 +11,22 @@ import Cocoa
 
 class MainWindowController: NSWindowController {
     @objc dynamic var serialPorts: [SerialPort] = [SerialPort]()
-    @objc dynamic var selection: SerialPort? = nil
+    @objc dynamic var selection: String? = nil
+    
+    // Toolbar outlets
     @IBOutlet weak var connectButton: NSButton!
+    
+    private var storm32Controller: Storm32BGCController
+    
+    init() {
+        storm32Controller = Storm32BGCController()
+        super.init(window: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        storm32Controller = Storm32BGCController()
+        super.init(coder: coder)
+    }
     
     override func windowDidLoad() {
         let nc = NotificationCenter.default
@@ -39,8 +53,15 @@ class MainWindowController: NSWindowController {
         } while (device != 0)
         
         serialPorts.append(SerialPort(path: "simulator"))
+        
+        guard let mainController = contentViewController as? MainSplitViewController else {
+            fatalError("Something horribly wrong here")
+        }
+        
+        mainController.storm32Controller = storm32Controller
+        mainController.storm32BGCDataSource = storm32Controller
     }
-    
+        
     @IBAction func toggle(sender: Any) {
         guard let button = sender as? NSButton else {
             return
@@ -48,20 +69,34 @@ class MainWindowController: NSWindowController {
         
         button.isEnabled = false
         if (button.title == "Connect") {
-            NotificationCenter.default.post(name: .connectSerial, object: selection)
+            guard let selectedPort = selection else {
+                return
+            }
+            
+            guard !storm32Controller.connected else {
+                return
+            }
+            
+            if storm32Controller.connect(devicePath: selectedPort) {
+                connectButton.title = "Disconnect"
+                connectButton.isEnabled = true
+            } else {
+                connectButton.title = "Connect"
+                connectButton.isEnabled = true
+            }
+            
         } else {
-            NotificationCenter.default.post(name: .disconnectSerial, object: selection)
+            storm32Controller.disconnect()
+            
+            connectButton.title = "Connect"
+            connectButton.isEnabled = true
         }
     }
     
     @objc func onConnect(notification: NSNotification) {
-        connectButton.title = "Disconnect"
-        connectButton.isEnabled = true
     }
     
     @objc func onDisconnect(notification: NSNotification) {
-        connectButton.title = "Connect"
-        connectButton.isEnabled = true
     }
     
     

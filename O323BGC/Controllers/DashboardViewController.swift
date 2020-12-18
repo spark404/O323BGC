@@ -29,7 +29,7 @@ class DashboardViewController: NSViewController {
     
     override func viewDidLoad() {
     }
-    
+        
     override var representedObject: Any? {
         didSet {
             // Update the view, if already loaded.
@@ -111,3 +111,12 @@ class DashboardViewController: NSViewController {
     }
 }
 
+extension DashboardViewController: Storm32BGCStatusObserver {
+    func storm32BGCController(_ controller: Storm32BGCController, statusUpdated status: Status) {
+        print("Status update")
+        if let v = controller.version, let s = controller.status {
+            representedObject =  ControllerModel(version: v, status: s)
+        }
+
+    }
+}

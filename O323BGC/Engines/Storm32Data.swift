@@ -65,4 +65,15 @@ public class Storm32Data: NSObject {
     public func getInt16ValueFor(index: Storm32DataIndex) -> Int16 {
         return Int16(bitPattern: values[index.rawValue])
     }
+    
+    // This function returns the value as float
+    // It also knows about signed vs unsigned values
+    public func getFloatValueFor(index: Storm32DataIndex) -> Float {
+        if (index.rawValue >= 0 && index.rawValue <= 6 || index == .AccConfidence) {
+            // These values are unsigned
+            return Float(getUInt16ValueFor(index: index))
+        } else {
+            return Float(getInt16ValueFor(index: index))
+        }
+    }
 }

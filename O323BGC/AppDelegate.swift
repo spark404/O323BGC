@@ -10,15 +10,13 @@ import Cocoa
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    @IBInspectable @objc dynamic var availablePorts: [SerialPort]?
-    
     override init() {
         super.init()
         ValueTransformer.setValueTransformer(BoolToStatusImageTransformer(), forName: .boolToStatusImageTransformerName)
     }
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        // Insert code here to initialize your application        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
