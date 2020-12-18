@@ -11,7 +11,6 @@
 		9A3B1ABC258167510074DB9B /* ControllerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1ABB258167510074DB9B /* ControllerModel.swift */; };
 		9A3B1AC42581F8DE0074DB9B /* Storm32BGCSimulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1AC32581F8DE0074DB9B /* Storm32BGCSimulator.swift */; };
 		9A3B1AC9258278360074DB9B /* Storm32BGCController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1AC8258278360074DB9B /* Storm32BGCController.swift */; };
-		9A3B1ACE258280BC0074DB9B /* Storm32BGCStatusDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1ACD258280BC0074DB9B /* Storm32BGCStatusDelegate.swift */; };
 		9A3B1AD625836E210074DB9B /* AxisDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3B1AD525836E210074DB9B /* AxisDashboardViewController.swift */; };
 		9A55F900257D792500B6743A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F8FF257D792500B6743A /* AppDelegate.swift */; };
 		9A55F904257D792700B6743A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A55F903257D792700B6743A /* Assets.xcassets */; };
@@ -76,7 +75,6 @@
 		9A3B1ABB258167510074DB9B /* ControllerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerModel.swift; sourceTree = "<group>"; };
 		9A3B1AC32581F8DE0074DB9B /* Storm32BGCSimulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storm32BGCSimulator.swift; sourceTree = "<group>"; };
 		9A3B1AC8258278360074DB9B /* Storm32BGCController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storm32BGCController.swift; sourceTree = "<group>"; };
-		9A3B1ACD258280BC0074DB9B /* Storm32BGCStatusDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storm32BGCStatusDelegate.swift; sourceTree = "<group>"; };
 		9A3B1AD525836E210074DB9B /* AxisDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AxisDashboardViewController.swift; sourceTree = "<group>"; };
 		9A55F8FC257D792500B6743A /* O323BGC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = O323BGC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A55F8FF257D792500B6743A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -177,7 +175,7 @@
 				9A9C12F9258374780006E2F3 /* ValueTransformers */,
 				9A55F9D1258133BC00B6743A /* Views */,
 				9A55F9AE257FBB8B00B6743A /* Utility */,
-				9A55F97D257E810C00B6743A /* Engines */,
+				9A55F97D257E810C00B6743A /* LogicControllers */,
 				9A55F903257D792700B6743A /* Assets.xcassets */,
 				9A55F93C257E2CCA00B6743A /* Controllers */,
 				9A55F977257E6F5800B6743A /* Extensions */,
@@ -250,7 +248,7 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		9A55F97D257E810C00B6743A /* Engines */ = {
+		9A55F97D257E810C00B6743A /* LogicControllers */ = {
 			isa = PBXGroup;
 			children = (
 				9A55F97E257E81A500B6743A /* Storm32BGC.swift */,
@@ -260,7 +258,6 @@
 				9A3B1ABB258167510074DB9B /* ControllerModel.swift */,
 				9A3B1AC32581F8DE0074DB9B /* Storm32BGCSimulator.swift */,
 				9A3B1AC8258278360074DB9B /* Storm32BGCController.swift */,
-				9A3B1ACD258280BC0074DB9B /* Storm32BGCStatusDelegate.swift */,
 				9AD9FF22258390030018C065 /* Storm32Data.swift */,
 				9A60219A2587C8970094BD31 /* parameters.plist */,
 				9AEE91BE258AB271004A44C3 /* S32Parameter.swift */,
@@ -268,7 +265,7 @@
 				9AEE91C8258AB33D004A44C3 /* S32StringParameter.swift */,
 				9AEE91D5258AB568004A44C3 /* S32ParameterController.swift */,
 			);
-			path = Engines;
+			path = LogicControllers;
 			sourceTree = "<group>";
 		};
 		9A55F9AE257FBB8B00B6743A /* Utility */ = {
@@ -449,7 +446,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A3B1ACE258280BC0074DB9B /* Storm32BGCStatusDelegate.swift in Sources */,
 				9A55F9C52580F77E00B6743A /* UInt8+Bits.swift in Sources */,
 				9A55F966257E55E800B6743A /* MenuItem.swift in Sources */,
 				9A55F9B82580126100B6743A /* DashboardViewController.swift in Sources */,

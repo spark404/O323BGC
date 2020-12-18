@@ -17,8 +17,6 @@ class Storm32BGCController: NSObject, Storm32BGCDataSource {
     
     private var parameterController: S32ParameterController?
     
-    var delegate: Storm32BGCStatusDelegate?
-    
     private var connectionObservations = [ObjectIdentifier: ConnectionObservation]()
     private var observations = [ObjectIdentifier: Observation]()
     

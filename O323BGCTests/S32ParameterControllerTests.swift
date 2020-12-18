@@ -61,12 +61,4 @@ class S32ParameterControllerTests: XCTestCase {
         XCTAssertEqual(actual!.integerValue, 0)
         XCTAssertEqual(actual!.stringValue, "hold hold pan")
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }
