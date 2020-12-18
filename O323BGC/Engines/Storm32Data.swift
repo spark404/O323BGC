@@ -9,39 +9,39 @@ import Foundation
 
 public enum Storm32DataIndex: Int {
     // First five words are equal to the status object
-    case State
-    case Status
-    case Status2
-    case Error
-    case Voltage
+    case state
+    case status
+    case status2
+    case error
+    case voltage
     
-    case Millis
-    case CycleTime
-    case Gx
-    case Gy
-    case Gz
-    case Ax
-    case Ay
-    case Az
-    case Rx
-    case Ry
-    case Rz
-    case Pitch
-    case Roll
-    case Yaw
-    case Pitch2
-    case Roll2
-    case Yaw2
-    case MagYaw
-    case LinkYaw
-    case PitchCntrl
-    case RollCntrl
-    case YawCntrl
-    case PitchRcIn
-    case RollRcIn
-    case YawRcIn
-    case FunctionsIn
-    case AccConfidence
+    case millis
+    case cycleTime
+    case gx
+    case gy
+    case gz
+    case ax
+    case ay
+    case az
+    case rx
+    case ry
+    case rz
+    case pitch
+    case roll
+    case yaw
+    case pitch2
+    case roll2
+    case yaw2
+    case magYaw
+    case linkYaw
+    case pitchCntrl
+    case rollCntrl
+    case yawCntrl
+    case pitchRcIn
+    case rollRcIn
+    case yawRcIn
+    case functionsIn
+    case accConfidence
 }
 
 public class Storm32Data: NSObject {
@@ -69,7 +69,7 @@ public class Storm32Data: NSObject {
     // This function returns the value as float
     // It also knows about signed vs unsigned values
     public func getFloatValueFor(index: Storm32DataIndex) -> Float {
-        if (index.rawValue >= 0 && index.rawValue <= 6 || index == .AccConfidence) {
+        if index.rawValue >= 0 && index.rawValue <= 6 || index == .accConfidence {
             // These values are unsigned
             return Float(getUInt16ValueFor(index: index))
         } else {

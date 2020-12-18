@@ -20,10 +20,10 @@ class SimplifiedPidViewController: NSViewController {
     override var representedObject: Any? {
         didSet {
             print("representedObject set on SimplifiedPidViewController")
-            if let i = value(forKeyPath: "representedObject.i") as? Double,
-               let d = value(forKeyPath: "representedObject.d") as? Double {
-                stabilitySlider.doubleValue = i / 10 / 2000 * 100
-                stabilitySlider.doubleValue = d / 2000 / 0.8 * 100
+            if let pidI = value(forKeyPath: "representedObject.pidI") as? Double,
+               let pidD = value(forKeyPath: "representedObject.pidD") as? Double {
+                stabilitySlider.doubleValue = pidI / 10 / 2000 * 100
+                stabilitySlider.doubleValue = pidD / 2000 / 0.8 * 100
             }
         }
     }
@@ -41,15 +41,15 @@ class SimplifiedPidViewController: NSViewController {
         let ki = stabilitySlider.doubleValue * 2000.0 / 100.0
         let kp = sqrt(0.5 * kd * ki)
         
-        let p = kp * 100
-        let i = ki * 10
-        let d = kd * 2000
+        let pidP = kp * 100
+        let pidI = ki * 10
+        let pidD = kd * 2000
         
-        setValue(p, forKeyPath: "representedObject.p")
-        setValue(i, forKeyPath: "representedObject.i")
-        setValue(d, forKeyPath: "representedObject.d")
+        setValue(pidP, forKeyPath: "representedObject.pidP")
+        setValue(pidI, forKeyPath: "representedObject.pidI")
+        setValue(pidD, forKeyPath: "representedObject.pidD")
         
-        print("New PID calculated for \(controlTitle.stringValue) : \(p),\(i),\(d)")
+        print("New PID calculated for \(controlTitle.stringValue) : \(pidP),\(pidI),\(pidD)")
     }
     
 }

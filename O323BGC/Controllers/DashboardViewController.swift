@@ -103,9 +103,10 @@ class DashboardViewController: NSViewController {
         button.isEnabled = false
         NotificationCenter.default.post(name: .requestControllerReset, object: nil)
     }
-    
+
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if let vc = segue.destinationController as? AxisDashboardViewController, segue.identifier == "embedAxisDashboard"  {
+        if let vc = segue.destinationController as? AxisDashboardViewController,
+           segue.identifier == "embedAxisDashboard" {
             axisDashboardViewControler = vc
         }
     }
@@ -114,8 +115,8 @@ class DashboardViewController: NSViewController {
 extension DashboardViewController: Storm32BGCStatusObserver {
     func storm32BGCController(_ controller: Storm32BGCController, statusUpdated status: Status) {
         print("Status update")
-        if let v = controller.version, let s = controller.status {
-            representedObject =  ControllerModel(version: v, status: s)
+        if let version = controller.version, let status = controller.status {
+            representedObject =  ControllerModel(version: version, status: status)
         }
 
     }

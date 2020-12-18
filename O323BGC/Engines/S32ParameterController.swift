@@ -37,20 +37,23 @@ class S32ParameterController {
 
         return parameters[name]
     }
-    
+
     private func loadParametersFromDevice() -> [String: S32Parameter]? {
         guard let rawData = storm32BGC.getRawParameters() else {
             return nil
         }
-        
+
         let results: [String: S32Parameter] = referenceData.mapValues {
-            return mergeReferenceAndValueData(reference: $0 as! [String : Any], rawData: rawData)!
+            guard let reference = $0 as? [String: Any] else {
+                fatalError("Issue with parameter reference data")
+            }
+            return mergeReferenceAndValueData(reference: reference, rawData: rawData)!
         }
         
         return results
     }
-    
-    private func mergeReferenceAndValueData(reference: [String:Any], rawData: Data) -> S32Parameter? {
+
+    private func mergeReferenceAndValueData(reference: [String: Any], rawData: Data) -> S32Parameter? {
         guard let name = reference["Name"] as? String,
               let position = reference["Position"] as? Int,
               let type = reference["Type"] as? String,
@@ -61,9 +64,9 @@ class S32ParameterController {
         else {
             return nil
         }
-        
+
         let byteIndex = position * 2
-        switch (type) {
+        switch type {
         case "UInt16":
             let value = rawData[byteIndex...byteIndex+1].withUnsafeBytes { rawPtr in
                 return rawPtr.load(as: UInt16.self)
@@ -107,19 +110,19 @@ class S32ParameterController {
             return nil
         }
     }
-    
+
     private static func loadParameterReferenceData() -> [String: AnyObject]? {
         var propertyListFormat =  PropertyListSerialization.PropertyListFormat.xml
-        var plistData: [String: AnyObject] = [:]
         let plistPath: String? = Bundle.main.path(forResource: "parameters", ofType: "plist")!
         let plistXML = FileManager.default.contents(atPath: plistPath!)!
         do {
-            plistData = try PropertyListSerialization.propertyList(from: plistXML, options: .mutableContainersAndLeaves, format: &propertyListFormat) as! [String:AnyObject]
+            let propertyList = try PropertyListSerialization
+                .propertyList(from: plistXML, options: .mutableContainersAndLeaves, format: &propertyListFormat)
+            guard let plistData = propertyList as? [String: AnyObject]  else { return nil }
+            return plistData
         } catch {
             print("Error reading plist: \(error), format: \(propertyListFormat)")
             return nil
         }
-        
-        return plistData
     }
 }

@@ -8,9 +8,6 @@
 import Foundation
 
 class Storm32BGCController: NSObject, Storm32BGCDataSource {
-    private var serial = Serial()
-    
-    private var fileDescriptor: Int32 = -1
     private var storm32BGC: Storm32BGC?
     
     private var statusTimer: Timer?
@@ -55,7 +52,6 @@ class Storm32BGCController: NSObject, Storm32BGCDataSource {
 
             self.storm32BGC = storm32BGC
             self.internalConnectionState = true
-            self.fileDescriptor = -1
             self.version = version
             self.status = storm32BGC.getStatus()
             self.parameterController = S32ParameterController(storm32BGC: storm32BGC)
@@ -70,20 +66,15 @@ class Storm32BGCController: NSObject, Storm32BGCDataSource {
             return true
         }
         
-        
-        print ("Connecting to \(devicePath) as serial device")
-        let fileDescriptor = serial.openSerialPort(devicePath)
-        if (fileDescriptor < 0) {
-            print ("Failed to open device \(devicePath)")
+        print ("Connecting to Stomr32BGC device")
+        guard let storm32BGC = Storm32BGC(serialDevicePath: devicePath) else {
             return false
         }
         
-        print ("Validating connection to Stomr32BGC device")
-        let storm32BGC = Storm32BGC(fileDescriptor: fileDescriptor)
         let version = storm32BGC.getVersion()
         if (version?.versionNumber != 96) {
             print("No device or no matching version")
-            serial.closeSerialPort(fileDescriptor)
+            storm32BGC.close()
             return false
         }
 
@@ -91,7 +82,6 @@ class Storm32BGCController: NSObject, Storm32BGCDataSource {
 
         self.storm32BGC = storm32BGC
         self.internalConnectionState = true
-        self.fileDescriptor = fileDescriptor
         self.version = version
         self.status = storm32BGC.getStatus()
         self.parameterController = S32ParameterController(storm32BGC: storm32BGC)
@@ -115,10 +105,7 @@ class Storm32BGCController: NSObject, Storm32BGCDataSource {
         self.statusTimer?.invalidate()
         self.statusTimer = nil
     
-        if (self.fileDescriptor > -1) {
-            self.serial.closeSerialPort(self.fileDescriptor)
-            self.fileDescriptor = -1
-        }
+        storm32BGC?.close()
         
         self.parameterController = nil
         self.storm32BGC = nil
@@ -134,27 +121,26 @@ class Storm32BGCController: NSObject, Storm32BGCDataSource {
         storm32BGC?.resetBoard()
     }
     
-    @objc func startRealtimeUpdates(message: NSNotification) {
-        print ("Starting realtime updates")
-        guard realTimeTimer == nil else {
-            print("Realtime timer already exists")
-            return
-        }
-        
-        guard let recipient = message.object as? Storm32BGCRealtimeData else {
-            print("Recipient doesn't implement Storm32BGCRealtimeData")
-            return
-        }
-        
-        realTimeTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
-            recipient.updateData(data: self.data)
-        }
-    }
-    
-    @objc func stopRealtimeUpdates(message: NSNotification) {
+    func stopRealtimeUpdates() {
         print ("Stopping realtime updates")
         realTimeTimer?.invalidate()
         realTimeTimer = nil
+    }
+    
+    func realtimeUpdates(timeInterval: TimeInterval, update: @escaping (_ data: Storm32Data?) -> Void) -> Bool {
+        if (!internalConnectionState) { return false }
+
+        print ("Starting realtime updates")
+        guard realTimeTimer == nil else {
+            print("Realtime timer already exists")
+            return false
+        }
+
+        realTimeTimer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { timer in
+            update(self.data)
+        }
+
+        return true
     }
 }
 

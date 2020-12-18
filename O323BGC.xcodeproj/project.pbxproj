@@ -39,7 +39,6 @@
 		9A55F9DB258134BF00B6743A /* UInt16+Bits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F9DA258134BF00B6743A /* UInt16+Bits.swift */; };
 		9A55F9E0258134ED00B6743A /* StatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A55F9DF258134ED00B6743A /* StatusView.xib */; };
 		9A6021862586740B0094BD31 /* ParameterOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6021852586740B0094BD31 /* ParameterOverviewViewController.swift */; };
-		9A6021952587BA9E0094BD31 /* Storm32ParametersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6021942587BA9E0094BD31 /* Storm32ParametersTests.swift */; };
 		9A60219B2587C8970094BD31 /* parameters.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A60219A2587C8970094BD31 /* parameters.plist */; };
 		9A9C12FB2583749F0006E2F3 /* BoolToStatusImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C12FA2583749F0006E2F3 /* BoolToStatusImageTransformer.swift */; };
 		9AD63E682584E4A800FA21EC /* RealtimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD63E672584E4A800FA21EC /* RealtimeViewController.swift */; };
@@ -112,7 +111,6 @@
 		9A55F9DA258134BF00B6743A /* UInt16+Bits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UInt16+Bits.swift"; sourceTree = "<group>"; };
 		9A55F9DF258134ED00B6743A /* StatusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusView.xib; sourceTree = "<group>"; };
 		9A6021852586740B0094BD31 /* ParameterOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterOverviewViewController.swift; sourceTree = "<group>"; };
-		9A6021942587BA9E0094BD31 /* Storm32ParametersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storm32ParametersTests.swift; sourceTree = "<group>"; };
 		9A60219A2587C8970094BD31 /* parameters.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = parameters.plist; sourceTree = "<group>"; };
 		9A9C12FA2583749F0006E2F3 /* BoolToStatusImageTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolToStatusImageTransformer.swift; sourceTree = "<group>"; };
 		9AD63E672584E4A800FA21EC /* RealtimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeViewController.swift; sourceTree = "<group>"; };
@@ -200,7 +198,6 @@
 				9A55F9A3257F9AC100B6743A /* X25CRCTests.swift */,
 				9A55F914257D792800B6743A /* Info.plist */,
 				9A55F9C92580F87900B6743A /* ExtensionsTests.swift */,
-				9A6021942587BA9E0094BD31 /* Storm32ParametersTests.swift */,
 				9AEE91DA258B6913004A44C3 /* S32ParameterControllerTests.swift */,
 			);
 			path = O323BGCTests;
@@ -310,6 +307,7 @@
 				9A55F8F8257D792500B6743A /* Sources */,
 				9A55F8F9257D792500B6743A /* Frameworks */,
 				9A55F8FA257D792500B6743A /* Resources */,
+				9AEE91EA258CB931004A44C3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -426,6 +424,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9AEE91EA258CB931004A44C3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9A55F8F8257D792500B6743A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -474,7 +492,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A6021952587BA9E0094BD31 /* Storm32ParametersTests.swift in Sources */,
 				9AEE91DB258B6913004A44C3 /* S32ParameterControllerTests.swift in Sources */,
 				9A55F9A4257F9AC100B6743A /* X25CRCTests.swift in Sources */,
 				9A55F9CA2580F87900B6743A /* ExtensionsTests.swift in Sources */,

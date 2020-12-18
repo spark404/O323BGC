@@ -22,20 +22,20 @@ class PidParametersViewController: NSViewController {
     override var representedObject: Any? {
         didSet {
             print("representedObject set on PidParametersViewController")
-            guard let parameters = representedObject as? [[String:Any]] else {
+            guard (representedObject as? [[String:Any]]) != nil else {
                 return
             }
             
             if let pitchPidController = self.children[0] as? SimplifiedPidViewController {
-                let testObject = PidModel(axis: "Pitch", p: 400, i: 1000, d: 500)
+                let testObject = PidModel(axis: "Pitch", pidP: 400, pidI: 1000, pidD: 500)
                 pitchPidController.representedObject = testObject
             }
             if let pitchPidController = self.children[1] as? SimplifiedPidViewController {
-                let testObject = PidModel(axis: "Roll", p: 400, i: 1000, d: 500)
+                let testObject = PidModel(axis: "Roll", pidP: 400, pidI: 1000, pidD: 500)
                 pitchPidController.representedObject = testObject
             }
             if let pitchPidController = self.children[2] as? SimplifiedPidViewController {
-                let testObject = PidModel(axis: "Yaw", p: 400, i: 1000, d: 500)
+                let testObject = PidModel(axis: "Yaw", pidP: 400, pidI: 1000, pidD: 500)
                 pitchPidController.representedObject = testObject
             }
         }

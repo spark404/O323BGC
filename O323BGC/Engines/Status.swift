@@ -42,217 +42,167 @@ enum Status2Bit: Int {
     case motorPitchActive =  3
 }
 
+// swiftlint:disable identifier_name
 enum State: Int {
-    case STARTUP_MOTORS             = 0;
-    case STARTUP_SETTLE             = 1;
-    case STARTUP_CALIBRATE          = 2;
-    case STARTUP_LEVEL              = 3;
-    case STARTUP_MOTORDIRDETECT     = 4;
-    case STARTUP_RELEVEL            = 5;
-    case NORMAL                     = 6;
-    case STANDBY                    = 7;
+    case STARTUP_MOTORS             = 0
+    case STARTUP_SETTLE             = 1
+    case STARTUP_CALIBRATE          = 2
+    case STARTUP_LEVEL              = 3
+    case STARTUP_MOTORDIRDETECT     = 4
+    case STARTUP_RELEVEL            = 5
+    case NORMAL                     = 6
+    case STANDBY                    = 7
 
 }
+// swiftlint:enable identifier_name
 
 @objc public class Status: NSObject {
     @objc var isIMUPresent: Bool {
-        get {
-            return getStatusBit(.imuPresent)
-        }
+        return getStatusBit(.imuPresent)
     }
-    
+
     @objc var isIMUOk: Bool {
-        get {
-            return getStatusBit(.imuOk)
-        }
+        return getStatusBit(.imuOk)
     }
     
     @objc var isIMUHighAdr: Bool {
-        get {
-            return getStatusBit(.imuHighAdr)
-        }
+        return getStatusBit(.imuHighAdr)
     }
     
     @objc var isIMU2Present: Bool {
-        get {
-            return getStatusBit(.imu2Present)
-        }
+        return getStatusBit(.imu2Present)
     }
-    
+
     @objc var isIMU2Ok: Bool {
-        get {
-            return getStatusBit(.imu2Ok)
-        }
+        return getStatusBit(.imu2Ok)
     }
-    
+
     @objc var isIMU2HighAdr: Bool {
-        get {
-            return getStatusBit(.imu2HighAdr)
-        }
+        return getStatusBit(.imu2HighAdr)
     }
 
     @objc var isIMU2NTBus: Bool {
-        get {
-            return getStatusBit(.imu2NTBus)
-        }
+        return getStatusBit(.imu2NTBus)
     }
     
     @objc var isNTBusInUse: Bool {
-        get {
-            return getStatusBit(.ntBusInUse)
-        }
+        return getStatusBit(.ntBusInUse)
     }
 
     @objc var isMAGPresent: Bool {
-        get {
-            return getStatusBit(.magPresent)
-        }
+        return getStatusBit(.magPresent)
     }
     
     @objc var isMAGOk: Bool {
-        get {
-            return getStatusBit(.magOk)
-        }
+        return getStatusBit(.magOk)
     }
-    
+
     @objc var isStorm32LinkPresent: Bool {
-        get {
-            return getStatusBit(.storm32LinkPresent)
-        }
+        return getStatusBit(.storm32LinkPresent)
     }
 
     @objc var isStorm32LinkOk: Bool {
-        get {
-            return getStatusBit(.storm32LinkOk)
-        }
+        return getStatusBit(.storm32LinkOk)
     }
 
     @objc var isStorm32LinkInUse: Bool {
-        get {
-            return getStatusBit(.storm32LinkInUse)
-        }
+        return getStatusBit(.storm32LinkInUse)
     }
-    
+
     @objc var isLevelFailed: Bool {
-        get {
-            return getStatusBit(.levelFailed)
-        }
+        return getStatusBit(.levelFailed)
     }
 
     @objc var isBatConnected: Bool {
-        get {
-            return getStatusBit(.batConnected)
-        }
+        return getStatusBit(.batConnected)
     }
     
     @objc var isBatVoltageIsLow: Bool {
-        get {
-            return getStatusBit(.batVoltageIsLow)
-        }
+        return getStatusBit(.batVoltageIsLow)
     }
-    
+
     @objc var isYawMotorActive: Bool {
-        get {
-            return getStatus2Bit(.motorYawActive)
-        }
+        return getStatus2Bit(.motorYawActive)
     }
 
     @objc var isRollMotorActive: Bool {
-        get {
-            return getStatus2Bit(.motorRollActive)
-        }
+        return getStatus2Bit(.motorRollActive)
     }
 
     @objc var isPitchMotorActive: Bool {
-        get {
-            return getStatus2Bit(.motorPitchActive)
-        }
+        return getStatus2Bit(.motorPitchActive)
     }
 
     @objc var isPanYaw: Bool {
-        get {
-            return getStatus2Bit(.panYaw)
-        }
+        return getStatus2Bit(.panYaw)
     }
 
     @objc var isPanRoll: Bool {
-        get {
-            return getStatus2Bit(.panRoll)
-        }
+        return getStatus2Bit(.panRoll)
     }
 
     @objc var isPanPitch: Bool {
-        get {
-            return getStatus2Bit(.panPitch)
-        }
+        return getStatus2Bit(.panPitch)
     }
-    
+
     @objc var isRecenterYaw: Bool {
-        get {
-            return getStatus2Bit(.recenterYaw)
-        }
+        return getStatus2Bit(.recenterYaw)
     }
 
     @objc var isRecenterRoll: Bool {
-        get {
-            return getStatus2Bit(.recenterRoll)
-        }
+        return getStatus2Bit(.recenterRoll)
     }
 
     @objc var isRecenterPitch: Bool {
-        get {
-            return getStatus2Bit(.recenterPitch)
-        }
+        return getStatus2Bit(.recenterPitch)
     }
-    
+
     @objc var errors: Int {
         return Int(values[3])
     }
-    
+
     @objc var voltage: Float {
         return Float(values[4]) / 1000
     }
 
     @objc var state: String {
-        get {
-            if let value = State(rawValue: Int(values[0])) {
-                switch value {
-                case .NORMAL:
-                    return "Normal"
-                case .STANDBY:
-                    return "Standby"
-                case .STARTUP_CALIBRATE:
-                    return "Startup - Calibrate"
-                case .STARTUP_MOTORS:
-                    return "Startup - Motors"
-                case .STARTUP_SETTLE:
-                    return "Startup - Settle"
-                case .STARTUP_LEVEL:
-                    return "Startup - Level"
-                case .STARTUP_MOTORDIRDETECT:
-                    return "Startup - MotorDirDetect"
-                case .STARTUP_RELEVEL:
-                    return "Startup - Relevel"
-                }
-            } else {
-                return "Unknown"
+        if let value = State(rawValue: Int(values[0])) {
+            switch value {
+            case .NORMAL:
+                return "Normal"
+            case .STANDBY:
+                return "Standby"
+            case .STARTUP_CALIBRATE:
+                return "Startup - Calibrate"
+            case .STARTUP_MOTORS:
+                return "Startup - Motors"
+            case .STARTUP_SETTLE:
+                return "Startup - Settle"
+            case .STARTUP_LEVEL:
+                return "Startup - Level"
+            case .STARTUP_MOTORDIRDETECT:
+                return "Startup - MotorDirDetect"
+            case .STARTUP_RELEVEL:
+                return "Startup - Relevel"
             }
+        } else {
+            return "Unknown"
         }
     }
-    
+
     private let values: [UInt16]
-    
+
     public init?(data: Data) {
         guard data.count == 5 * 2 else {
             print("Expected \(5*2) bytes, got \(data.count)")
             return nil
         }
-        
+
         values = data.withUnsafeBytes {
             [UInt16](UnsafeBufferPointer(start: $0, count: data.count / 2 ))
         }
     }
-    
+
     private func getStatusBit(_ field: StatusBit) -> Bool {
         return values[1].bit(field.rawValue)
     }

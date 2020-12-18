@@ -24,10 +24,10 @@ class MenuViewController: NSViewController {
     @objc dynamic var menuStructure = [MenuItem]()
     
     private enum DetailTabs: Int {
-        case Dashboard
-        case Datadisplay
-        case Parameters
-        case PidParameters
+        case dashboard
+        case datadisplay
+        case parameters
+        case pidParameters
     }
     
     override func viewDidLoad() {
@@ -47,22 +47,25 @@ class MenuViewController: NSViewController {
         switch (menuItem.name) {
         case "Dashboard":
             if let datasource = storm32BGCDataSource {
-                if let v = datasource.version, let s = datasource.status {
-                    setRepresentedObjectForDetailTab(tab: .Dashboard, object: ControllerModel(version: v, status: s))
+                if let version = datasource.version, let status = datasource.status {
+                    setRepresentedObjectForDetailTab(tab: .dashboard, object: ControllerModel(version: version, status: status))
                 }
             }
-            if let dashboard = getDetailTab(index: DetailTabs.Dashboard.rawValue) as? DashboardViewController {
+            if let dashboard = getDetailTab(index: DetailTabs.dashboard.rawValue) as? DashboardViewController {
                 storm32Controller?.addObserver(dashboard)
             }
-            selectDetailTab(tab: .Dashboard)
+            selectDetailTab(tab: .dashboard)
         case "Dataview":
-            selectDetailTab(tab: .Datadisplay)
+            if let vc = getDetailTab(index: DetailTabs.datadisplay.rawValue) as? RealtimeViewController {
+                vc.storm32BGCController = storm32Controller
+            }
+            selectDetailTab(tab: .datadisplay)
         case "All Parameters":
-            setRepresentedObjectForDetailTab(tab: .Parameters, object: storm32BGCDataSource?.parameters)
-            selectDetailTab(tab: .Parameters)
+            setRepresentedObjectForDetailTab(tab: .parameters, object: storm32BGCDataSource?.parameters)
+            selectDetailTab(tab: .parameters)
         default:
-            setRepresentedObjectForDetailTab(tab: .Parameters, object: storm32BGCDataSource?.parameters)
-            selectDetailTab(tab: .PidParameters)
+            setRepresentedObjectForDetailTab(tab: .parameters, object: storm32BGCDataSource?.parameters)
+            selectDetailTab(tab: .pidParameters)
         }
     }
     
@@ -153,11 +156,10 @@ extension MenuViewController: Storm32ConnectionObserver {
             $0.viewController?.setValue(nil, forKey: "representedObject")
         }
         
-        setRepresentedObjectForDetailTab(tab: .Dashboard, object: nil)
-        if let dashboard = getDetailTab(index: DetailTabs.Dashboard.rawValue) as? DashboardViewController {
+        setRepresentedObjectForDetailTab(tab: .dashboard, object: nil)
+        if let dashboard = getDetailTab(index: DetailTabs.dashboard.rawValue) as? DashboardViewController {
             storm32Controller?.removeObserver(dashboard)
         }
-        //selectDetailTab(tab: .Dashboard)
     }
     
     func storm32BGCControllerConnected(_ controller: Storm32BGCController) {
@@ -165,11 +167,11 @@ extension MenuViewController: Storm32ConnectionObserver {
         treeController.setSelectionIndexPath(IndexPath(index: 0))
 
         if let datasource = storm32BGCDataSource {
-            if let v = datasource.version, let s = datasource.status {
-                setRepresentedObjectForDetailTab(tab: .Dashboard, object: ControllerModel(version: v, status: s))
+            if let version = datasource.version, let status = datasource.status {
+                setRepresentedObjectForDetailTab(tab: .dashboard, object: ControllerModel(version: version, status: status))
             }
         }
-        if let dashboard = getDetailTab(index: DetailTabs.Dashboard.rawValue) as? DashboardViewController {
+        if let dashboard = getDetailTab(index: DetailTabs.dashboard.rawValue) as? DashboardViewController {
             storm32Controller?.addObserver(dashboard)
         }
 

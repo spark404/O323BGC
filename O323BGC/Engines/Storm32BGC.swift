@@ -13,9 +13,26 @@ class Storm32BGC: NSObject {
     private let serialQueue = DispatchQueue(label: "Serial Queue")
     
     init(fileDescriptor: Int32) {
+        print ("Connecting to fileDescriptor \(fileDescriptor) as serial device")
         self.fileDescriptor = fileDescriptor
         
         super.init()
+    }
+    
+    init?(serialDevicePath: String) {
+        print ("Connecting to \(serialDevicePath) as serial device")
+        fileDescriptor = serial.openSerialPort(serialDevicePath)
+        if (fileDescriptor < 0) {
+            print ("Failed to open device \(serialDevicePath)")
+            return nil
+        }
+        
+        super.init()
+    }
+    
+    func close() {
+        print ("Closing serial connection")
+        serial.closeSerialPort(fileDescriptor)
     }
     
     private func sendCommand(command: String) -> Int {

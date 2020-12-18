@@ -19,6 +19,8 @@ class RealtimeViewController: NSViewController {
     @IBOutlet weak var graphView3Label: NSTextFieldCell!
     @IBOutlet weak var graphView3: GraphView!
     
+    var storm32BGCController: Storm32BGCController?
+    
     let zoomLevels = [
         [ 180.0, -180.0],
         [ 90.0, -90.0],
@@ -44,11 +46,13 @@ class RealtimeViewController: NSViewController {
     }
     
     override func viewDidAppear() {
-        NotificationCenter.default.post(name: .startRealtimeData, object: self)
+        _ = storm32BGCController?.realtimeUpdates(timeInterval: 0.1) { [self] in
+            doGraphUpdate(data: $0)
+        }
     }
     
     override func viewDidDisappear() {
-        NotificationCenter.default.post(name: .stopRealtimeData, object: self)
+        storm32BGCController?.stopRealtimeUpdates()
     }
     
     override var representedObject: Any? {
@@ -66,35 +70,33 @@ class RealtimeViewController: NSViewController {
         graphViewLabel.stringValue = "Pitch / Roll / Yaw (y = \(zoomLevels[currentZoomLevel][0])°,-\(zoomLevels[currentZoomLevel][1])°)"
 
     }
-}
 
-extension RealtimeViewController: Storm32BGCRealtimeData {
-    func updateData(data storm32Data: Storm32Data?) {
+    func doGraphUpdate(data storm32Data: Storm32Data?) {
         guard let data = storm32Data else {
             return
         }
         
         self.representedObject = data
-        cycleTimeValue.intValue = Int32(data.getUInt16ValueFor(index: .CycleTime))
-        millisValue.intValue = Int32(data.getUInt16ValueFor(index: .Millis))
+        cycleTimeValue.intValue = Int32(data.getUInt16ValueFor(index: .cycleTime))
+        millisValue.intValue = Int32(data.getUInt16ValueFor(index: .millis))
         
-        let currrentMillis = Float(data.getUInt16ValueFor(index: .Millis))
+        let currrentMillis = Float(data.getUInt16ValueFor(index: .millis))
         
-        let value = data.getFloatValueFor(index: .Pitch) / 100.0
-        let value2 = data.getFloatValueFor(index: .Roll) / 100.0
-        let value3 = data.getFloatValueFor(index: .Yaw) / 100.0
+        let value = data.getFloatValueFor(index: .pitch) / 100.0
+        let value2 = data.getFloatValueFor(index: .roll) / 100.0
+        let value3 = data.getFloatValueFor(index: .yaw) / 100.0
         graphView.append(values: [currrentMillis, value, value2, value3])
         graphView.updateView()
 
-        let rx = data.getFloatValueFor(index: .Rx)
-        let ry = data.getFloatValueFor(index: .Ry)
-        let rz = data.getFloatValueFor(index: .Rz)
+        let rx = data.getFloatValueFor(index: .rx)
+        let ry = data.getFloatValueFor(index: .ry)
+        let rz = data.getFloatValueFor(index: .rz)
         graphView2.append(values: [currrentMillis, rx, ry, rz])
         graphView2.updateView()
 
-        let cntrlPitch = data.getFloatValueFor(index: .PitchCntrl) / 100.0
-        let cntrlRoll = data.getFloatValueFor(index: .RollCntrl) / 100.0
-        let cntrlYaw = data.getFloatValueFor(index: .YawCntrl) / 100.0
+        let cntrlPitch = data.getFloatValueFor(index: .pitchCntrl) / 100.0
+        let cntrlRoll = data.getFloatValueFor(index: .rollCntrl) / 100.0
+        let cntrlYaw = data.getFloatValueFor(index: .yawCntrl) / 100.0
         graphView3.append(values: [currrentMillis, cntrlPitch, cntrlRoll, cntrlYaw])
         graphView3.updateView()
     }

@@ -62,7 +62,6 @@ class GraphView: NSView {
         path.appendRoundedRect(dirtyRect, xRadius: Constants.cornerRadiusSize.width, yRadius: Constants.cornerRadiusSize.height)
         path.addClip()
 
-        
         // Creates a nice gradient
         let colors = [ startColor.cgColor, endColor.cgColor, startColor.cgColor ]
         let colorSpace = CGColorSpaceCreateDeviceRGB()
@@ -76,7 +75,6 @@ class GraphView: NSView {
         let endPoint = CGPoint(x: 0, y: bounds.height)
         cgContext.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: [])
         
-        
         let margin = Constants.margin
         let topBorder = Constants.topBorder
         let bottomBorder = Constants.bottomBorder
@@ -86,7 +84,6 @@ class GraphView: NSView {
         let graphWidth = width - margin * 2 - 4
         let graphHeight = height - topBorder - bottomBorder
         let heightDelta = yRangeMax - yRangeMin
-
 
         let linePath = NSBezierPath()
         // Top line
@@ -143,8 +140,8 @@ class GraphView: NSView {
                 
             // Add points for each item in the graphPoints array
             // at the correct (x, y) for the point
-            for i in 1..<graphPoints.count {
-              let nextPoint = CGPoint(x: columnXPoint(i), y: columnYPoint(graphPoints[i][line]))
+            for index in 1..<graphPoints.count {
+              let nextPoint = CGPoint(x: columnXPoint(index), y: columnYPoint(graphPoints[index][line]))
               graphPath.line(to: nextPoint)
             }
 
