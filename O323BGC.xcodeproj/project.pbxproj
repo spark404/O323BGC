@@ -177,7 +177,7 @@
 				9A55F9AE257FBB8B00B6743A /* Utility */,
 				9A55F97D257E810C00B6743A /* LogicControllers */,
 				9A55F903257D792700B6743A /* Assets.xcassets */,
-				9A55F93C257E2CCA00B6743A /* Controllers */,
+				9A55F93C257E2CCA00B6743A /* ViewControllers */,
 				9A55F977257E6F5800B6743A /* Extensions */,
 				9A55F936257E1CF200B6743A /* Models */,
 				9A55F8FF257D792500B6743A /* AppDelegate.swift */,
@@ -221,7 +221,7 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		9A55F93C257E2CCA00B6743A /* Controllers */ = {
+		9A55F93C257E2CCA00B6743A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				9A55F951257E3F9300B6743A /* MainSplitViewController.swift */,
@@ -235,7 +235,7 @@
 				9AEE91B4258A985E004A44C3 /* SimplifiedPidViewController.swift */,
 				9AEE91E5258B96D5004A44C3 /* MainTabViewController.swift */,
 			);
-			path = Controllers;
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		9A55F977257E6F5800B6743A /* Extensions */ = {
