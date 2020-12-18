@@ -52,6 +52,7 @@
 		9AEE91DB258B6913004A44C3 /* S32ParameterControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE91DA258B6913004A44C3 /* S32ParameterControllerTests.swift */; };
 		9AEE91E6258B96D5004A44C3 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE91E5258B96D5004A44C3 /* MainTabViewController.swift */; };
 		9AEE9201258CC750004A44C3 /* Extension+S32ParameterArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE9200258CC750004A44C3 /* Extension+S32ParameterArray.swift */; };
+		9AEE9206258CFC90004A44C3 /* Storm32ControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE9205258CFC90004A44C3 /* Storm32ControllerProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,7 @@
 		9AEE91DA258B6913004A44C3 /* S32ParameterControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S32ParameterControllerTests.swift; sourceTree = "<group>"; };
 		9AEE91E5258B96D5004A44C3 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		9AEE9200258CC750004A44C3 /* Extension+S32ParameterArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+S32ParameterArray.swift"; sourceTree = "<group>"; };
+		9AEE9205258CFC90004A44C3 /* Storm32ControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storm32ControllerProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +238,7 @@
 				9AEE91AF258A7146004A44C3 /* PidParametersViewController.swift */,
 				9AEE91B4258A985E004A44C3 /* SimplifiedPidViewController.swift */,
 				9AEE91E5258B96D5004A44C3 /* MainTabViewController.swift */,
+				9AEE9205258CFC90004A44C3 /* Storm32ControllerProtocol.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				9A3B1AC42581F8DE0074DB9B /* Storm32BGCSimulator.swift in Sources */,
 				9A55F952257E3F9300B6743A /* MainWindowController.swift in Sources */,
 				9A6021862586740B0094BD31 /* ParameterOverviewViewController.swift in Sources */,
+				9AEE9206258CFC90004A44C3 /* Storm32ControllerProtocol.swift in Sources */,
 				9AEE91E6258B96D5004A44C3 /* MainTabViewController.swift in Sources */,
 				9A55F92F257D7A1800B6743A /* Serial.swift in Sources */,
 				9AEE91C9258AB33D004A44C3 /* S32StringParameter.swift in Sources */,

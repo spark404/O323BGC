@@ -75,7 +75,6 @@ class Serial {
             if let aPath = IORegistryEntryCreateCFProperty(modemService,
                                                            "IOCalloutDevice" as CFString,
                                                            kCFAllocatorDefault, 0).takeUnretainedValue() as? String {
-                print("Found \(aPath)")
                 bsdPath = aPath
                 if (aPath == MATCH_PATH) {
                     modemFound = true
@@ -95,7 +94,6 @@ class Serial {
         if let aPath = IORegistryEntryCreateCFProperty(device,
                                                        "IOCalloutDevice" as CFString,
                                                        kCFAllocatorDefault, 0).takeUnretainedValue() as? String {
-            print("Found \(aPath)")
             return aPath
         }
 

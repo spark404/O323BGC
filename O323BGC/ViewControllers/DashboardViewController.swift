@@ -26,8 +26,22 @@ class DashboardViewController: NSViewController {
     @IBOutlet weak var resetButton: NSButton!
 
     var axisDashboardViewControler: AxisDashboardViewController?
+    var storm32BGCController: Storm32BGCController? {
+        didSet {
+            print("DashboardViewController storm32Controller.didSet")
+            storm32BGCController?.addObserver(self)
+        }
+    }
 
     override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    override func viewWillAppear() {
+        if let version = storm32BGCController?.version, let status = storm32BGCController?.status {
+            setValue(ControllerModel(version: version, status: status), forKey: "representedObject")
+            print("Status set")
+        }
     }
 
     override var representedObject: Any? {
@@ -46,14 +60,14 @@ class DashboardViewController: NSViewController {
                 magStatus.statusText = ""
                 batStatus.present = false
                 batStatus.statusText = ""
-                
+
                 errorsTextField.stringValue = "Errors: --"
                 voltageTextField.stringValue = "Voltage: --"
-                
+
                 resetButton.isEnabled = false
                 return
             }
-            
+
             let status = controllerModel.status
 
             resetButton.isEnabled = true
@@ -102,7 +116,8 @@ class DashboardViewController: NSViewController {
         }
 
         button.isEnabled = false
-        NotificationCenter.default.post(name: .requestControllerReset, object: nil)
+        storm32BGCController?.resetDevice()
+        button.isEnabled = true
     }
 
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
@@ -113,10 +128,18 @@ class DashboardViewController: NSViewController {
     }
 }
 
-extension DashboardViewController: Storm32BGCStatusObserver {
+extension DashboardViewController: Storm32BGCObserver {
     func storm32BGCController(_ controller: Storm32BGCController, statusUpdated status: Status) {
         if let version = controller.version, let status = controller.status {
-            representedObject =  ControllerModel(version: version, status: status)
+            setValue(ControllerModel(version: version, status: status), forKey: "representedObject")
+            print("Status set - update \(status.state)")
+        }
+    }
+
+    func storm32BGCControllerConnected(_ controller: Storm32BGCController) {
+        if let version = controller.version, let status = controller.status {
+            setValue(ControllerModel(version: version, status: status), forKey: "representedObject")
+            print("Status set - connected")
         }
     }
 }

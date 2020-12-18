@@ -30,7 +30,7 @@ class RealtimeViewController: NSViewController {
         [ 1.5, -1.5]
     ]
     var currentZoomLevel = 0
-    
+
     override func viewDidLoad() {
         graphViewLabel.stringValue = "Pitch / Roll / Yaw (y = 180°,-180°)"
         graphView.yRangeMax = zoomLevels[currentZoomLevel][0]
@@ -44,22 +44,22 @@ class RealtimeViewController: NSViewController {
         graphView3.yRangeMax = 30
         graphView3.yRangeMin = -30
     }
-    
+
     override func viewDidAppear() {
         _ = storm32BGCController?.realtimeUpdates(timeInterval: 0.1) { [self] in
             doGraphUpdate(data: $0)
         }
     }
-    
+
     override func viewDidDisappear() {
         storm32BGCController?.stopRealtimeUpdates()
     }
-    
+
     override var representedObject: Any? {
         didSet {
         }
     }
-    
+
     @IBAction func onZoomClick(_ sender: Any) {
         currentZoomLevel += 1
         if currentZoomLevel >= zoomLevels.count {

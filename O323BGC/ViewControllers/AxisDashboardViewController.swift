@@ -11,12 +11,12 @@ import Cocoa
 class AxisDashboardViewController: NSViewController {
     
     override func viewDidLoad() {
+        super.viewDidLoad()
     }
     
     override var representedObject: Any? {
         didSet {
         }
     }
-    
-    
+
 }

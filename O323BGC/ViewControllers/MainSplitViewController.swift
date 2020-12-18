@@ -12,34 +12,20 @@ import IOKit.serial
 class MainSplitViewController: NSSplitViewController {
     var storm32Controller: Storm32BGCController? {
         didSet {
+            print("MainSplitViewController storm32Controller.didSet")
             if let controller = storm32Controller {
                 self.splitViewItems.forEach {
-                    let viewController = $0.viewController
-                    
-                    if let menuController = viewController as? MenuViewController {
-                        menuController.storm32Controller = controller
+                    if var viewController = $0.viewController as? Storm32ControllerProtocol {
+                        viewController.storm32BGCController = controller
                     }
                 }
             }
         }
     }
-    
-    var storm32BGCDataSource: Storm32BGCDataSource? {
-        didSet {
-            if let dataSource = storm32BGCDataSource {
-                self.splitViewItems.forEach {
-                    let viewController = $0.viewController
-                    
-                    if let menuController = viewController as? MenuViewController {
-                        menuController.storm32BGCDataSource = dataSource
-                    }
-                }
-            }
-        }
-    }
-    
+
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
+        print("MainSplitViewController viewDidLoad")
     }
 
     override var representedObject: Any? {
@@ -48,4 +34,3 @@ class MainSplitViewController: NSSplitViewController {
         }
     }
 }
-

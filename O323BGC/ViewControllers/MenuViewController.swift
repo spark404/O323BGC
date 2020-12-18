@@ -9,15 +9,15 @@ import Foundation
 import Cocoa
 
 class MenuViewController: NSViewController {
-    var storm32BGCDataSource: Storm32BGCDataSource?
-    var storm32Controller: Storm32BGCController? {
+    var storm32BGCController: Storm32BGCController? {
         didSet {
-            if let controller = storm32Controller {
-                controller.addConnectionObserver(self)
+            print("MenuViewController storm32Controller.didSet")
+            if let controller = storm32BGCController {
+                controller.addObserver(self)
             }
         }
     }
-    
+
     @IBOutlet var treeController: NSTreeController!
     @IBOutlet weak var outlineView: NSOutlineView!
     
@@ -46,26 +46,14 @@ class MenuViewController: NSViewController {
     func selectViewForMenuItem(menuItem: MenuItem) {
         switch menuItem.name {
         case "Dashboard":
-            if let datasource = storm32BGCDataSource {
-                if let version = datasource.version, let status = datasource.status {
-                    setRepresentedObjectForDetailTab(tab: .dashboard,
-                                                     object: ControllerModel(version: version, status: status))
-                }
-            }
-            if let dashboard = getDetailTab(index: DetailTabs.dashboard.rawValue) as? DashboardViewController {
-                storm32Controller?.addObserver(dashboard)
-            }
             selectDetailTab(tab: .dashboard)
         case "Dataview":
-            if let viewController = getDetailTab(index: DetailTabs.datadisplay.rawValue) as? RealtimeViewController {
-                viewController.storm32BGCController = storm32Controller
-            }
             selectDetailTab(tab: .datadisplay)
         case "All Parameters":
-            setRepresentedObjectForDetailTab(tab: .parameters, object: storm32BGCDataSource?.parameters)
+            setRepresentedObjectForDetailTab(tab: .parameters, object: storm32BGCController?.parameters)
             selectDetailTab(tab: .parameters)
         default:
-            setRepresentedObjectForDetailTab(tab: .pidParameters, object: storm32BGCDataSource?.parameters)
+            setRepresentedObjectForDetailTab(tab: .pidParameters, object: storm32BGCController?.parameters)
             selectDetailTab(tab: .pidParameters)
         }
     }
@@ -140,7 +128,7 @@ extension MenuViewController: NSOutlineViewDelegate {
         return true
     }
 }
-extension MenuViewController: Storm32ConnectionObserver {
+extension MenuViewController: Storm32BGCObserver {
     func storm32BGCControllerDisconnected(_ controller: Storm32BGCController) {
         print("Received disconnected notification")
         treeController.setSelectionIndexPath(IndexPath(index: 0))
@@ -158,24 +146,10 @@ extension MenuViewController: Storm32ConnectionObserver {
         }
 
         setRepresentedObjectForDetailTab(tab: .dashboard, object: nil)
-        if let dashboard = getDetailTab(index: DetailTabs.dashboard.rawValue) as? DashboardViewController {
-            storm32Controller?.removeObserver(dashboard)
-        }
     }
 
     func storm32BGCControllerConnected(_ controller: Storm32BGCController) {
         print("Received connected notification")
         treeController.setSelectionIndexPath(IndexPath(index: 0))
-
-        if let datasource = storm32BGCDataSource {
-            if let version = datasource.version, let status = datasource.status {
-                setRepresentedObjectForDetailTab(tab: .dashboard,
-                                                 object: ControllerModel(version: version, status: status))
-            }
-        }
-        if let dashboard = getDetailTab(index: DetailTabs.dashboard.rawValue) as? DashboardViewController {
-            storm32Controller?.addObserver(dashboard)
-        }
-
     }
 }

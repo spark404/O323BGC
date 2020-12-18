@@ -49,7 +49,8 @@ class Storm32BGCSimulator: Storm32BGC {
     }
 
     override func getStatus() -> Status? {
-        let data = "06007098008000000000419b6f".hexaData
+        var data = "06007098008000000000419b6f".hexaData
+        data[0] = UInt8(Int.random(in: 0..<8))
         let lastIndex = data.count - 4
         return Status.init(data: data[0...lastIndex])
     }
@@ -66,4 +67,5 @@ class Storm32BGCSimulator: Storm32BGC {
             + "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
             + "fffffffffffffffffffffffffffdcc46f").hexaData
     }
+
 }

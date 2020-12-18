@@ -359,10 +359,10 @@
             </objects>
             <point key="canvasLocation" x="849" y="380"/>
         </scene>
-        <!--Tab View Controller-->
+        <!--Main Tab View Controller-->
         <scene sceneID="ow6-MQ-l88">
             <objects>
-                <tabViewController selectedTabViewItemIndex="0" tabStyle="unspecified" id="u9n-W9-VZD" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="0" tabStyle="unspecified" id="u9n-W9-VZD" customClass="MainTabViewController" customModule="O323BGC" customModuleProvider="target" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem identifier="" id="6wR-Sr-aFA"/>
                         <tabViewItem identifier="" id="t2F-HK-XnM"/>
@@ -1368,7 +1368,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="N1F-lf-wJR"/>
+        <segue reference="Jo7-K5-VRF"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="NSActionTemplate" width="15" height="15"/>
