@@ -28,6 +28,7 @@ class MenuViewController: NSViewController {
         case datadisplay
         case parameters
         case pidParameters
+        case rcInputParameters
     }
 
     override func viewDidLoad() {
@@ -52,6 +53,9 @@ class MenuViewController: NSViewController {
         case "All Parameters":
             setRepresentedObjectForDetailTab(tab: .parameters, object: storm32BGCController?.parameters)
             selectDetailTab(tab: .parameters)
+        case "RC Input":
+            setRepresentedObjectForDetailTab(tab: .rcInputParameters, object: storm32BGCController?.parameters)
+            selectDetailTab(tab: .rcInputParameters)
         default:
             setRepresentedObjectForDetailTab(tab: .pidParameters, object: storm32BGCController?.parameters)
             selectDetailTab(tab: .pidParameters)
@@ -122,6 +126,9 @@ extension MenuViewController: NSOutlineViewDelegate {
         }
 
         if let menuItem = treeNode.representedObject as? MenuItem {
+            if !(storm32BGCController?.connected ?? false) && menuItem.name != "Dashboard" {
+                return false
+            }
             return menuItem.selectable
         }
 

@@ -22,7 +22,5 @@ import Foundation
         self.versionNumber = versionNumber
         self.layout = layout
         self.capabilities = capabilities
-        
-        super.init()
     }
 }

@@ -32,15 +32,15 @@ class RealtimeViewController: NSViewController {
     var currentZoomLevel = 0
 
     override func viewDidLoad() {
-        graphViewLabel.stringValue = "Pitch / Roll / Yaw (y = 180°,-180°)"
+        graphViewLabel.stringValue = "IMU1 P/R/Y (y = 180°,-180°)"
         graphView.yRangeMax = zoomLevels[currentZoomLevel][0]
         graphView.yRangeMin = zoomLevels[currentZoomLevel][1]
 
-        graphView2Label.stringValue = "R x,y,z (y = 10000/-10000)"
+        graphView2Label.stringValue = "AHRS R X/Y/Z (y = 10000/-10000)"
         graphView2.yRangeMax = 10000
         graphView2.yRangeMin = -10000
 
-        graphView3Label.stringValue = "Control P/R/Y (y = 30°,-30°)"
+        graphView3Label.stringValue = "cPID P/R/Y (y = 30°,-30°)"
         graphView3.yRangeMax = 30
         graphView3.yRangeMin = -30
     }
@@ -75,29 +75,29 @@ class RealtimeViewController: NSViewController {
         guard let data = storm32Data else {
             return
         }
-        
+
         self.representedObject = data
         cycleTimeValue.intValue = Int32(data.getUInt16ValueFor(index: .cycleTime))
         millisValue.intValue = Int32(data.getUInt16ValueFor(index: .millis))
         
         let currrentMillis = Float(data.getUInt16ValueFor(index: .millis))
         
-        let value = data.getFloatValueFor(index: .pitch) / 100.0
-        let value2 = data.getFloatValueFor(index: .roll) / 100.0
-        let value3 = data.getFloatValueFor(index: .yaw) / 100.0
-        graphView.append(values: [currrentMillis, value, value2, value3])
+        let imu1AnglePitch = data.getFloatValueFor(index: .imu1AnglePitch) / 100.0
+        let imu1AngleRoll = data.getFloatValueFor(index: .imu1AngleRoll) / 100.0
+        let imu1AngleYaw = data.getFloatValueFor(index: .imu1AngleYaw) / 100.0
+        graphView.append(values: [currrentMillis, imu1AnglePitch, imu1AngleRoll, imu1AngleYaw])
         graphView.updateView()
 
-        let rx = data.getFloatValueFor(index: .rx)
-        let ry = data.getFloatValueFor(index: .ry)
-        let rz = data.getFloatValueFor(index: .rz)
-        graphView2.append(values: [currrentMillis, rx, ry, rz])
+        let imu1AhrsRx = data.getFloatValueFor(index: .imu1AhrsRx)
+        let imu1AhrsRy = data.getFloatValueFor(index: .imu1AhrsRy)
+        let imu1AhrsRz = data.getFloatValueFor(index: .imu1AhrsRz)
+        graphView2.append(values: [currrentMillis, imu1AhrsRx, imu1AhrsRy, imu1AhrsRz])
         graphView2.updateView()
 
-        let cntrlPitch = data.getFloatValueFor(index: .pitchCntrl) / 100.0
-        let cntrlRoll = data.getFloatValueFor(index: .rollCntrl) / 100.0
-        let cntrlYaw = data.getFloatValueFor(index: .yawCntrl) / 100.0
-        graphView3.append(values: [currrentMillis, cntrlPitch, cntrlRoll, cntrlYaw])
+        let cPIDPitchCntrl = data.getFloatValueFor(index: .cPIDPitchCntrl) / 100.0
+        let cPIDRollCntrl = data.getFloatValueFor(index: .cPIDRollCntrl) / 100.0
+        let cPIDYawCntrl = data.getFloatValueFor(index: .cPIDYawCntrl) / 100.0
+        graphView3.append(values: [currrentMillis, cPIDPitchCntrl, cPIDRollCntrl, cPIDYawCntrl])
         graphView3.updateView()
     }
 }

@@ -15,3 +15,4 @@ extension DashboardViewController: Storm32ControllerProtocol {}
 extension MenuViewController: Storm32ControllerProtocol {}
 extension MainTabViewController: Storm32ControllerProtocol {}
 extension RealtimeViewController: Storm32ControllerProtocol {}
+extension RcInputParameterViewControler: Storm32ControllerProtocol {}

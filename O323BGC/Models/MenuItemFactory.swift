@@ -16,6 +16,7 @@ final class MenuItemFactory {
                 name: "Parameters",
                 children: [
                 .init(name: "PID"),
+                .init(name: "RC Input"),
                 .init(name: "All Parameters")
                 ],
                 selectable: false

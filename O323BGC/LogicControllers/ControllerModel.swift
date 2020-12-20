@@ -14,7 +14,5 @@ import Foundation
     init(version: Version, status: Status) {
         self.version = version
         self.status = status
-        
-        super.init()
     }
 }

@@ -7,13 +7,12 @@
 
 import Foundation
 
-class Storm32BGCController: NSObject, Storm32BGCDataSource {
+class Storm32BGCController {
     private var storm32BGC: Storm32BGC?
 
     private var statusTimer: Timer?
 
     private var realTimeTimer: Timer?
-    private var realTimeRecipient: Storm32BGCRealtimeData?
 
     private var parameterController: S32ParameterController?
 
@@ -39,10 +38,10 @@ class Storm32BGCController: NSObject, Storm32BGCDataSource {
         let storm32BGC: Storm32BGC
         if devicePath == "simulator" {
             print("Connecting to Stomr32BGC simulator")
-            storm32BGC = Storm32BGCSimulator(fileDescriptor: -1)
+            storm32BGC = Storm32BGCSimulator()
         } else {
             print("Connecting to Stomr32BGC device")
-            if let deviceController = Storm32BGC(serialDevicePath: devicePath) {
+            if let deviceController = Storm32BGCSerial(serialDevicePath: devicePath) {
                 storm32BGC = deviceController
             } else {
                 return false
@@ -100,6 +99,14 @@ class Storm32BGCController: NSObject, Storm32BGCDataSource {
         print("Done reset on device")
     }
 
+    func updateParameter(parameter: S32Parameter, new value: Int) -> Bool {
+        if value < parameter.minValue || value > parameter.maxValue {
+            return false
+        }
+
+        return parameterController?.storeParameter(parameter: parameter, new: value) ?? false
+    }
+
     func stopRealtimeUpdates() {
         print("Stopping realtime updates")
         realTimeTimer?.invalidate()
@@ -121,17 +128,6 @@ class Storm32BGCController: NSObject, Storm32BGCDataSource {
 
         return true
     }
-}
-
-protocol Storm32BGCRealtimeData {
-    func updateData(data: Storm32Data?)
-}
-
-protocol Storm32BGCDataSource {
-    var status: Status? { get }
-    var data: Storm32Data? { get }
-    var version: Version? { get }
-    var parameters: [S32Parameter]? { get }
 }
 
 // -- Status observer

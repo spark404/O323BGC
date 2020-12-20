@@ -24,8 +24,7 @@
 		9A55F961257E509E00B6743A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F960257E509E00B6743A /* MenuViewController.swift */; };
 		9A55F966257E55E800B6743A /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F965257E55E800B6743A /* MenuItem.swift */; };
 		9A55F96B257E567200B6743A /* MenuItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F96A257E567200B6743A /* MenuItemFactory.swift */; };
-		9A55F979257E6F8200B6743A /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F978257E6F8200B6743A /* Notification+Name.swift */; };
-		9A55F97F257E81A500B6743A /* Storm32BGC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F97E257E81A500B6743A /* Storm32BGC.swift */; };
+		9A55F97F257E81A500B6743A /* Storm32BGCSerial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F97E257E81A500B6743A /* Storm32BGCSerial.swift */; };
 		9A55F99A257EB5D500B6743A /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F999257EB5D500B6743A /* Version.swift */; };
 		9A55F99F257F781A00B6743A /* X25CRC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F99E257F781A00B6743A /* X25CRC.swift */; };
 		9A55F9A4257F9AC100B6743A /* X25CRCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55F9A3257F9AC100B6743A /* X25CRCTests.swift */; };
@@ -40,6 +39,10 @@
 		9A6021862586740B0094BD31 /* ParameterOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6021852586740B0094BD31 /* ParameterOverviewViewController.swift */; };
 		9A60219B2587C8970094BD31 /* parameters.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A60219A2587C8970094BD31 /* parameters.plist */; };
 		9A9C12FB2583749F0006E2F3 /* BoolToStatusImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C12FA2583749F0006E2F3 /* BoolToStatusImageTransformer.swift */; };
+		9AACD48E258FD33600F62DAC /* DropdownParameterEditorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AACD48D258FD33600F62DAC /* DropdownParameterEditorView.xib */; };
+		9AACD493258FD51E00F62DAC /* DropdownParameterEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AACD492258FD51E00F62DAC /* DropdownParameterEditorView.swift */; };
+		9AACD49E258FFAE400F62DAC /* Storm32BGC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AACD49D258FFAE400F62DAC /* Storm32BGC.swift */; };
+		9AACD4A92590048A00F62DAC /* DataLoaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AACD4A82590048A00F62DAC /* DataLoaders.swift */; };
 		9AD63E682584E4A800FA21EC /* RealtimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD63E672584E4A800FA21EC /* RealtimeViewController.swift */; };
 		9AD9FF23258390030018C065 /* Storm32Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AD9FF22258390030018C065 /* Storm32Data.swift */; };
 		9AEE91B0258A7146004A44C3 /* PidParametersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE91AF258A7146004A44C3 /* PidParametersViewController.swift */; };
@@ -53,6 +56,9 @@
 		9AEE91E6258B96D5004A44C3 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE91E5258B96D5004A44C3 /* MainTabViewController.swift */; };
 		9AEE9201258CC750004A44C3 /* Extension+S32ParameterArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE9200258CC750004A44C3 /* Extension+S32ParameterArray.swift */; };
 		9AEE9206258CFC90004A44C3 /* Storm32ControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE9205258CFC90004A44C3 /* Storm32ControllerProtocol.swift */; };
+		9AEE920B258F6625004A44C3 /* RcInputParameterViewControler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE920A258F6625004A44C3 /* RcInputParameterViewControler.swift */; };
+		9AEE921D258F7574004A44C3 /* NumericParameterEditorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AEE921C258F7574004A44C3 /* NumericParameterEditorView.xib */; };
+		9AEE922A258F77C0004A44C3 /* NumericParameterEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEE9229258F77C0004A44C3 /* NumericParameterEditorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,8 +103,7 @@
 		9A55F960257E509E00B6743A /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		9A55F965257E55E800B6743A /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		9A55F96A257E567200B6743A /* MenuItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemFactory.swift; sourceTree = "<group>"; };
-		9A55F978257E6F8200B6743A /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
-		9A55F97E257E81A500B6743A /* Storm32BGC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storm32BGC.swift; sourceTree = "<group>"; };
+		9A55F97E257E81A500B6743A /* Storm32BGCSerial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storm32BGCSerial.swift; sourceTree = "<group>"; };
 		9A55F999257EB5D500B6743A /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		9A55F99E257F781A00B6743A /* X25CRC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = X25CRC.swift; sourceTree = "<group>"; };
 		9A55F9A3257F9AC100B6743A /* X25CRCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = X25CRCTests.swift; sourceTree = "<group>"; };
@@ -113,6 +118,10 @@
 		9A6021852586740B0094BD31 /* ParameterOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterOverviewViewController.swift; sourceTree = "<group>"; };
 		9A60219A2587C8970094BD31 /* parameters.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = parameters.plist; sourceTree = "<group>"; };
 		9A9C12FA2583749F0006E2F3 /* BoolToStatusImageTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolToStatusImageTransformer.swift; sourceTree = "<group>"; };
+		9AACD48D258FD33600F62DAC /* DropdownParameterEditorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropdownParameterEditorView.xib; sourceTree = "<group>"; };
+		9AACD492258FD51E00F62DAC /* DropdownParameterEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownParameterEditorView.swift; sourceTree = "<group>"; };
+		9AACD49D258FFAE400F62DAC /* Storm32BGC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storm32BGC.swift; sourceTree = "<group>"; };
+		9AACD4A82590048A00F62DAC /* DataLoaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoaders.swift; sourceTree = "<group>"; };
 		9AD63E672584E4A800FA21EC /* RealtimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeViewController.swift; sourceTree = "<group>"; };
 		9AD9FF22258390030018C065 /* Storm32Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storm32Data.swift; sourceTree = "<group>"; };
 		9AEE91AF258A7146004A44C3 /* PidParametersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PidParametersViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +135,9 @@
 		9AEE91E5258B96D5004A44C3 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		9AEE9200258CC750004A44C3 /* Extension+S32ParameterArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+S32ParameterArray.swift"; sourceTree = "<group>"; };
 		9AEE9205258CFC90004A44C3 /* Storm32ControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storm32ControllerProtocol.swift; sourceTree = "<group>"; };
+		9AEE920A258F6625004A44C3 /* RcInputParameterViewControler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RcInputParameterViewControler.swift; sourceTree = "<group>"; };
+		9AEE921C258F7574004A44C3 /* NumericParameterEditorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumericParameterEditorView.xib; sourceTree = "<group>"; };
+		9AEE9229258F77C0004A44C3 /* NumericParameterEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericParameterEditorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +251,7 @@
 				9AEE91B4258A985E004A44C3 /* SimplifiedPidViewController.swift */,
 				9AEE91E5258B96D5004A44C3 /* MainTabViewController.swift */,
 				9AEE9205258CFC90004A44C3 /* Storm32ControllerProtocol.swift */,
+				9AEE920A258F6625004A44C3 /* RcInputParameterViewControler.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -246,7 +259,6 @@
 		9A55F977257E6F5800B6743A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				9A55F978257E6F8200B6743A /* Notification+Name.swift */,
 				9A55F9C42580F77E00B6743A /* UInt8+Bits.swift */,
 				9A55F9DA258134BF00B6743A /* UInt16+Bits.swift */,
 			);
@@ -256,20 +268,22 @@
 		9A55F97D257E810C00B6743A /* LogicControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9A55F97E257E81A500B6743A /* Storm32BGC.swift */,
-				9A55F999257EB5D500B6743A /* Version.swift */,
-				9A55F99E257F781A00B6743A /* X25CRC.swift */,
-				9A55F9BF2580F5FA00B6743A /* Status.swift */,
-				9A3B1ABB258167510074DB9B /* ControllerModel.swift */,
+				9AACD49D258FFAE400F62DAC /* Storm32BGC.swift */,
+				9A55F97E257E81A500B6743A /* Storm32BGCSerial.swift */,
 				9A3B1AC32581F8DE0074DB9B /* Storm32BGCSimulator.swift */,
 				9A3B1AC8258278360074DB9B /* Storm32BGCController.swift */,
+				9A3B1ABB258167510074DB9B /* ControllerModel.swift */,
+				9A55F999257EB5D500B6743A /* Version.swift */,
+				9A55F9BF2580F5FA00B6743A /* Status.swift */,
 				9AD9FF22258390030018C065 /* Storm32Data.swift */,
-				9A60219A2587C8970094BD31 /* parameters.plist */,
+				9A55F99E257F781A00B6743A /* X25CRC.swift */,
 				9AEE91BE258AB271004A44C3 /* S32Parameter.swift */,
 				9AEE91C3258AB2F7004A44C3 /* S32NumericParameter.swift */,
 				9AEE91C8258AB33D004A44C3 /* S32StringParameter.swift */,
+				9A60219A2587C8970094BD31 /* parameters.plist */,
 				9AEE91D5258AB568004A44C3 /* S32ParameterController.swift */,
 				9AEE9200258CC750004A44C3 /* Extension+S32ParameterArray.swift */,
+				9AACD4A82590048A00F62DAC /* DataLoaders.swift */,
 			);
 			path = LogicControllers;
 			sourceTree = "<group>";
@@ -288,6 +302,10 @@
 				9A55F9D2258133DC00B6743A /* StatusView.swift */,
 				9A55F9DF258134ED00B6743A /* StatusView.xib */,
 				9A2325F2258548020046CAC3 /* GraphView.swift */,
+				9AEE921C258F7574004A44C3 /* NumericParameterEditorView.xib */,
+				9AEE9229258F77C0004A44C3 /* NumericParameterEditorView.swift */,
+				9AACD48D258FD33600F62DAC /* DropdownParameterEditorView.xib */,
+				9AACD492258FD51E00F62DAC /* DropdownParameterEditorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -408,6 +426,8 @@
 				9A55F904257D792700B6743A /* Assets.xcassets in Resources */,
 				9A60219B2587C8970094BD31 /* parameters.plist in Resources */,
 				9A55F907257D792700B6743A /* Main.storyboard in Resources */,
+				9AACD48E258FD33600F62DAC /* DropdownParameterEditorView.xib in Resources */,
+				9AEE921D258F7574004A44C3 /* NumericParameterEditorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +473,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A55F9C52580F77E00B6743A /* UInt8+Bits.swift in Sources */,
+				9AEE920B258F6625004A44C3 /* RcInputParameterViewControler.swift in Sources */,
 				9A55F966257E55E800B6743A /* MenuItem.swift in Sources */,
 				9A55F9B82580126100B6743A /* DashboardViewController.swift in Sources */,
 				9A55F938257E1D0900B6743A /* SerialPort.swift in Sources */,
@@ -462,9 +483,10 @@
 				9A3B1ABC258167510074DB9B /* ControllerModel.swift in Sources */,
 				9A55F953257E3F9300B6743A /* MainSplitViewController.swift in Sources */,
 				9A55F96B257E567200B6743A /* MenuItemFactory.swift in Sources */,
-				9A55F97F257E81A500B6743A /* Storm32BGC.swift in Sources */,
+				9A55F97F257E81A500B6743A /* Storm32BGCSerial.swift in Sources */,
 				9A3B1AD625836E210074DB9B /* AxisDashboardViewController.swift in Sources */,
 				9AEE9201258CC750004A44C3 /* Extension+S32ParameterArray.swift in Sources */,
+				9AACD4A92590048A00F62DAC /* DataLoaders.swift in Sources */,
 				9A55F99F257F781A00B6743A /* X25CRC.swift in Sources */,
 				9A3B1AC42581F8DE0074DB9B /* Storm32BGCSimulator.swift in Sources */,
 				9A55F952257E3F9300B6743A /* MainWindowController.swift in Sources */,
@@ -479,13 +501,15 @@
 				9AD63E682584E4A800FA21EC /* RealtimeViewController.swift in Sources */,
 				9AEE91BF258AB271004A44C3 /* S32Parameter.swift in Sources */,
 				9AEE91B0258A7146004A44C3 /* PidParametersViewController.swift in Sources */,
+				9AEE922A258F77C0004A44C3 /* NumericParameterEditorView.swift in Sources */,
+				9AACD493258FD51E00F62DAC /* DropdownParameterEditorView.swift in Sources */,
 				9AEE91BA258A9EE0004A44C3 /* PidModel.swift in Sources */,
 				9A2325F3258548020046CAC3 /* GraphView.swift in Sources */,
 				9AEE91D6258AB568004A44C3 /* S32ParameterController.swift in Sources */,
+				9AACD49E258FFAE400F62DAC /* Storm32BGC.swift in Sources */,
 				9A3B1AC9258278360074DB9B /* Storm32BGCController.swift in Sources */,
 				9AEE91B5258A985E004A44C3 /* SimplifiedPidViewController.swift in Sources */,
 				9A55F9DB258134BF00B6743A /* UInt16+Bits.swift in Sources */,
-				9A55F979257E6F8200B6743A /* Notification+Name.swift in Sources */,
 				9A55F9B0257FBBA500B6743A /* HexPrint.swift in Sources */,
 				9A9C12FB2583749F0006E2F3 /* BoolToStatusImageTransformer.swift in Sources */,
 				9A55F99A257EB5D500B6743A /* Version.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class S32ParameterController {
+struct S32ParameterController {
     private let storm32BGC: Storm32BGC
     private let referenceData: [String: AnyObject]
     
@@ -36,6 +36,19 @@ class S32ParameterController {
         }
 
         return parameters[name]
+    }
+
+    func storeParameter(parameter: S32Parameter, new value: Int) -> Bool {
+        guard var rawData = storm32BGC.getRawParameters() else {
+            return false
+        }
+
+        let byteIndex = parameter.position * 2
+        rawData[byteIndex...byteIndex+1].withUnsafeMutableBytes { rawPtr in
+            rawPtr.storeBytes(of: UInt16(value), toByteOffset: 0, as: UInt16.self)
+        }
+
+        return storm32BGC.setRawParameters(data: rawData)
     }
 
     private func loadParametersFromDevice() -> [String: S32Parameter]? {

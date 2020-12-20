@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="DropdownParameterEditorView" customModule="O323BGC" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="c22-O7-iKe" id="c9J-vg-qAQ"/>
+                <outlet property="parameterName" destination="DOf-De-aRQ" id="az8-xe-y9J"/>
+                <outlet property="parameterOptionList" destination="eex-jN-ps4" id="QmZ-tM-jiT"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="28"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eex-jN-ps4">
+                    <rect key="frame" x="211" y="0.0" width="89" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="82" id="dIs-u4-KEy"/>
+                    </constraints>
+                    <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="JVj-UY-KcW" id="dZ9-c0-vos">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="menu"/>
+                        <menu key="menu" id="Vnx-bi-olM">
+                            <items>
+                                <menuItem title="Item 1" state="on" id="JVj-UY-KcW"/>
+                                <menuItem title="Item 2" id="GT3-lL-G0S"/>
+                                <menuItem title="Item 3" id="j9g-zp-Hnw"/>
+                            </items>
+                        </menu>
+                    </popUpButtonCell>
+                    <connections>
+                        <action selector="onChangeDropdown:" target="-2" id="Kex-ab-f3g"/>
+                    </connections>
+                </popUpButton>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DOf-De-aRQ">
+                    <rect key="frame" x="2" y="7" width="206" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Parameter Name" id="NlG-yN-LFK">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstItem="eex-jN-ps4" firstAttribute="top" relation="greaterThanOrEqual" secondItem="c22-O7-iKe" secondAttribute="top" constant="4" id="71f-4t-PYt"/>
+                <constraint firstItem="eex-jN-ps4" firstAttribute="leading" secondItem="DOf-De-aRQ" secondAttribute="trailing" constant="8" symbolic="YES" id="9eo-tH-1H7"/>
+                <constraint firstItem="DOf-De-aRQ" firstAttribute="firstBaseline" secondItem="eex-jN-ps4" secondAttribute="firstBaseline" id="AGe-YY-eND"/>
+                <constraint firstAttribute="trailing" secondItem="eex-jN-ps4" secondAttribute="trailing" constant="4" id="XwR-U7-Sdr"/>
+                <constraint firstItem="DOf-De-aRQ" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="4" id="YrY-ny-02V"/>
+                <constraint firstItem="eex-jN-ps4" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="kxz-YZ-XEz"/>
+            </constraints>
+            <point key="canvasLocation" x="-104" y="151"/>
+        </customView>
+    </objects>
+</document>

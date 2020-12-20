@@ -192,15 +192,8 @@ enum State: Int {
 
     private let values: [UInt16]
 
-    public init?(data: Data) {
-        guard data.count == 5 * 2 else {
-            print("Expected \(5*2) bytes, got \(data.count)")
-            return nil
-        }
-
-        values = data.withUnsafeBytes {
-            [UInt16](UnsafeBufferPointer(start: $0, count: data.count / 2 ))
-        }
+    public init(values: [UInt16]) {
+        self.values = values
     }
 
     private func getStatusBit(_ field: StatusBit) -> Bool {
