@@ -9,15 +9,17 @@ import Foundation
 
 struct Storm32BGCSerial {
     private let fileDescriptor: Int32
+
     private let serial = Serial()
+    private let x25CRC = X25CRC()
     private let serialQueue = DispatchQueue(label: "Serial Queue")
-    
+
     init(fileDescriptor: Int32) {
         print("Connecting to fileDescriptor \(fileDescriptor) as serial device")
         self.fileDescriptor = fileDescriptor
 
     }
-    
+
     init?(serialDevicePath: String) {
         print("Connecting to \(serialDevicePath) as serial device")
         fileDescriptor = serial.openSerialPort(serialDevicePath)
@@ -25,7 +27,6 @@ struct Storm32BGCSerial {
             print("Failed to open device \(serialDevicePath)")
             return nil
         }
-
     }
 
     func close() {
@@ -33,28 +34,32 @@ struct Storm32BGCSerial {
         serial.closeSerialPort(fileDescriptor)
     }
 
-    private func sendCommand(command: String) -> Int {
-        guard let data = command.data(using: .ascii) else {
+    private func sendCommand(command: String, data: Data? = nil) -> Int {
+        guard var toSend = command.data(using: .ascii) else {
             return -1
         }
-        
+
+        if let additionalData = data {
+            toSend.append(additionalData)
+        }
+
         var bytesWritten = 0
-        data.withUnsafeBytes { rawBufferPointer in
-            bytesWritten = write(fileDescriptor, rawBufferPointer.baseAddress!, data.count)
+        toSend.withUnsafeBytes { rawBufferPointer in
+            bytesWritten = write(fileDescriptor, rawBufferPointer.baseAddress!, toSend.count)
         }
         if bytesWritten < 0 {
             let error = String(utf8String: strerror(errno)) ?? "Unknown error code"
             print("Error writing data: \(error)")
             return -1
         }
-        
+
         return bytesWritten
     }
-    
+
     private func readReponse(length: Int, checkCRC: Bool = true) -> Data? {
         let bytesPointer = UnsafeMutableRawPointer.allocate(byteCount: 2048, alignment: 1)
         assert(length < 2048, "Ok, this is way longer than expected")
-        
+
         let expected = length
         var buffer = Data(capacity: 2048)
         repeat {
@@ -68,13 +73,13 @@ struct Storm32BGCSerial {
             buffer.append(Data(bytes: bytesPointer, count: bytesRead))
         } while (buffer.count < expected)
 
-        if buffer[expected-1] != 0x6f { // 0x6f = 'o'
-            print("Invalid response, should end with o character")
+        let returnChar = String(data: buffer[expected-1...expected-1], encoding: .ascii)
+        if returnChar != "o" {
+            print("Invalid response, should end with o character. Got '\(returnChar)")
             return nil
         }
 
         if checkCRC {
-            let x25CRC = X25CRC()
             let calculatedChecksum = x25CRC.calculate(data: buffer[0...expected-4])
             let checksum = buffer[expected-3...expected-2].withUnsafeBytes { rawPtr in
                 return rawPtr.load(as: UInt16.self)
@@ -97,7 +102,7 @@ struct Storm32BGCSerial {
         }
     }
 
-    func getVersion() -> Version? {
+    func getVersion() -> Data? {
         guard fileDescriptor >= 0 else {
             return nil
         }
@@ -111,7 +116,7 @@ struct Storm32BGCSerial {
         }
 
         let dataLength = buffer.count - 3
-        return buffer[0...dataLength-1].decodeToVersion()
+        return buffer[0...dataLength-1]
     }
 
     // my $CMD_g_PARAMETER_ZAHL= 125; #number of values transmitted with a 'g' get data command
@@ -140,11 +145,24 @@ struct Storm32BGCSerial {
             return false
         }
 
-        return false
+        var parameterData = data
+        let checksum = x25CRC.calculate(data: parameterData)
+        withUnsafeBytes(of: checksum) { parameterData.append(contentsOf: $0) }
+
+        guard sendCommand(command: "p", data: parameterData) == parameterData.count + 1 else {
+            return false
+        }
+
+        guard let response = readReponse(length: 1, checkCRC: false) else {
+            return false
+        }
+
+        let responseChar = String(data: response, encoding: .ascii)
+        return responseChar == "o"
     }
 
     // my $CMD_s_PARAMETER_ZAHL= 5; #number of values transmitted with a 's' get data command
-    func getStatus() -> Status? {
+    func getStatus() -> Data? {
         guard fileDescriptor > 0 else {
             return nil
         }
@@ -159,12 +177,12 @@ struct Storm32BGCSerial {
             }
 
             let dataLength = buffer.count - 3
-            return buffer[0...dataLength-1].decodeToStatus()
+            return buffer[0...dataLength-1]
         }
     }
 
     // my $CMD_d_PARAMETER_ZAHL= 32; #number of values transmitted with a 'd' get data command
-    func getData() -> Storm32Data? {
+    func getData() -> Data? {
         guard fileDescriptor > 0 else {
             return nil
         }
@@ -179,7 +197,7 @@ struct Storm32BGCSerial {
             }
 
             let dataLength = buffer.count - 3
-            return buffer[0...dataLength-1].decodeToData()
+            return buffer[0...dataLength-1]
         }
     }
 

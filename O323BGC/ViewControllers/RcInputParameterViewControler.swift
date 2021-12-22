@@ -82,6 +82,15 @@ class RcInputParameterViewControler: NSViewController {
         }
     }
 
+    func showUpdateFailedAlert() {
+        let alert = NSAlert()
+        alert.messageText = "Update failed"
+        alert.informativeText = "The controller reported an error while processing the updated values"
+        alert.beginSheetModal(for: self.view.window!) { (response) in
+
+                }
+    }
+
 }
 
 extension RcInputParameterViewControler: NumericParameterEditorViewDelegate {
@@ -91,7 +100,9 @@ extension RcInputParameterViewControler: NumericParameterEditorViewDelegate {
         }
 
         print("Received change for parameter \(changedParameter.name) to \(value)")
-        storm32BGCController?.updateParameter(parameter: changedParameter, new: value)
+        if !(storm32BGCController?.updateParameter(parameter: changedParameter, new: value) ?? false) {
+            showUpdateFailedAlert()
+        }
     }
 }
 
@@ -102,6 +113,8 @@ extension RcInputParameterViewControler: DropdownParameterEditorViewDelegate {
         }
 
         print("Received change for parameter \(changedParameter.name) to \(value)")
-        storm32BGCController?.updateParameter(parameter: changedParameter, new: value)
+        if !(storm32BGCController?.updateParameter(parameter: changedParameter, new: value) ?? false) {
+            showUpdateFailedAlert()
+        }
     }
 }

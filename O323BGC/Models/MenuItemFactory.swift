@@ -17,6 +17,7 @@ final class MenuItemFactory {
                 children: [
                 .init(name: "PID"),
                 .init(name: "RC Input"),
+                .init(name: "Motor Settings"),
                 .init(name: "All Parameters")
                 ],
                 selectable: false

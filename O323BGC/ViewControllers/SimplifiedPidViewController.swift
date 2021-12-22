@@ -11,6 +11,8 @@ class SimplifiedPidViewController: NSViewController {
     @IBOutlet weak var controlTitle: NSTextField!
     @IBOutlet weak var dampingSlider: NSSlider!
     @IBOutlet weak var stabilitySlider: NSSlider!
+
+    weak var delegate: SimplifiedPidViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,20 +36,31 @@ class SimplifiedPidViewController: NSViewController {
     @IBAction func onChangeStability(_ sender: Any) {
         calculateSimplifiedPid()
     }
-    
+
     private func calculateSimplifiedPid() {
         let kd = dampingSlider.doubleValue * 0.8 / 100.0
         let ki = stabilitySlider.doubleValue * 2000.0 / 100.0
         let kp = sqrt(0.5 * kd * ki)
-        
+
         let pidP = kp * 100
         let pidI = ki * 10
         let pidD = kd * 2000
-        
+
         setValue(pidP, forKeyPath: "representedObject.pidP")
         setValue(pidI, forKeyPath: "representedObject.pidI")
         setValue(pidD, forKeyPath: "representedObject.pidD")
 
-        print("New PID calculated for \(controlTitle.stringValue) : \(pidP),\(pidI),\(pidD)")
+        guard let currentModel = representedObject as? PidModel else {
+            return
+        }
+        
+        let calculatedModel = PidModel(axis: currentModel.axis,
+                                       pidP: pidP, pidI: pidI, pidD: pidD,
+                                       vMax: currentModel.vMax)
+        delegate?.simplifiedPidView(self, model: calculatedModel)
     }
+}
+
+protocol SimplifiedPidViewControllerDelegate: class {
+    func simplifiedPidView(_ sender: SimplifiedPidViewController, model update: PidModel)
 }

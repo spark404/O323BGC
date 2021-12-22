@@ -22,7 +22,7 @@ class Storm32BGCController {
     var version: Version?
 
     var data: Storm32Data? {
-        storm32BGC?.getData()
+        storm32BGC?.getData()?.decodeToData()
     }
 
     var parameters: [S32Parameter]? {
@@ -48,7 +48,7 @@ class Storm32BGCController {
             }
         }
 
-        version = storm32BGC.getVersion()
+        version = storm32BGC.getVersion()?.decodeToVersion()
         if version?.versionNumber != 96 {
             print("No device or no matching version")
             storm32BGC.close()
@@ -59,11 +59,11 @@ class Storm32BGCController {
 
         self.storm32BGC = storm32BGC
         self.internalConnectionState = true
-        self.status = storm32BGC.getStatus()
+        self.status = storm32BGC.getStatus()?.decodeToStatus()
         self.parameterController = S32ParameterController(storm32BGC: storm32BGC)
 
         statusTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [self]_ in
-            status = storm32BGC.getStatus()
+            status = storm32BGC.getStatus()?.decodeToStatus()
             if let status = self.status {
                 statusUpdated(status: status)
             }

@@ -12,11 +12,13 @@ public class PidModel: NSObject {
     @objc var pidP: Double
     @objc var pidI: Double
     @objc var pidD: Double
+    @objc var vMax: Int
     
-    init(axis: String, pidP:Double, pidI:Double, pidD: Double) {
+    init(axis: String, pidP:Double, pidI:Double, pidD: Double, vMax: Int) {
         self.pidP = pidP
         self.pidI = pidI
         self.pidD = pidD
         self.axis = axis
+        self.vMax = vMax
     }
 }

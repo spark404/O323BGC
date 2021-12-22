@@ -44,8 +44,21 @@ struct S32ParameterController {
         }
 
         let byteIndex = parameter.position * 2
-        rawData[byteIndex...byteIndex+1].withUnsafeMutableBytes { rawPtr in
-            rawPtr.storeBytes(of: UInt16(value), toByteOffset: 0, as: UInt16.self)
+        switch parameter.type {
+        case "UInt16":
+            rawData[byteIndex...byteIndex+1].withUnsafeMutableBytes { rawPtr in
+                rawPtr.storeBytes(of: UInt16(value), toByteOffset: 0, as: UInt16.self)
+            }
+        case "Int16":
+            rawData[byteIndex...byteIndex+1].withUnsafeMutableBytes { rawPtr in
+                rawPtr.storeBytes(of: Int16(value), toByteOffset: 0, as: Int16.self)
+            }
+        case "OptionList":
+            rawData[byteIndex...byteIndex+1].withUnsafeMutableBytes { rawPtr in
+                rawPtr.storeBytes(of: UInt8(value), toByteOffset: 0, as: UInt8.self)
+            }
+        default:
+            fatalError("Unable to determnine format of parameter type \(parameter.type)")
         }
 
         return storm32BGC.setRawParameters(data: rawData)

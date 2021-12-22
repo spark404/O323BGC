@@ -38,6 +38,7 @@
 		9A55F9E0258134ED00B6743A /* StatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A55F9DF258134ED00B6743A /* StatusView.xib */; };
 		9A6021862586740B0094BD31 /* ParameterOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6021852586740B0094BD31 /* ParameterOverviewViewController.swift */; };
 		9A60219B2587C8970094BD31 /* parameters.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A60219A2587C8970094BD31 /* parameters.plist */; };
+		9A82384725BF69330011E9D3 /* MotorParameterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A82384625BF69330011E9D3 /* MotorParameterViewController.swift */; };
 		9A9C12FB2583749F0006E2F3 /* BoolToStatusImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C12FA2583749F0006E2F3 /* BoolToStatusImageTransformer.swift */; };
 		9AACD48E258FD33600F62DAC /* DropdownParameterEditorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AACD48D258FD33600F62DAC /* DropdownParameterEditorView.xib */; };
 		9AACD493258FD51E00F62DAC /* DropdownParameterEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AACD492258FD51E00F62DAC /* DropdownParameterEditorView.swift */; };
@@ -117,6 +118,7 @@
 		9A55F9DF258134ED00B6743A /* StatusView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusView.xib; sourceTree = "<group>"; };
 		9A6021852586740B0094BD31 /* ParameterOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterOverviewViewController.swift; sourceTree = "<group>"; };
 		9A60219A2587C8970094BD31 /* parameters.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = parameters.plist; sourceTree = "<group>"; };
+		9A82384625BF69330011E9D3 /* MotorParameterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotorParameterViewController.swift; sourceTree = "<group>"; };
 		9A9C12FA2583749F0006E2F3 /* BoolToStatusImageTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolToStatusImageTransformer.swift; sourceTree = "<group>"; };
 		9AACD48D258FD33600F62DAC /* DropdownParameterEditorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DropdownParameterEditorView.xib; sourceTree = "<group>"; };
 		9AACD492258FD51E00F62DAC /* DropdownParameterEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownParameterEditorView.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				9AEE91E5258B96D5004A44C3 /* MainTabViewController.swift */,
 				9AEE9205258CFC90004A44C3 /* Storm32ControllerProtocol.swift */,
 				9AEE920A258F6625004A44C3 /* RcInputParameterViewControler.swift */,
+				9A82384625BF69330011E9D3 /* MotorParameterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				9A55F99F257F781A00B6743A /* X25CRC.swift in Sources */,
 				9A3B1AC42581F8DE0074DB9B /* Storm32BGCSimulator.swift in Sources */,
 				9A55F952257E3F9300B6743A /* MainWindowController.swift in Sources */,
+				9A82384725BF69330011E9D3 /* MotorParameterViewController.swift in Sources */,
 				9A6021862586740B0094BD31 /* ParameterOverviewViewController.swift in Sources */,
 				9AEE9206258CFC90004A44C3 /* Storm32ControllerProtocol.swift in Sources */,
 				9AEE91E6258B96D5004A44C3 /* MainTabViewController.swift in Sources */,

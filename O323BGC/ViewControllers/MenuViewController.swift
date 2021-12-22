@@ -29,6 +29,7 @@ class MenuViewController: NSViewController {
         case parameters
         case pidParameters
         case rcInputParameters
+        case motorParameters
     }
 
     override func viewDidLoad() {
@@ -56,6 +57,10 @@ class MenuViewController: NSViewController {
         case "RC Input":
             setRepresentedObjectForDetailTab(tab: .rcInputParameters, object: storm32BGCController?.parameters)
             selectDetailTab(tab: .rcInputParameters)
+        case "Motor Settings":
+            setRepresentedObjectForDetailTab(tab: .motorParameters, object: storm32BGCController?.parameters)
+            selectDetailTab(tab: .motorParameters)
+
         default:
             setRepresentedObjectForDetailTab(tab: .pidParameters, object: storm32BGCController?.parameters)
             selectDetailTab(tab: .pidParameters)

@@ -8,29 +8,42 @@
 import Foundation
 
 struct Storm32BGCSimulator: Storm32BGC {
-    func getData() -> Storm32Data? {
-        let data = ( "06007098008000000000f03edc0500000400000096fec5e3f11179fe00dfdd14"
+    func getData() -> Data? {
+        var data = ( "06007098008000000000f03edc0500000400000096fec5e3f11179fe00dfdd14"
                         + "9f0183e9130061fe7d16edff000000000000d20021ff18000000aa057e380000"
                         + "41a66f"
             ).hexaData
+
+        let timestamp = DispatchTime.now().uptimeNanoseconds  / 1000000 % 65535
+        var byteIndex = Storm32DataIndex.millis.rawValue * 2
+        data[byteIndex...byteIndex+1].withUnsafeMutableBytes { rawPtr in
+            rawPtr.storeBytes(of: UInt16(timestamp), toByteOffset: 0, as: UInt16.self)
+        }
+
+        let angle = 180 * sin(Double(timestamp) / 90) * 100
+        byteIndex = Storm32DataIndex.imu1AnglePitch.rawValue * 2
+        data[byteIndex...byteIndex+1].withUnsafeMutableBytes { rawPtr in
+            rawPtr.storeBytes(of: Int16(angle), toByteOffset: 0, as: Int16.self)
+        }
+
         let lastIndex = data.count - 4
-        return data[0...lastIndex].decodeToData()
+        return data[0...lastIndex]
     }
 
-    func getVersion() -> Version? {
+    func getVersion() -> Data? {
         let data = ( "76302e393600000000000000000000004f6c6c69572033323342474300000000"
                         + "76312e3330204631303352430000000060005f0003ff6eee6f"
             ).hexaData
 
         let lastIndex = data.count - 4
-        return data[0...lastIndex].decodeToVersion()
+        return data[0...lastIndex]
     }
 
-    func getStatus() -> Status? {
+    func getStatus() -> Data? {
         var data = "06007098008000000000419b6f".hexaData
         data[0] = UInt8(Int.random(in: 0..<8))
         let lastIndex = data.count - 4
-        return data[0...lastIndex].decodeToStatus()
+        return data[0...lastIndex]
     }
     
     func getRawParameters() -> Data? {
